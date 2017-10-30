@@ -4,6 +4,10 @@ import { getTimeDiff, getInitDiff } from './src/helper-selectors'
 export const DEFAULT_KEY = '__general'
 export const defaultKey = DEFAULT_KEY
 
+/* Event strings */
+export const eventTrace = 'koa-tracer:trace'
+export const eventError = 'koa-tracer:error'
+
 export const trace = (ctx, key, message) => {
   if (!message) { message = key; key = DEFAULT_KEY }
 
@@ -17,7 +21,7 @@ export const trace = (ctx, key, message) => {
   ctx.state.trace = { [key]: [], ...ctx.state.trace }
   ctx.state.trace[key] = ctx.state.trace[key].concat(trace)
 
-  ctx.app && ctx.app.emit('tracer:trace', { ctx, key, trace })
+  ctx.app && ctx.app.emit(eventTrace, { ctx, key, trace })
 }
 
 export const traceError = (ctx, err) => {
@@ -26,7 +30,7 @@ export const traceError = (ctx, err) => {
   ctx.state.errors = [ ...ctx.state.errors || [], error ]
   ctx.state.errorsCount = ctx.state.errors.length
 
-  ctx.app && ctx.app.emit('tracer:error', { ctx, error })
+  ctx.app && ctx.app.emit(eventError, { ctx, error })
 }
 
 export default () => async (ctx, next) => {

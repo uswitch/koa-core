@@ -53,15 +53,15 @@ const app = new Koa()
 
 app.use(tracer())
 
-app.on('tracer:trace', Logger.log)
-app.on('tracer:error', Logger.err)
+app.on('koa-tracer:trace', Logger.log)
+app.on('koa-tracer:error', Logger.err)
 ```
 
 This package uses [**Event
 Emitters**](https://nodejs.org/api/events.html) to decouple the
 handling of **runtime** tracing and logging. This means that you can
 decide how you want to handle traces and errors separately with the
-`tracer:trace` & `tracer:error` events.
+`koa-tracer:trace` & `koa-tracer:error` events.
 
 However, all traces and errors are available in **Koa's** context at
 the end of the request to be used in **access logs**, or whatever else you
@@ -72,7 +72,7 @@ might want.
 ##### `trace` - `fn (ctx, &optional namespace, message)`
 
 * `ctx [Object]` - the **Koa** `ctx` object
-* `namespace [String]` - A namespace for the trace message _(optional)_ 
+* `namespace [String]` - A namespace for the trace message _(optional)_
 * `message [String/Object]` - The details of the trace message
 
 ##### `traceError` - `fn (ctx, err)`
@@ -92,7 +92,7 @@ A **trace** object looks like this;
   "timeDiff": 12       // Diff in `ms` between this and the first trace in namspace
   "initDiff": 30       // Diff in `ms` between this and start of request
   "msg": "Foo bar"     // The message passed into the trace
-  [other properties]   // Any other properties passed in 
+  [other properties]   // Any other properties passed in
 }
 ```
 
@@ -102,7 +102,7 @@ An **error** object looks like this;
 {
   "time": "Date"       // Date for when that error was logged
   "msg": "Foo bar"     // The message passed into the error
-  [other properties]   // Any other properties passed in 
+  [other properties]   // Any other properties passed in
 }
 ```
 
@@ -115,7 +115,7 @@ The **state** object, after a request, looks like this;
     "__general": [ /* List of traces without namespace */ ],
     "namespace": [ /* List of traces in `namespace` */ ]
   }
-  
+
   "errorsCount": 12  /* The number of errors occured in this request */
   "errors": [
     /* List of errors */
@@ -126,9 +126,15 @@ The **state** object, after a request, looks like this;
 #### Events
 
 The following events are fired on `trace` and `error` logging
-completion
+completion.
 
-* `tracer:trace => ({ ctx, key, trace })` 
-* `tracer:error => ({ ctx, error })`
+* `koa-tracer:trace => ({ ctx, key, trace })`
+* `koa-tracer:error => ({ ctx, error })`
 
 _**N.B.** These events are called with **Objects**_
+
+They can be imported from the `koa-tracer` module, as
+
+```js
+import { eventTrace, eventError } from 'koa-tracer'
+```
