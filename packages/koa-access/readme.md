@@ -1,4 +1,5 @@
 <h1 align="center">Koa Logger</h1>
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)
 
 <p align="center">
   <i>
@@ -13,6 +14,8 @@
   <b><a href="#usage">Usage</a></b>
   |
   <b><a href="#api">Api</a></b>
+    |
+  <b><a href="#contributors">Contributors</a></b>
 </p>
 
 ## Overview
@@ -101,3 +104,10 @@ The event can be imported from the `koa-logger` module, as
 import { eventAccess } from 'koa-logger'
 ```
 
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --><!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
