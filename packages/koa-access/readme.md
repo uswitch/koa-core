@@ -35,7 +35,7 @@ from the actual implementation of your code.
 ### Usage
 
 ```js
-import Koa from 'koa
+import Koa from 'koa'
 import logger from 'koa-logger'
 
 const app = new Koa()
