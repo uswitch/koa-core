@@ -13,7 +13,7 @@ export default (extraKeys = []) => async (ctx, next) => {
 
   /* Cast all integers to integers */
   const res = { responseTime: +responseTime, length: +length, status: +status, time: new Date() }
-  const req = { method, path, time, host, upstream: false }
+  const req = { method, path, time, host }
 
   const extras = extraKeys instanceof Function
         ? extraKeys(ctx)
