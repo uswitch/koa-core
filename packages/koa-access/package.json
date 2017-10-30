@@ -7,7 +7,6 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "prebuild":  "del build",
     "build": "babel --out-dir build koa-logger.js",
     "postinstall": "npm run build"
   },
