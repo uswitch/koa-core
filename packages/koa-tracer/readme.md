@@ -2,8 +2,8 @@
 
 <p align="center">
   <i>
-    A [**Koa**](http://koajs.com/) middleware for
-    tracing your request's lifecycle, **efficiently** & **effectively**.
+    A <b><a href="http://koajs.com">Koa</a></b> middleware for
+    tracing your request's lifecycle, <b>efficiently</b> & <b>effectively</br>.
   </i>
 </p>
 
