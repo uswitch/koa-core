@@ -2,7 +2,7 @@
   "name": "koa-tracer",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
   "main": "build/koa-tracer.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/domtronn/koa-tracer.git"
+    "url": "git+https://github.com/uswitch/koa-tracer.git"
   },
   "dependencies": {
     "chalk": "^2.3.0"
