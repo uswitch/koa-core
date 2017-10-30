@@ -9,7 +9,8 @@
     "test": "jest",
     "lint": "eslint .",
     "prebuild": "del build",
-    "build": "babel --out-dir build src/*.js koa-tracer.js"
+    "build": "babel --out-dir build src/*.js koa-tracer.js",
+    "postinstall": "babel --out-dir build src/*.js koa-tracer.js"
   },
   "jest": {
     "transform": {
