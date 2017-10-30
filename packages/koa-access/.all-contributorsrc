@@ -6,5 +6,15 @@
   ],
   "imageSize": 100,
   "commit": true,
-  "contributors": []
+  "contributors": [
+    {
+      "login": "domtronn",
+      "name": "Dom Charlesworth",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5881414?v=4",
+      "profile": "http://domcharlesworth.co.uk",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ]
 }
