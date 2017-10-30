@@ -18,6 +18,17 @@
         "ideas",
         "plugin"
       ]
+    },
+    {
+      "login": "annez",
+      "name": "David Annez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1567681?v=4",
+      "profile": "http://davidannez.com",
+      "contributions": [
+        "code",
+        "ideas",
+        "plugin"
+      ]
     }
   ]
 }
