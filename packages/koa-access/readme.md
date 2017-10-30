@@ -18,7 +18,10 @@
 </p>
 
 
+[![Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com/)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]()
+
 ## Overview
 
 This package is a [**Koa**](http://koajs.com/) middleware inspired by
