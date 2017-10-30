@@ -98,6 +98,6 @@ with the access object
 The event can be imported from the `koa-logger` module, as
 
 ```js
-import { eventAccess } from 'koa-logger
+import { eventAccess } from 'koa-logger'
 ```
 
