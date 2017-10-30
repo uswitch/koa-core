@@ -1,3 +1,6 @@
+/* Event string */
+export const eventAccess = 'koa-logger:access'
+
 export default (extraKeys = []) => async (ctx, next) => {
   const time = new Date()
 
@@ -16,5 +19,5 @@ export default (extraKeys = []) => async (ctx, next) => {
         ? extraKeys(ctx)
         : extraKeys.reduce((acc, it) => ctx.state[it] ? { ...acc, [it]: ctx.state[it] } : acc, {})
 
-  ctx.app && ctx.app.emit('access', { req, res, ...extras })
+  ctx.app && ctx.app.emit(eventAccess, { req, res, ...extras })
 }
