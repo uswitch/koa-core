@@ -20,6 +20,9 @@
   <img src="screenshot.png" width="800">
 </p>
 
+[![Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com/)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]()
 
 ## Overview
 
@@ -138,3 +141,14 @@ They can be imported from the `koa-tracer` module, as
 ```js
 import { eventTrace, eventError } from 'koa-tracer'
 ```
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+| [<img src="https://avatars1.githubusercontent.com/u/5881414?v=4" width="100px;"/><br /><sub>Dom Charlesworth</sub>](http://domcharlesworth.co.uk)<br />[💻](https://github.com/uswitch/koa-tracer/commits?author=domtronn "Code") [📖](https://github.com/uswitch/koa-tracer/commits?author=domtronn "Documentation") [🤔](#ideas-domtronn "Ideas, Planning, & Feedback") [🔌](#plugin-domtronn "Plugin/utility libraries") |
+| :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
