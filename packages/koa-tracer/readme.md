@@ -3,7 +3,7 @@
 <p align="center">
   <i>
     A <b><a href="http://koajs.com">Koa</a></b> middleware for
-    tracing your request's lifecycle, <b>efficiently</b> & <b>effectively</br>.
+    tracing your request's lifecycle, <b>efficiently</b> & <b>effectively</b>.
   </i>
 </p>
 
