@@ -1,0 +1,43 @@
+{
+  "name": "koa-tracer",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "description": "A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
+  "main": "build/koa-tracer.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "prebuild": "del build",
+    "build": "babel --out-dir build src/*.js koa-tracer.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domtronn/koa-tracer.git"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint_d": "^5.1.0",
+    "jest": "^21.2.1"
+  }
+}
