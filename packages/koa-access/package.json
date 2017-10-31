@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "prebuild":  "del build",
+    "prebuild": "del build",
     "build": "babel --out-dir build koa-logger.js",
     "postinstall": "babel --out-dir build koa-logger.js"
   },
@@ -22,6 +22,7 @@
   },
   "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
