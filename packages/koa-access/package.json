@@ -21,6 +21,9 @@
     "url": "git+https://github.com/uswitch/koa-logger.git"
   },
   "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "peerDependencies": {
+    "babel-cli": "~6.x"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
