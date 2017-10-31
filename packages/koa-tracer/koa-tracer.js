@@ -18,8 +18,12 @@ export const trace = (ctx, key, message) => {
     ...toMessage(message)
   }
 
-  ctx.state.trace = { [key]: [], ...ctx.state.trace }
-  ctx.state.trace[key] = ctx.state.trace[key].concat(trace)
+  ctx.state.trace = { [key]: { traces: [] }, ...ctx.state.trace }
+  ctx.state.trace[key] = {
+    traces: ctx.state.trace[key].traces.concat(trace),
+    timeDiff: trace.timeDiff,
+    initDiff: trace.initDiff
+  }
 
   ctx.app && ctx.app.emit(eventTrace, { ctx, key, trace })
 }

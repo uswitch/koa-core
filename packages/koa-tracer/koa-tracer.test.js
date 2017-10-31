@@ -1,5 +1,5 @@
 /* global describe, it, beforeEach, expect */
-import tracer, { trace, traceError } from './koa-tracer'
+import tracer, { trace, traceError, eventTrace } from './koa-tracer'
 import EventEmitter from 'events'
 
 describe(`koa-tracer.js`, () => {
@@ -17,16 +17,16 @@ describe(`koa-tracer.js`, () => {
       trace(ctx, 'new_trace', 'message1')
       trace(ctx, 'new_trace', 'message2')
 
-      expect(ctx.state.trace.new_trace.length).toBe(2)
-      expect(ctx.state.trace.new_trace[0]).toEqual(expect.objectContaining({ msg: 'message1' }))
-      expect(ctx.state.trace.new_trace[1]).toEqual(expect.objectContaining({ msg: 'message2' }))
+      expect(ctx.state.trace.new_trace.traces.length).toBe(2)
+      expect(ctx.state.trace.new_trace.traces[0]).toEqual(expect.objectContaining({ msg: 'message1' }))
+      expect(ctx.state.trace.new_trace.traces[1]).toEqual(expect.objectContaining({ msg: 'message2' }))
     })
 
     it('should preserve other object properties passed in as meta data', () => {
       const ctx = { state: {} }
       trace(ctx, 'new_trace', { msg: 'message', reason: 'bar' })
 
-      expect(ctx.state.trace.new_trace[0]).toEqual(expect.objectContaining({ msg: 'message', reason: 'bar' }))
+      expect(ctx.state.trace.new_trace.traces[0]).toEqual(expect.objectContaining({ msg: 'message', reason: 'bar' }))
     })
 
     it('should note down the time difference between traces', async () => {
@@ -36,7 +36,7 @@ describe(`koa-tracer.js`, () => {
       await new Promise(resolve => setTimeout(resolve, 10))
       trace(ctx, 'new_trace', 'b')
 
-      expect(ctx.state.trace.new_trace[1].timeDiff).toEqual(expect.any(Number))
+      expect(ctx.state.trace.new_trace.traces[1].timeDiff).toEqual(expect.any(Number))
     })
 
     it('should be able to trace multiple keys', () => {
@@ -64,7 +64,7 @@ describe(`koa-tracer.js`, () => {
       trace(ctx, 'just a message')
       trace(ctx, 'and again')
 
-      expect(ctx.state.trace.__general[1].timeDiff).not.toBeDefined()
+      expect(ctx.state.trace.__general.traces[1].timeDiff).not.toBeDefined()
     })
   })
 
@@ -88,7 +88,7 @@ describe(`koa-tracer.js`, () => {
       t(ctx, () => {
         expect(ctx.trace).toBeInstanceOf(Function)
         ctx.trace('message')
-        expect(ctx.state.trace.__general[0]).toEqual(expect.objectContaining({ msg: 'message' }))
+        expect(ctx.state.trace.__general.traces[0]).toEqual(expect.objectContaining({ msg: 'message' }))
         done()
       })
     })
@@ -97,9 +97,9 @@ describe(`koa-tracer.js`, () => {
       const t = tracer()
       const ctx = { state: {}, app: new EventEmitter() }
 
-      ctx.app.on('tracer:trace', ({ ctx, key, trace }) => {
+      ctx.app.on(eventTrace, ({ ctx, key, trace }) => {
         if (trace.msg === 'Goodbye') {
-          expect(ctx.state.trace.foo.length).toEqual(2)
+          expect(ctx.state.trace.foo.traces.length).toEqual(2)
           done()
         }
       })
@@ -128,7 +128,7 @@ describe(`koa-tracer.js`, () => {
       expect(ctx.state.errors[0]).toEqual(expect.objectContaining({ msg: 'nooooooo', reason: 'badddd' }))
     })
 
-    it(`should retun the actual thrown exception`, (done) => {
+    it(`should retun the actual thrown exception and trace in debug mode`, (done) => {
       const ctx = { state: {} }
 
       try {
@@ -137,7 +137,7 @@ describe(`koa-tracer.js`, () => {
         traceError(ctx, err)
 
         expect(ctx.state.errors.length).toEqual(1)
-        expect(ctx.state.errors[0]).toEqual(expect.objectContaining({ msg: 'Uh oh spaghetti-os', trace: expect.any(String) }))
+        expect(ctx.state.errors[0]).toEqual(expect.objectContaining({ msg: 'Uh oh spaghetti-os' }))
 
         done()
       }
