@@ -2,7 +2,7 @@ import { DEFAULT_KEY } from '../koa-tracer'
 
 const path = (path, o) => path.reduce((acc, it) => acc ? acc[it] : undefined, o)
 
-const getTraces = (ctx, key) => path(['state', 'trace', key], ctx) || []
+const getTraces = (ctx, key) => path(['state', 'trace', key, 'traces'], ctx) || []
 const getFirstTrace = (ctx, key) => getTraces(ctx, key)[0] || { time: new Date() }
 
 export const getTimeDiff = (ctx, key) => key !== DEFAULT_KEY
