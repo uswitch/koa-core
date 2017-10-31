@@ -19,8 +19,11 @@ export const trace = (ctx, key, message) => {
   }
 
   ctx.state.trace = { [key]: { traces: [] }, ...ctx.state.trace }
+
+  const newTraces = ctx.state.trace[key].traces.concat(trace)
   ctx.state.trace[key] = {
-    traces: ctx.state.trace[key].traces.concat(trace),
+    traces: newTraces,
+    tracesLength: newTraces.length,
     timeDiff: trace.timeDiff,
     initDiff: trace.initDiff
   }
