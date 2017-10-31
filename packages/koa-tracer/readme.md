@@ -115,8 +115,18 @@ The **state** object, after a request, looks like this;
 {
   "traceStart": "Date" /* Date when the request started */
   "trace": {
-    "__general": [ /* List of traces without namespace */ ],
-    "namespace": [ /* List of traces in `namespace` */ ]
+    "__general": { 
+      traces: [ /* List of traces without namespace */ ],
+      tracesLength: 50,
+      timeDiff: 12,
+      initDiff: 12
+    },
+    "namespace": { 
+      traces: [ /* List of traces in `namespace` */ ],
+      tracesLength: 50,
+      timeDiff: 12,
+      initDiff: 12
+    }
   }
 
   "errorsCount": 12  /* The number of errors occured in this request */
