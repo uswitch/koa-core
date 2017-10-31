@@ -16,8 +16,8 @@ export default (extraKeys = []) => async (ctx, next) => {
   const req = { method, path, time, host }
 
   const extras = extraKeys instanceof Function
-        ? extraKeys(ctx)
-        : extraKeys.reduce((acc, it) => ctx.state[it] ? { ...acc, [it]: ctx.state[it] } : acc, {})
+    ? extraKeys(ctx)
+    : extraKeys.reduce((acc, it) => ctx.state[it] ? { ...acc, [it]: ctx.state[it] } : acc, {})
 
-  ctx.app && ctx.app.emit(eventAccess, { req, res, ...extras })
+  ctx.app && ctx.app.emit(eventAccess, ctx, { req, res, ...extras })
 }

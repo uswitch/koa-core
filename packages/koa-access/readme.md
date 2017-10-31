@@ -100,7 +100,7 @@ properties from the state.
 Once a request access log has been built, the following event is fired
 with the access object
 
-`koa-logger:access => ({ req, res, ...extras })`
+`koa-logger:access => (ctx, { req, res, ...extras })`
 
 The event can be imported from the `koa-logger` module, as
 
