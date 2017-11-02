@@ -13,7 +13,7 @@
   <b><a href="#usage">Usage</a></b>
   |
   <b><a href="#api">Api</a></b>
-    |
+  |
   <b><a href="#contributors">Contributors</a></b>
 </p>
 

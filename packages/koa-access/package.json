@@ -39,5 +39,8 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "on-finished": "^2.3.0"
   }
 }
