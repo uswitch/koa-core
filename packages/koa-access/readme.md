@@ -18,9 +18,12 @@
 </p>
 
 
-[![Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com/)
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)]()
+![type](https://img.shields.io/badge/⚡-library-c45366.svg?style=for-the-badge)
+![language](https://img.shields.io/badge/❤-Node-da776c.svg?style=for-the-badge)
+[![test](https://img.shields.io/badge/🔬-Jest-e9a279.svg?style=for-the-badge)](https://facebook.github.io/jest/)
+[![style](https://img.shields.io/badge/🎨-Standard-e4ca93.svg?style=for-the-badge)](https://standardjs.com)
 
 ## Overview
 
