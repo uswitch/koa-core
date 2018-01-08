@@ -20,7 +20,7 @@
   <img src="screenshot.png" width="800">
 </p>
 
-[![Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=for-the-badge)](#contributors)
+[![Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=for-the-badge)](#contributors)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)]()
 ![type](https://img.shields.io/badge/⚡-library-c45366.svg?style=for-the-badge)
 ![language](https://img.shields.io/badge/❤-Node-da776c.svg?style=for-the-badge)
