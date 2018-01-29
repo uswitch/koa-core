@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-logger",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "description": "A Koa middleware for logging JSON access logs consistently, similar to morgan",
   "main": "build/koa-logger.js",
