@@ -1,5 +1,5 @@
 {
-  "name": "koa-logger",
+  "name": "@uswitch/koa-logger",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A Koa middleware for logging JSON access logs consistently, similar to morgan",
@@ -7,9 +7,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
+    "prepublish": "npm run build",
     "prebuild": "del build",
-    "build": "babel --out-dir build koa-logger.js",
-    "postinstall": "babel --out-dir build koa-logger.js"
+    "build": "babel --out-dir build koa-logger.js"
   },
   "jest": {
     "transform": {
@@ -20,10 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/uswitch/koa-logger.git"
   },
-  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
-  "peerDependencies": {
-    "babel-cli": "~6.x"
-  },
+  "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
