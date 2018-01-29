@@ -1,5 +1,5 @@
 {
-  "name": "koa-tracer",
+  "name": "@uswitch/koa-tracer",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
@@ -8,9 +8,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
+    "prepublish": "npm run build",
     "prebuild": "del build",
-    "build": "babel --out-dir build src/*.js koa-tracer.js",
-    "postinstall": "babel --out-dir build src/*.js koa-tracer.js"
+    "build": "babel --out-dir build src/*.js koa-tracer.js"
   },
   "jest": {
     "transform": {
@@ -23,9 +23,6 @@
   },
   "dependencies": {
     "chalk": "^2.3.0"
-  },
-  "peerDependencies": {
-    "babel-cli": "~6.x"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
