@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
