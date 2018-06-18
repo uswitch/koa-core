@@ -1,19 +1,17 @@
-const COMPONENT_MAP = {
-  'id': require('./id').default,
-  'level': require('./level').default,
-  'error': require('./error').default,
-  'file-name': require('./file-name.js').default
-}
+import requireDirectory from 'require-directory'
+const COMPONENT_MAP = requireDirectory(module)
 
 export const buildComponent = ({ components, levels }, level, format) => format
   .map(component => {
-    const componentF = COMPONENT_MAP[component]
+    if (component.startsWith('just:')) return () => component.replace('just:', '')
+
+    const componentF = COMPONENT_MAP[component].default
     const componentConfig = components[component]
     const levelConfig = levels[level]
 
     const config = { ...levelConfig, ...componentConfig }
     if (process.env.DEBUG) console.log(level, component, config)
 
-    return componentF && levelConfig && componentConfig && componentF({ label: level, ...config })
+    return componentF && componentF({ label: level, ...config })
   })
   .filter(i => i)

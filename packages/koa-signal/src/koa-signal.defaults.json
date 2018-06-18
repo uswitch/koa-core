@@ -1,24 +1,27 @@
 {
   "levels": {
+    "start": {
+      "badge": "▶",
+      "labelColor": "yellow",
+      "format": [ "level", "message" ]
+    },
+
     "info": {
       "badge": "Ⓘ",
       "labelColor": "blue",
-
-      "format": [ "id", "level" ]
+      "format": [ "level", "id", "message" ]
     },
 
     "trace": {
       "badge": "❯",
       "labelColor": "magenta",
-
-      "format": [ "id", "level", "file-name"]
+      "format": [ "level", "id", "file-name" , "just:-", "time-diff-init", "time-diff-scope", "just:-", "message" ]
     },
 
     "fatal": {
       "badge": "!",
       "labelColor": "red",
-
-      "format": [ "id", "level", "error" ]
+      "format": [ "level", "id", "error" ]
     }
   },
 
@@ -32,17 +35,35 @@
     "file-name": {
       "color": "green",
       "displayFileName": false,
-      "displayFormat": "[%s]"
-    },
-
-    "level": {
-
+      "displayFormat": "@%s"
     },
 
     "error": {
       "color": "grey",
       "displayStackTrace": true,
       "displayFullStackTrace": false
+    },
+
+    "time-diff-init": {
+      "color": [ "bold", "magenta" ],
+      "minimumWidth": 10,
+      "alignment": "right"
+    },
+
+    "time-diff-scope": {
+      "color": [ "bold", "cyan" ],
+      "minimumWidth": 8,
+      "alignment": "left"
+    },
+
+    "message": {
+      "properties": [ "msg", "message", "text" ]
+    },
+
+    "level": {
+      "minimumWidth": 8,
+      "alignment": "left",
+      "displayFormat": "%s |"
     }
   }
 }
