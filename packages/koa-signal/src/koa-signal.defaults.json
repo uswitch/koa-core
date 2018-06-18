@@ -15,7 +15,7 @@
     "trace": {
       "badge": "❯",
       "labelColor": "magenta",
-      "format": [ "level", "id", "file-name" , "just:-", "time-diff-init", "time-diff-scope", "just:-", "message" ]
+      "format": [ "level", "id", "file-name" , "just:-", "time-diff-init", "scope", "time-diff-scope", "just:-", "message" ]
     },
 
     "fatal": {
@@ -28,7 +28,7 @@
   "components": {
     "id": {
       "color": "grey",
-      "displayShortId": 6,
+      "displayShortId": 8,
       "displayFormat": "[%s]"
     },
 
@@ -50,12 +50,6 @@
       "alignment": "right"
     },
 
-    "time-diff-scope": {
-      "color": [ "bold", "cyan" ],
-      "minimumWidth": 8,
-      "alignment": "left"
-    },
-
     "message": {
       "properties": [ "msg", "message", "text" ]
     },
@@ -64,6 +58,21 @@
       "minimumWidth": 8,
       "alignment": "left",
       "displayFormat": "%s |"
+    },
+
+    "scope": {
+      "color": "blue",
+      "alignment": "left",
+      "upperCase": true,
+      "underline": false,
+      "italic": false
+    },
+    
+    "time-diff-scope": {
+      "color": [ "bold", "blue" ],
+      "minimumWidth": 8,
+      "alignment": "left"
     }
+
   }
 }
