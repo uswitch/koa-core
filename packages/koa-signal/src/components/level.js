@@ -1,8 +1,11 @@
 import format from '../helper/format'
+import modify from '../helper/text-modifier'
 
 /* Config and then passed Koa ctx & msg */
 export default (config = {}) => (ctx) => {
   const { label, labelColor, badge = '' } = config
   const formatConfig = { ...config, color: labelColor }
-  return format(formatConfig, [ badge, label ].filter(i => i).join(' '))
+
+  const displayText = [ badge, modify(config, label) ].filter(i => i).join(' ')
+  return format(formatConfig, displayText)
 }
