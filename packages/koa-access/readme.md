@@ -1,4 +1,4 @@
-<h1 align="center">Koa Logger</h1>
+<h1 align="center">Koa Access</h1>
 
 <p align="center">
   <i>
@@ -46,16 +46,16 @@ from the actual implementation of your code.
 
 ```js
 import Koa from 'koa'
-import logger from 'koa-logger'
+import access from 'koa-access'
 
 const app = new Koa()
 
-app.use(logger())           /* Default configuration */
-app.use(logger([ 'id' ]))   /* Add `id` from `ctx.state` to access log */
+app.use(access())           /* Default configuration */
+app.use(access([ 'id' ]))   /* Add `id` from `ctx.state` to access log */
 
-app.use(logger(readContext)) /* Read extra poperties by calling `readContext` on `ctx` */
+app.use(access(readContext)) /* Read extra poperties by calling `readContext` on `ctx` */
 
-app.on('koa-logger:access', Logger.log)
+app.on('koa-access:access', Logger.log)
 ```
 
 This package uses [**Event
@@ -64,8 +64,8 @@ handling of logging from the implementation of your code.
 
 ### API
 
-By default, the `koa-logger` will bundle the following properties into
-an object and fire them on the the `koa-logger:access` event.
+By default, the `koa-access` will bundle the following properties into
+an object and fire them on the the `koa-access:access` event.
 
 ```js
 {
@@ -84,15 +84,15 @@ an object and fire them on the the `koa-logger:access` event.
 }
 ```
 
-The `koa-logger` can be **configured** with _extra_ parameters in one
+The `koa-access` can be **configured** with _extra_ parameters in one
 of two ways,
 
-#### Array - `logger([ 'id', 'errors' ])`
+#### Array - `access([ 'id', 'errors' ])`
 
 This will add the `id` and `errors` properties from the **Koa**
 `ctx.state` object onto the access log object.
 
-#### Function - `logger((ctx) => ({ id: ctx.state.id, errors: ctx.state.errors }))`
+#### Function - `access((ctx) => ({ id: ctx.state.id, errors: ctx.state.errors }))`
 
 This will return an object by calling the function on **Koa's** `ctx`
 object, in this example, it'll just grab the `id` and `errors`
@@ -103,12 +103,12 @@ properties from the state.
 Once a request access log has been built, the following event is fired
 with the access object
 
-`koa-logger:access => (ctx, { req, res, ...extras })`
+`koa-access:access => (ctx, { req, res, ...extras })`
 
-The event can be imported from the `koa-logger` module, as
+The event can be imported from the `koa-access` module, as
 
 ```js
-import { eventAccess } from 'koa-logger'
+import { eventAccess } from 'koa-access
 ```
 
 ## Contributors
@@ -116,7 +116,7 @@ import { eventAccess } from 'koa-logger'
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars1.githubusercontent.com/u/5881414?v=4" width="100px;"/><br /><sub>Dom Charlesworth</sub>](http://domcharlesworth.co.uk)<br />[📖](https://github.com/uswitch/koa-logger/commits?author=domtronn "Documentation") [💻](https://github.com/uswitch/koa-logger/commits?author=domtronn "Code") [🤔](#ideas-domtronn "Ideas, Planning, & Feedback") [🔌](#plugin-domtronn "Plugin/utility libraries") | [<img src="https://avatars3.githubusercontent.com/u/1567681?v=4" width="100px;"/><br /><sub>David Annez</sub>](http://davidannez.com)<br />[💻](https://github.com/uswitch/koa-logger/commits?author=annez "Code") [🤔](#ideas-annez "Ideas, Planning, & Feedback") [🔌](#plugin-annez "Plugin/utility libraries") |
+| [<img src="https://avatars1.githubusercontent.com/u/5881414?v=4" width="100px;"/><br /><sub>Dom Charlesworth</sub>](http://domcharlesworth.co.uk)<br />[📖](https://github.com/uswitch/koa-access/commits?author=domtronn "Documentation") [💻](https://github.com/uswitch/koa-access/commits?author=domtronn "Code") [🤔](#ideas-domtronn "Ideas, Planning, & Feedback") [🔌](#plugin-domtronn "Plugin/utility libraries") | [<img src="https://avatars3.githubusercontent.com/u/1567681?v=4" width="100px;"/><br /><sub>David Annez</sub>](http://davidannez.com)<br />[💻](https://github.com/uswitch/koa-access/commits?author=annez "Code") [🤔](#ideas-annez "Ideas, Planning, & Feedback") [🔌](#plugin-annez "Plugin/utility libraries") |
 | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

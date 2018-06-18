@@ -1,7 +1,7 @@
 import onFinished from 'on-finished'
 
 /* Event string */
-export const eventAccess = 'koa-logger:access'
+export const eventAccess = 'koa-access:access'
 
 export default (extraKeys = []) => async (ctx, next) => {
   const time = new Date()

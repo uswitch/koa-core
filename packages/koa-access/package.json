@@ -1,15 +1,15 @@
 {
-  "name": "@uswitch/koa-logger",
+  "name": "@uswitch/koa-access",
   "version": "1.1.0",
   "license": "MIT",
   "description": "A Koa middleware for logging JSON access logs consistently, similar to morgan",
-  "main": "build/koa-logger.js",
+  "main": "build/koa-access.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "prepublish": "npm run build",
     "prebuild": "del build",
-    "build": "babel --out-dir build koa-logger.js"
+    "build": "babel --out-dir build koa-access.js"
   },
   "jest": {
     "transform": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswitch/koa-logger.git"
+    "url": "git+https://github.com/uswitch/koa-access.git"
   },
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "devDependencies": {

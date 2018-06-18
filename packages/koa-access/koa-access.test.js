@@ -1,14 +1,14 @@
 /* global describe, beforeEach, it, expect */
-import logger, { eventAccess } from './koa-logger'
+import access, { eventAccess } from './koa-access'
 import EventEmitter from 'events'
 
-describe(`koa-logger.js`, () => {
+describe(`koa-access.js`, () => {
   describe(`when used as a Koa middleware`, () => {
     let ctx
     beforeEach(() => { ctx = { request: {}, response: {}, app: new EventEmitter() } })
 
     it('should have the desired properties', (done) => {
-      const l = logger()
+      const l = access()
 
       ctx.app.on(eventAccess, ({ req, res }) => {
         expect(req).toBeDefined()
@@ -20,7 +20,7 @@ describe(`koa-logger.js`, () => {
     })
 
     it('should read other properties from an array', (done) => {
-      const l = logger([ 'id' ])
+      const l = access([ 'id' ])
       ctx = { ...ctx, state: { id: '12345-67890' } }
 
       ctx.app.on(eventAccess, ({ id }) => {
@@ -32,7 +32,7 @@ describe(`koa-logger.js`, () => {
     })
 
     it('should read other properties from a function', (done) => {
-      const l = logger(({ a }) => ({ A: a * a, a }))
+      const l = access(({ a }) => ({ A: a * a, a }))
       ctx = { ...ctx, a: 5 }
 
       ctx.app.on(eventAccess, ({ A, a }) => {
