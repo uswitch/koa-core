@@ -6,15 +6,16 @@ export default (config, text) => {
   const {
     displayFormat = '%s',
     alignment = 'left',
-    color = 'black',
+    color,
     minimumWidth
   } = config
 
   const padF = alignment === 'left' ? 'padEnd' : 'padStart'
   const displayText = minimumWidth ? text[padF](minimumWidth) : text
+
   const chalkF = Array.isArray(color)
     ? color.reduce((acc, it) => acc[it], chalk)
-    : chalk[color]
+    : chalk[color] || (i => i)
 
   return chalkF(displayFormat.replace('%s', displayText))
 }

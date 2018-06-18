@@ -1,9 +1,10 @@
 import format from '../helper/format'
 import modify from '../helper/text-modifier'
+import join from '../helper/safe-join'
 
 /* Config and then passed Koa ctx & msg */
 export default (config = {}) => ({ req = {}, res = {} }) => {
-  const { statusMap } = config
+  const { statusMap, displayMethod = false, displayStatus = true } = config
 
   const { method } = req
   const { statusCode } = res
@@ -17,9 +18,9 @@ export default (config = {}) => ({ req = {}, res = {} }) => {
     )
 
   const [, { color, badge } = {}] = predicates.find(([f]) => f(statusCode)) || []
-  const displayText = [ badge, modify(config, statusCode + ' ' + method) ]
-    .filter(i => i)
-    .join(' ')
 
-  return format({ color }, displayText)
+  const text = join([ displayStatus && statusCode, displayMethod && method ])
+  const displayText = join([ badge, modify(config, text) ])
+
+  return format({ ...config, color }, displayText)
 }

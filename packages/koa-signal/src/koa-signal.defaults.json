@@ -6,6 +6,12 @@
       "format": [ "level", "message" ]
     },
 
+    "end": {
+      "badge": "■",
+      "labelColor": "red",
+      "format": [ "level", "message" ]
+    },
+
     "info": {
       "badge": "Ⓘ",
       "labelColor": "blue",
@@ -60,16 +66,17 @@
     },
 
     "level": {
-      "minimumWidth": 8,
+      "minimumWidth": 20,
       "alignment": "left",
       "underline": true,
+      "uppercase": true,
       "displayFormat": "%s |"
     },
 
     "scope": {
       "color": "blue",
       "alignment": "left",
-      "upperCase": true,
+      "uppercase": true,
       "underline": false,
       "italic": false
     },
@@ -81,6 +88,8 @@
     },
 
     "access": {
+      "minimumWidth": 20,
+      "displayFormat": "%s |",
       "underline": true,
       "statusMap": {
         "200-300": { "color": "green", "badge":  "✔" },
@@ -88,6 +97,10 @@
         "400-500": { "badge": "⚠" },
         "500-1000": {"color": "red", "badge": "✖"}
       }
+    },
+
+    "access-log": {
+      "format": ":method :host :path :statusCode :length | :responseTime_ms | :statusMessage"
     }
     
   }
