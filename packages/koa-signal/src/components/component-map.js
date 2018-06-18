@@ -1,6 +1,7 @@
 const COMPONENT_MAP = {
   'id': require('./id').default,
   'level': require('./level').default,
+  'error': require('./error').default,
   'file-name': require('./file-name.js').default
 }
 

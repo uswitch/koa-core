@@ -6,9 +6,14 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
+    "------- BUILD": "-----------------------------------------------------",
     "prebuild": "del build",
-    "build": "babel --out-dir build koa-logger.js"
+    "build:src": "babel src --out-dir build --ignore test.js",
+    "build:config": "cp src/koa-signal.defaults.json build/.",
+    "build": "run-s build:src build:config",
+    "build:watch": "npm-watch build"
   },
+  "watch": { "build": "src/*" },
   "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
   "license": "MIT",
   "jest": {
@@ -25,6 +30,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "del-cli": "^1.1.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
@@ -32,6 +38,8 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "jest": "^23.1.0"
+    "jest": "^23.1.0",
+    "npm-run-all": "^4.1.3",
+    "npm-watch": "^0.3.0"
   }
 }

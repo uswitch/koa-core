@@ -2,16 +2,23 @@
   "levels": {
     "info": {
       "badge": "Ⓘ",
-      "color": ["underline", "blue"],
+      "labelColor": "blue",
 
       "format": [ "id", "level" ]
     },
 
     "trace": {
       "badge": "❯",
-      "color": "magenta",
+      "labelColor": "magenta",
 
-      "format": [ "id", "level", "file-name" ]
+      "format": [ "id", "level", "file-name"]
+    },
+
+    "fatal": {
+      "badge": "!",
+      "labelColor": "red",
+
+      "format": [ "id", "level", "error" ]
     }
   },
 
@@ -30,6 +37,12 @@
 
     "level": {
 
+    },
+
+    "error": {
+      "color": "grey",
+      "displayStackTrace": true,
+      "displayFullStackTrace": false
     }
   }
 }
