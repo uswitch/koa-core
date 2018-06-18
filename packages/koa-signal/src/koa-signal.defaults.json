@@ -1,0 +1,35 @@
+{
+  "levels": {
+    "info": {
+      "badge": "Ⓘ",
+      "color": ["underline", "blue"],
+
+      "format": [ "id", "level" ]
+    },
+
+    "trace": {
+      "badge": "❯",
+      "color": "magenta",
+
+      "format": [ "id", "level", "file-name" ]
+    }
+  },
+
+  "components": {
+    "id": {
+      "color": "grey",
+      "displayShortId": 6,
+      "displayFormat": "[%s]"
+    },
+
+    "file-name": {
+      "color": "green",
+      "displayFileName": false,
+      "displayFormat": "[%s]"
+    },
+
+    "level": {
+
+    }
+  }
+}
