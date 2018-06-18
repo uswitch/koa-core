@@ -26,4 +26,16 @@ describe(`koa-signal | id component`, () => {
     expect(id({ displayFormat: ' << %s >> ' })(ctx)).toMatch(/^ << /)
     expect(id({ displayFormat: ' << %s >> ' })(ctx)).toMatch(/ >> $/)
   })
+
+  it('should return undefined if no id is present', () => {
+    expect(id({})()).not.toBeDefined()
+  })
+
+  it('should return the \'defaultReturn\' if id is not present ', () => {
+    expect(id({ defaultReturn: 'NOID!!' })()).toEqual('NOID!!')
+  })
+
+  it('should return the correctly formatted \'defaultReturn\' if no id is present', () => {
+    expect(id({ defaultReturn: 'no_id', displayFormat: '[%s]' })()).toEqual('[no_id]')
+  })
 })
