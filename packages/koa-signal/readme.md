@@ -3,7 +3,7 @@
 <p align="center">
   <i>
     A hackable & configurable console logger designed to integrate
-    perfectly with `@uswitch/koa` libraries
+    perfectly with <b>@uswitch/koa</b> libraries
   </i>
 </p>
 
@@ -41,7 +41,7 @@ customisable and consistent logging for **Node*** services.
 It tries to address the following;
 
 * 🍽 **Comletely Customisable** - Control everything with a single JSON file
-* 🛠 **Environment Specific** - Allow specific types of format/logging per environment
+* 📏 **Extensible** - Add your own **signals** and components
 
 This allows you to create **consistent** logs decoupled
 from the actual implementation of your code.
@@ -50,9 +50,75 @@ from the actual implementation of your code.
 
 ### Usage
 
+`koa-signal` was designed to work seamlessly with
+[`@uswitch/koa-access`](https://github.com/uswitch/koa-access) &
+[`@uswitch/koa-tracer`](https://github.com/uswitch/koa-tracer). If you
+use _either_ of these, you can just plug it in like so;
+
+```js
+import Koa from 'koa'
+
+import Signal from '@uswitch/koa-signal'
+import access, { eventAccess } from '@uswitch/koa-access'
+import tracer, { eventTrace, eventError } from '@uswitch/koa-tracer'
+
+const app = new Koa()
+const signal = Signal({ /* Config overrides */ })
+
+app.use(tracer())
+app.use(access())
+
+app.on(eventAccess, signal.access)
+app.on(eventTrace, ({ ctx,key,trace }) => signal.trace({ ...ctx, ...trace, scope: key }))
+app.on(eventError, ({ ctx, error }) => signal.error(ctx, error.original))
+
+
+app.listen(3000, () => signal.start(Listening on port 3000))
+```
+<small>**N.B.** See [`koa-core`](https://github.com/uswitch/koa-core)</small>
+
+However, you can use it entirely independently of these two libraries
+as a log formatter. Creating an instance of `koa-signal` will provide
+you with a bunch of different logging functions, _e.g._
+
+```js
+import Signal form '@uswitch/koa-signal'
+const signal = Signal({ /* config overrides */ })
+
+signal.info('My really useful info message')
+```
+
+#### Production _vs_ Development
+
+`koa-signal`'s formatting is useful for logging in **Development** to
+give a good understanding of what's happening in your application,
+however, in **Production** you probably want your output to be
+_machine readable_.
+
+To change the formatting for **Production**, you can just provide a
+_new_ config file, _e.g._
+
+```js
+import Signal from '@uswitch/koa-signal'
+const signal = Signal({
+  levels: {
+    info: { format: [] },
+    trace: { format: [] },
+    warn: { format: [] },
+    error: { format: [] },
+    access: { format: [ json ] }
+  },
+  components: {
+    json: { properties: [ 'id', 'errors', 'errorsCount', 'traces' ] }
+  }
+})
+```
+<small>**N.B.** See [`koa-core`](https://github.com/uswitch/koa-core)</small>
+
 ### API
 
 ### Configuration
+
 
 ## Contributors
 
