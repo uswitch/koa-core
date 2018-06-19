@@ -10,7 +10,7 @@ export const buildComponent = ({ components, levels }, level, format) => format
     const levelConfig = levels[level]
 
     const config = { ...levelConfig, ...componentConfig }
-    if (process.env.DEBUG) console.log(level, component, config)
+    if (process.env.DEBUG_KOA_SIGNAL) console.log(level, component, config)
 
     return componentF && componentF.default({ label: level, ...config })
   })

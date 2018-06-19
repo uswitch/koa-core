@@ -19,7 +19,7 @@ export default (opts = {}) => {
     : opts.levels
 
   const config = { levels, components }
-  if (process.env.DEBUG) console.info(config)
+  if (process.env.DEBUG_KOA_SIGNAL) console.info(config)
 
   return Object
     .entries(levels)
