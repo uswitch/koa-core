@@ -22,5 +22,5 @@ export default (config = {}) => ({ req = {}, res = {} }) => {
   const text = join([ displayStatus && statusCode, displayMethod && method ])
   const displayText = join([ badge, modify(config, text) ])
 
-  return format({ ...config, color }, displayText)
+  return format({ ...config, color: color || config.color }, displayText)
 }

@@ -2,31 +2,31 @@
   "levels": {
     "start": {
       "badge": "▶",
-      "labelColor": "yellow",
+      "labelColor": ["bgYellow", "black"],
       "format": [ "level", "message" ]
     },
 
     "end": {
       "badge": "■",
-      "labelColor": "red",
+      "labelColor": ["bgRed", "black"],
       "format": [ "level", "message" ]
     },
 
     "info": {
       "badge": "Ⓘ",
-      "labelColor": "blue",
+      "labelColor": ["bgBlue", "black"],
       "format": [ "level", "id", "message" ]
     },
 
     "trace": {
       "badge": "❯",
-      "labelColor": "magenta",
-      "format": [ "level", "id", "file-name" , "just:-", "time-diff-init", "scope", "time-diff-scope", "just:-", "message" ]
+      "labelColor": ["black", "bgMagenta"],
+      "format": [ "level", "id", "file-name", "scope", "just:-", "time-diff-init",  "time-diff-scope", "just:-", "message" ]
     },
 
     "fatal": {
       "badge": "!",
-      "labelColor": "red",
+      "labelColor": ["bgRed" , "black"],
       "format": [ "level", "id", "error" ]
     },
 
@@ -66,16 +66,17 @@
     },
 
     "level": {
-      "minimumWidth": 20,
+      "minimumWidth": 10,
       "alignment": "left",
-      "underline": true,
+      "underline": false,
       "uppercase": true,
-      "displayFormat": "%s |"
+      "displayFormat": "%s"
     },
 
     "scope": {
-      "color": "blue",
+      "color": "grey",
       "alignment": "left",
+      "displayFormat": "[%s]",
       "uppercase": true,
       "underline": false,
       "italic": false
@@ -84,23 +85,22 @@
     "time-diff-scope": {
       "color": [ "bold", "blue" ],
       "minimumWidth": 8,
-      "alignment": "left"
+      "alignment": "right"
     },
 
     "access": {
-      "minimumWidth": 20,
-      "displayFormat": "%s |",
-      "underline": true,
+      "minimumWidth": 10,
+      "color": [ "bgWhite", "black" ],
       "statusMap": {
-        "200-300": { "color": "green", "badge":  "✔" },
-        "300-400": {"color": "blue", "badge": "←"},
+        "200-300": { "color": ["bgGreen", "black"], "badge":  "✔" },
+        "300-400": { "color": ["bgBlue", "black"], "badge": "←" },
         "400-500": { "badge": "⚠" },
-        "500-1000": {"color": "red", "badge": "✖"}
+        "500-1000": { "color": ["bgRed", "black"], "badge": "✖" }
       }
     },
 
     "access-log": {
-      "format": ":method :host :path :statusCode :length | :responseTime_ms | :statusMessage"
+      "format": ":method :host :path :statusCode :length - :responseTime_ms - :statusMessage"
     }
     
   }
