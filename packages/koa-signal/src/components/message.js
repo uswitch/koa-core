@@ -12,6 +12,7 @@ const _object = (config, obj) => Object
 export default (config = {}) => (ctx, obj) => {
   const { properties = [ 'msg', 'message', 'text' ] } = config
 
+  if (typeof obj === 'string') return _string(config, obj)
   if (typeof ctx === 'string') return _string(config, ctx)
   if (obj && isObject(obj)) return _object(config, obj)
 

@@ -7,5 +7,8 @@ export default (config = {}) => (ctx = {}) => {
   const scopeText = ctx[scopeKey]
   const scopes = [].concat(scopeText)
 
-  return scopes.map(text => format(config, modify(config, text))).join('›')
+  return scopes
+    .filter(text => text !== '__general')
+    .map(text => format(config, modify(config, text)))
+    .join('›')
 }

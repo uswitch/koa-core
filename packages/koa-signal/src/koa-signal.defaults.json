@@ -1,5 +1,11 @@
 {
   "levels": {
+    "success": {
+      "badge": "✔",
+      "labelColor": [ "bgGreen", "black" ],
+      "format": [ "level", "id", "message" ]
+    },
+
     "start": {
       "badge": "▶",
       "labelColor": ["bgYellow", "black"],
@@ -13,21 +19,29 @@
     },
 
     "info": {
-      "badge": "Ⓘ",
+      "badge": "ℹ",
       "labelColor": ["bgBlue", "black"],
+      "format": [ "level", "id", "message" ]
+    },
+
+    "warn": {
+      "badge": "⚠",
+      "label": "warning",
+      "labelColor": ["bgYellow" , "black"],
       "format": [ "level", "id", "message" ]
     },
 
     "trace": {
       "badge": "❯",
-      "labelColor": ["black", "bgMagenta"],
-      "format": [ "level", "id", "file-name", "scope", "just:-", "time-diff-init",  "time-diff-scope", "just:-", "message" ]
+      "labelColor": ["black", "bgCyan"],
+      "format": [ "level", "id", "file-name", "time-diff-init",  "time-diff-scope", "just:-", "scope", "message" ]
     },
 
-    "fatal": {
-      "badge": "!",
+
+    "error": {
+      "badge": "✖",
       "labelColor": ["bgRed" , "black"],
-      "format": [ "level", "id", "error" ]
+      "format": [ "level", "id", "message", "error" ]
     },
 
     "access": {
@@ -55,18 +69,12 @@
       "displayFullStackTrace": false
     },
 
-    "time-diff-init": {
-      "color": [ "bold", "magenta" ],
-      "minimumWidth": 10,
-      "alignment": "right"
-    },
-
     "message": {
       "properties": [ "msg", "message", "text" ]
     },
 
     "level": {
-      "minimumWidth": 10,
+      "minimumWidth": 12,
       "alignment": "left",
       "underline": false,
       "uppercase": true,
@@ -81,15 +89,23 @@
       "underline": false,
       "italic": false
     },
-    
+
+    "time-diff-init": {
+      "defaultReturn": "0ms",
+      "color": [ "bold", "magenta" ],
+      "minimumWidth": 10,
+      "alignment": "right"
+    },
+
     "time-diff-scope": {
       "color": [ "bold", "blue" ],
+      "defaultReturn": "0ms",
       "minimumWidth": 8,
       "alignment": "right"
     },
 
     "access": {
-      "minimumWidth": 10,
+      "minimumWidth": 12,
       "color": [ "bgWhite", "black" ],
       "statusMap": {
         "200-300": { "color": ["bgGreen", "black"], "badge":  "✔" },
@@ -102,6 +118,6 @@
     "access-log": {
       "format": ":method :host :path :statusCode :length - :responseTime_ms - :statusMessage"
     }
-    
+
   }
 }

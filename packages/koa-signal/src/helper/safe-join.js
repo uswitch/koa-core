@@ -1,1 +1,1 @@
-export default (arr, joiner = ' ') => arr.filter(i => i).join(joiner)
+export default (arr, joiner = ' ') => arr.filter(i => typeof i === 'string' || i).join(joiner)

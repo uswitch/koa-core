@@ -20,7 +20,7 @@ export default (config = {}) => ({ req = {}, res = {} }) => {
   const [, { color, badge } = {}] = predicates.find(([f]) => f(statusCode)) || []
 
   const text = join([ displayStatus && statusCode, displayMethod && method ])
-  const displayText = join([ badge, modify(config, text) ])
+  const displayText = join([ '', badge, modify(config, text) ])
 
   return format({ ...config, color: color || config.color }, displayText)
 }
