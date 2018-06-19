@@ -5,6 +5,7 @@ import modify from '../helper/text-modifier'
 export default (config = {}) => (ctx = {}) => {
   const { scopeKey = 'scope' } = config
   const scopeText = ctx[scopeKey]
+  const scopes = [].concat(scopeText)
 
-  return format(config, modify(config, scopeText))
+  return scopes.map(text => format(config, modify(config, text))).join('›')
 }

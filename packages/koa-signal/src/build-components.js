@@ -1,11 +1,11 @@
 import requireDirectory from 'require-directory'
-const COMPONENT_MAP = requireDirectory(module)
+const componentMap = requireDirectory(module, './components')
 
 export const buildComponent = ({ components, levels }, level, format) => format
   .map(component => {
     if (component.startsWith('just:')) return () => component.replace('just:', '')
 
-    const componentF = COMPONENT_MAP[component].default
+    const componentF = componentMap[component].default
     const componentConfig = components[component]
     const levelConfig = levels[level]
 
