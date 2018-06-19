@@ -24,7 +24,7 @@ describe(`koa-signal`, () => {
   describe(`| info function`, function () {
     it(`should log the correct format `, capture((mock) => {
       signal.info({ state: { id: '1234' } })
-      expect(mock).toBeCalledWith('[1234] Ⓘ info')
+      expect(mock).toBeCalledWith(' ℹ INFO      [1234]')
     }))
   })
 })
