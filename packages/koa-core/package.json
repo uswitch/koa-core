@@ -25,8 +25,13 @@
     "@uswitch/koa-signal": "^1.1.0",
     "@uswitch/koa-tracer": "^1.1.1",
     "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-cookie": "^1.0.0",
+    "koa-helmet": "^4.0.0",
     "koa-requestid": "^2.0.1",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
