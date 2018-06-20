@@ -1,13 +1,13 @@
-import Koa from 'koa'
+const Koa = require('koa')
 
-import Signal from '@uswitch/koa-signal'
-import access, { eventAccess } from '@uswitch/koa-access'
-import tracer, { eventTrace, eventError } from '@uswitch/koa-tracer'
+const { default: Signal } = require('@uswitch/koa-signal')
+const { default: access, eventAccess } = require('@uswitch/koa-access')
+const { default: tracer, eventTrace, eventError } = require('@uswitch/koa-tracer')
 
-import { merge } from './merge'
-import productionConf from '../__config__/signal-config.production.json'
+const { merge } = require('./merge')
+const productionConf = require('./__config__/signal-config.production.json')
 
-export default (config = {}) => {
+module.exports = (config = {}) => {
   const app = new Koa()
 
   const { NODE_ENV } = process.env
