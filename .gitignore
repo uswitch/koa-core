@@ -1,3 +1,8 @@
+build
+
+koa*
+!koa-core.js
+
 # Logs
 logs
 *.log
