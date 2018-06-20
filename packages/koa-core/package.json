@@ -8,7 +8,8 @@
     "test": "babel-node ./__example__/server.js",
     "test:watch": "npm-watch test",
     "------- BUILD": "-----------------------------------------------------",
-    "build": "babel koa-core.js merge.js --out-file build/koa-core.js --minified",
+    "prebuild": "del build",
+    "build": "babel koa-core.js merge.js --out-dir build --minified",
     "build:watch": "npm-watch build"
   },
   "repository": {
