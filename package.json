@@ -8,6 +8,7 @@
     "test": "babel-node ./__example__/server.js",
     "test:watch": "npm-watch test",
     "------- BUILDING": "--------------------------------------------------",
+    "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m 'Update readme with latest dependencies'",
     "prepublish": "npm update; node ./__scripts__/build-dependencies.js"
   },
   "repository": {
