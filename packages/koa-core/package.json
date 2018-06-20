@@ -5,8 +5,8 @@
   "main": "koa-core.js",
   "scripts": {
     "------- TESTING": "---------------------------------------------------",
-    "test": "babel-node ./__example__/server.js",
-    "test:watch": "npm-watch test",
+    "example": "babel-node ./__example__/server.js",
+    "example:watch": "npm-watch example",
     "------- BUILDING": "--------------------------------------------------",
     "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m 'Update readme with latest dependencies'",
     "prepublish": "npm update; node ./__scripts__/build-dependencies.js"
@@ -19,7 +19,7 @@
   "license": "MIT",
   "homepage": "https://github.com/uswitch/koa-core#readme",
   "watch": {
-    "test": "__example__/*"
+    "example": "__example__/*"
   },
   "dependencies": {
     "@uswitch/koa-access": "^2.0.0",
