@@ -1,0 +1,28 @@
+{
+  "name": "@uswitch/koa-timeout",
+  "version": "1.0.1",
+  "description": "A Koa middleware to handle timeouts correctly",
+  "main": "build/koa-timeout.js",
+  "scripts": {
+    "------- BUILD": "-----------------------------------------------------",
+    "prepublish": "npm run build",
+    "prebuild": "del build",
+    "build": "babel --out-dir build koa-timeout.js --minified"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswitch/koa-timeout.git"
+  },
+  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uswitch/koa-timeout/issues"
+  },
+  "homepage": "https://github.com/uswitch/koa-timeout#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "del-cli": "^1.1.0"
+  }
+}
