@@ -16,6 +16,7 @@ const passThrough = Object
 
 const row = (arr) => '| ' + arr.join(' | ') + ' |'
 const table = `<!-- [doc-list-packages:start] -->
+<!-- Generated ${new Date()} -->
 | Package | Version | Latest |
 |--|--|--|
 ${passThrough.map(row).join('\n')}
