@@ -97,3 +97,38 @@ through `koa-core`.
 
 ## Example
 
+This project also comes with an [**Example
+server**](https://github.com/uswitch/koa-core/blob/master/__example__/server.js)
+and some example
+[**routes**](https://github.com/uswitch/koa-core/blob/master/__example__/server-routes.js)
+which shows how we use the `@uswitch/koa` libraries.
+
+```shs
+npm install
+NODE_ENV=development npm run example
+NODE_ENV=production npm run example
+```
+
+This will start the server on port `http://localhost:3000` and you can
+try hitting the following routes to see how it works;
+
+```sh
+curl http://localhost:3000/hello         // 200 string body
+curl http://localhost:3000/hello/world
+
+// Test different status codes
+curl http://localhost:3000/status/200
+curl http://localhost:3000/status/404
+curl http://localhost:3000/status/503
+
+// Test tracing errors as they happen
+curl http://localhost:3000/error         // Fatal error
+curl http://localhost:3000/multi-errors  // Multiple errors non fatal
+
+// Test tracing behaviour
+curl http://localhost:3000/trace/150     // Trace either side of 150ms async
+curl http://localhost:3000/scope/name    // Trace message to scope NAME
+
+// See all types of koa-signal message
+curl http://localhost:3000/signal/all
+```
