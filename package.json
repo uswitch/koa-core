@@ -8,7 +8,7 @@
     "test": "babel-node ./__example__/server.js",
     "test:watch": "npm-watch test",
     "------- BUILDING": "--------------------------------------------------",
-    "prepublish": "node ./__scripts__/build-dependencies.js"
+    "prepublish": "npm update; node ./__scripts__/build-dependencies.js"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,14 @@
   "watch": {
     "test": "__example__/*"
   },
+
   "dependencies": {
-    "koa": "^2.5.1",
-    "koa-requestid": "^2.0.1",
-    "koa-router": "^7.4.0",
     "@uswitch/koa-access": "^2.0.0",
     "@uswitch/koa-signal": "^1.1.0",
-    "@uswitch/koa-tracer": "^1.1.1"
+    "@uswitch/koa-tracer": "^1.1.1",
+    "koa": "^2.5.1",
+    "koa-requestid": "^2.0.1",
+    "koa-router": "^7.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
