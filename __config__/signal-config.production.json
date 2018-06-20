@@ -1,0 +1,15 @@
+{
+  "levels": {
+    "start": { "format": [] },
+    "end": { "format": [] },
+    "success": { "format": [] },
+    "trace": { "format": [] },
+    "info": { "format": [] },
+    "warn": { "format": [] },
+    "error": { "format": [] },
+    "access": { "format": [ "json" ] }
+  },
+  "components": {
+    "json": { "properties": [ "id", "errors", "errorsCount", "trace" ] }
+  }
+}
