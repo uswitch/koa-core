@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -20,7 +20,6 @@
   "watch": {
     "test": "__example__/*"
   },
-
   "dependencies": {
     "@uswitch/koa-access": "^2.0.0",
     "@uswitch/koa-signal": "^1.1.0",
