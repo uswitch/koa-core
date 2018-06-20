@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-timeout",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Koa middleware to handle timeouts correctly",
   "main": "build/koa-timeout.js",
   "scripts": {
