@@ -9,7 +9,7 @@
     "test:watch": "npm-watch test",
     "------- BUILD": "-----------------------------------------------------",
     "prebuild": "del build",
-    "build": "babel koa-core.js merge.js --out-dir build --minified",
+    "build": "babel src --out-dir build --minified",
     "build:watch": "npm-watch build"
   },
   "repository": {

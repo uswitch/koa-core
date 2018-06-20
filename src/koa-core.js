@@ -5,7 +5,7 @@ import access, { eventAccess } from '@uswitch/koa-access'
 import tracer, { eventTrace, eventError } from '@uswitch/koa-tracer'
 
 import { merge } from './merge'
-import productionConf from './__config__/signal-config.production.json'
+import productionConf from '../__config__/signal-config.production.json'
 
 export default (config = {}) => {
   const app = new Koa()
