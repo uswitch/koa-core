@@ -9,7 +9,8 @@
     "example:watch": "npm-watch example",
     "------- BUILDING": "--------------------------------------------------",
     "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m 'Update readme with latest dependencies'",
-    "prepublish": "npm update; node ./__scripts__/build-dependencies.js"
+    "prepublish": "npm update; node ./__scripts__/build-dependencies.js",
+    "preupdate": "node __scripts__/updates-dependencies.js"
   },
   "repository": {
     "type": "git",
