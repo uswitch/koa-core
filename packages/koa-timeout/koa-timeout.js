@@ -1,13 +1,13 @@
 export default (time, { status = 408 } = {}) => async (ctx, next) => {
   let timer
-  let timeout = new Promise((resolve, reject) => {
+  const timeout = new Promise((resolve, reject) => {
     timer = setTimeout(() => {
       ctx.state.timeout = true
       ctx.status = status
       ctx.body = {}
 
       reject(new Error(`Request timedout: ${time}ms`))
-    }, timeout)
+    }, time)
   })
 
   try {
