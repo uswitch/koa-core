@@ -1,4 +1,4 @@
-export default (time, { status = 408 } = {}) => async (ctx, next) => {
+export default (time, { status = 408 } = {}) => (ctx, next) => {
   let timer
   const timeout = new Promise((resolve, reject) => {
     timer = setTimeout(() => {
@@ -10,14 +10,12 @@ export default (time, { status = 408 } = {}) => async (ctx, next) => {
     }, time)
   })
 
-  try {
-    await Promise.race([ timeout, next() ])
-  } catch (ex) {
-    if (ctx.state.timeout) return ctx.throw(408, 'Request timeout')
-    throw ex
-  }
-
-  clearTimeout(timer)
+  return Promise.race([ timeout, next() ])
+    .then(() => clearTimeout(timer))
+    .catch((ex) => {
+      if (ctx.state.timeout) return ctx.throw(408, 'Request timeout')
+      throw ex
+    })
 }
 
 export const shortCircuit = (...middlewares) => {
