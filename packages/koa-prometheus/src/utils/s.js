@@ -5,3 +5,8 @@ export const camelCase = str => {
 
   return s.slice(0, 1).toLowerCase() + s.slice(1)
 }
+
+export const removeBlanks = str => str
+  .split('\n')
+  .filter((s = '') => !/^$/.test(s))
+  .join('\n')

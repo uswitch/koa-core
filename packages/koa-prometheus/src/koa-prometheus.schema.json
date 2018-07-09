@@ -19,11 +19,52 @@
         "type": "string", 
         "description": "A help string of the metric"
       },
+      "mark": {
+        "type": "object",
+        "required": [ "method" ],
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [ "observe", "inc", "dec", "set" ]
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount to set/inc/dec the marker by"
+          },
+          "path": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "labelNames": {
         "type": "array",
         "items": {
-          "type": "string",
-          "pattern": "^[a-z_]+$"
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z_]+$"
+            },
+            {
+              "type": "object",
+              "required": ["key", "path"],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "pattern": "^[a-z_]+$"
+                },
+                "path": {
+                  "description": "The path to read the label property",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ]
         }
       },
       "buckets": {
