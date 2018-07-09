@@ -1,0 +1,41 @@
+{
+  "name": "@uswitch/koa-prometheus",
+  "version": "0.0.1",
+  "description": "A configurable Prometheus data collector with Koa middleware",
+  "main": "build/koa-prometheus.js",
+  "scripts": {
+    "test": "npm run test:default",
+    "test:default": "ajv validate -s src/koa-prometheus.schema.json -d src/koa-prometheus.defaults.json",
+    "lint": "eslint .",
+    "------- BUILD": "-----------------------------------------------------",
+    "prebuild": "del build",
+    "build:src": "babel src --out-dir build --ignore test.js",
+    "build:config": "cp src/koa-prometheus.defaults.json build/.",
+    "build": "run-s build:src build:config",
+    "build:watch": "npm-watch build",
+    "prepublish": "npm run build"
+  },
+  "watch": {
+    "build": "src/*"
+  },
+  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "license": "MIT",
+  "dependencies": {
+    "prom-client": "^11.1.1"
+  },
+  "devDependencies": {
+    "ajv-cli": "^3.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "npm-run-all": "^4.1.3",
+    "npm-watch": "^0.3.0"
+  }
+}

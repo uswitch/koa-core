@@ -1,0 +1,14 @@
+[
+  {
+    "name": "response_time",
+    "help": "The response time of requests",
+    "type": "Histogram",
+    "labelNames": [ "method", "code", "path" ],
+    "buckets": {
+      "type": "exponential",
+      "start": 0.1,
+      "buckets": 10,
+      "factor": 2
+    }
+  }
+]

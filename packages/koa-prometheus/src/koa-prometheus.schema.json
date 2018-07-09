@@ -1,0 +1,68 @@
+{
+  "id": "koa-prometheus",
+  "description": "A description of what a `koa-prometheus` config should look like",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [ "name", "type", "help" ],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": [ "Counter", "Gauge", "Histogram", "Summary" ]
+      },
+      "name": {
+        "type": "string",
+        "pattern": "^[a-z_]+$",
+        "description": "The name of the metric"
+      },
+      "help": {
+        "type": "string", 
+        "description": "A help string of the metric"
+      },
+      "labelNames": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-z_]+$"
+        }
+      },
+      "buckets": {
+        "description": "A list of buckets at integer points, used for 'Summary' type",
+        "oneOf": [
+          {
+            "type": "array",
+            "items": { "type": "number" }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [ "exponential", "linear" ]
+              },
+              "start": { "type": "number" },
+              "factor": {
+                "description": "The factor to scale the buckets, in exponential, this is the exponential factor, in linear, this is the width of the steps",
+                "type": "integer"
+              },
+              "buckets": {
+                "description": "The number of buckets to create",
+                "type": "integer"
+              }
+            }
+          }
+        ]
+        
+      },
+      "percentiles": {
+        "description": "A list of percentiles, used for 'Summary' type",
+        "type": "array",
+        "items": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}
