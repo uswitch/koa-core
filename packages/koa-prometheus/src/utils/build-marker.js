@@ -2,6 +2,8 @@ import { path } from './obj'
 import { camelCase } from './s'
 
 const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
+  if (!mark) return
+
   const id = camelCase(name)
 
   const meter = ctx.state.meters[id]
@@ -11,8 +13,6 @@ const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
   if (!meter && process.env.DEBUG_KOA) throw new Error(`Could not find meter: ${id}`)
   if (!amount && process.env.DEBUG_KOA) throw new Error(`Could not read amount from: ${mark.path}`)
   if (!meter || !amount) return
-
-  console.log(ctx)
 
   if (labels.length && labels.filter(i => i).length !== labels.length) return
 

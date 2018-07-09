@@ -52,15 +52,25 @@
       "buckets": 10,
       "factor": 1
     }
-  }, 
+  },
+  {
+    "name": "error_rate",
+    "help": "Number of errors per second per request",
+    "type": "Meter"
+  },
   {
     "name": "total_number_requests",
     "help": "The total number of requests served",
+    "labelNames": [
+      { "key": "method", "path": [ "req", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
     "type": "Counter",
     "mark": { "method": "inc", "amount": 1 }
   },
   {
-    "name": "qps",
+    "name": "request_rate",
     "help": "Number of requests received per second",
     "type": "Meter",
     "mark": { "method": "mark", "amount": 1 }

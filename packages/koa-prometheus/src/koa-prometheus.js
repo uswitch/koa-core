@@ -16,7 +16,7 @@ export default (userConfig = []) => {
   const mark = buildMarker(config)
   const printer = buildPrinter(config, meters)
 
-  return { mark, metricsPrinter: printer, metricsMiddleware: middleware(meters) }
+  return { meters, mark, printer, middleware: middleware(meters) }
 }
 
 const buildPrinter = (config, meters) => (ctx, next) => {
