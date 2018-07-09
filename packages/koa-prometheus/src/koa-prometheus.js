@@ -9,8 +9,10 @@ import printMeters from './utils/metrics-meter'
 
 const middleware = (meters) => (ctx, next) => (ctx.state = { ...(ctx.state || {}), meters }) && next()
 
-export default (userConfig = []) => {
-  const config = defaultConfig.concat(userConfig)
+export default (userConfig = [], { loadDefaults = true }) => {
+  const config = loadDefaults
+    ? defaultConfig.concat(userConfig)
+    : userConfig
 
   const meters = buildMeters(config)
   const mark = buildMarker(config)
