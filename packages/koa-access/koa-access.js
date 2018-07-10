@@ -11,7 +11,7 @@ export default (extraKeys = []) => async (ctx, next) => {
     const { length, status } = ctx.response
     const { method, path, ip: host } = ctx.request
 
-    const [ bucket, ...rest ] = status || ''
+    const [ bucket, ...rest ] = `${status}` || ''
     const statusBucket = bucket + rest.map(i => 'X').join('')
 
     /* Cast all integers to integers */
