@@ -10,8 +10,8 @@ const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
   const amount = mark.path ? path(mark.path, ctx) : mark.amount
   const labels = labelNames.map(({ key, path: p }) => path(p, ctx))
 
-  if (!meter && process.env.DEBUG_KOA) throw new Error(`Could not find meter: ${id}`)
-  if (!amount && process.env.DEBUG_KOA) throw new Error(`Could not read amount from: ${mark.path}`)
+  if (!meter && process.env.DEBUG_KOA) console.error(`Could not find meter: ${id}`)
+  if (!amount && process.env.DEBUG_KOA) console.error(`Could not read amount from: ${mark.path}`)
   if (!meter || !amount) return
 
   if (labels.length && labels.filter(i => i).length !== labels.length) return

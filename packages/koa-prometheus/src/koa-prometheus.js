@@ -13,6 +13,8 @@ garbageStats(register).call({})
 const middleware = (meters) => (ctx, next) => (ctx.state = { ...(ctx.state || {}), meters }) && next()
 
 export default (userConfig = [], { loadDefaults = true } = {}) => {
+  register.clear()
+
   const config = loadDefaults
     ? defaultConfig.concat(userConfig)
     : userConfig
@@ -24,9 +26,7 @@ export default (userConfig = [], { loadDefaults = true } = {}) => {
   return { ...meters, automark, route, middleware: middleware(meters) }
 }
 
-const buildPrinter = (config, meters) => (ctx, next) => {
-  if (ctx.request.path !== '/metrics') return next()
-
-  const metricsBody = [register.metrics(), printMeters(config, meters)].join('\n')
-  ctx.body = removeBlanks(metricsBody)
+const buildPrinter = (config, meters) => {
+  const metricsBody = () => [register.metrics(), printMeters(config, meters)].join('\n')
+  return (ctx, next) => (ctx.body = removeBlanks(metricsBody()))
 }
