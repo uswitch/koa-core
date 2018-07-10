@@ -1,0 +1,78 @@
+[
+  {
+    "name": "response_time_summary",
+    "help": "The response time of requests",
+    "type": "Summary",
+    "labelNames": [
+      { "key": "method", "path": [ "req", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
+    "mark": {
+      "method": "observe",
+      "path": [ "res", "responseTime" ]
+    }
+  },
+  {
+    "name": "response_time_hist",
+    "help": "The response time of requests",
+    "type": "Histogram",
+    "labelNames": [
+      { "key": "method", "path": [ "req", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
+    "mark": {
+      "method": "observe",
+      "path": [ "res", "responseTime" ]
+    },
+    "buckets": {
+      "type": "exponential",
+      "start": 100,
+      "buckets": 10,
+      "factor": 2
+    }
+  },
+  {
+    "name": "error_count",
+    "help": "The number of errors happening per response",
+    "type": "Histogram",
+    "labelNames": [
+      { "key": "method", "path": [ "req", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
+    "mark": {
+      "method": "observe",
+      "path": [ "state", "errorsCount" ]
+    },
+    "buckets": {
+      "type": "linear",
+      "start": 0,
+      "buckets": 10,
+      "factor": 1
+    }
+  },
+  {
+    "name": "error_rate",
+    "help": "Number of errors per second per request",
+    "type": "Meter"
+  },
+  {
+    "name": "total_number_requests",
+    "help": "The total number of requests served",
+    "labelNames": [
+      { "key": "method", "path": [ "req", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
+    "type": "Counter",
+    "mark": { "method": "inc", "amount": 1 }
+  },
+  {
+    "name": "request_rate",
+    "help": "Number of requests received per second",
+    "type": "Meter",
+    "mark": { "method": "mark", "amount": 1 }
+  }
+]
