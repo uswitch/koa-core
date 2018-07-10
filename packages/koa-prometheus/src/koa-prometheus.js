@@ -18,10 +18,10 @@ export default (userConfig = [], { loadDefaults = true } = {}) => {
     : userConfig
 
   const meters = buildMeters(config)
-  const mark = buildMarker(config)
+  const automark = buildMarker(config)
   const printer = buildPrinter(config, meters)
 
-  return { meters, mark, printer, middleware: middleware(meters) }
+  return { ...meters, automark, printer, middleware: middleware(meters) }
 }
 
 const buildPrinter = (config, meters) => (ctx, next) => {
