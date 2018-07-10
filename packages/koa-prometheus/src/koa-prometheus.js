@@ -21,12 +21,9 @@ export default (userConfig = [], { loadDefaults = true } = {}) => {
 
   const meters = buildMeters(config)
   const automark = buildMarker(config)
-  const route = buildPrinter(config, meters)
+  const print = buildPrinter(config, meters)
 
-  return { ...meters, automark, route, middleware: middleware(meters) }
+  return { ...meters, automark, print, middleware: middleware(meters) }
 }
 
-const buildPrinter = (config, meters) => {
-  const metricsBody = () => [register.metrics(), printMeters(config, meters)].join('\n')
-  return (ctx, next) => (ctx.body = removeBlanks(metricsBody()))
-}
+const buildPrinter = (config, meters) => () => removeBlanks([register.metrics(), printMeters(config, meters)].join('\n'))

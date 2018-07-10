@@ -67,7 +67,8 @@ const app = new Koa()
 const meters = Meter({ /* Config */ }, { loadDefaults: true })
 
 app.use(meters.middleware)   // The middleware that makes the meters available
-app.use(meters.route)        // The `/metrics` route to print metrics
+
+app.get('/metrics', (ctx) => (ctx.body = meters.print()))
 
 app.on(eventAccess, (ctx) => meters.automark(ctx))
 app.on(eventError, () => meters.errorRate.mark(1))
