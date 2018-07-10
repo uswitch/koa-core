@@ -1,6 +1,6 @@
 [
   {
-    "name": "response_time_summary",
+    "name": "http_request_duration_seconds",
     "help": "The response time of requests",
     "type": "Summary",
     "labelNames": [
@@ -14,7 +14,7 @@
     }
   },
   {
-    "name": "response_time_hist",
+    "name": "http_request_duration_percentile_seconds",
     "help": "The response time of requests",
     "type": "Histogram",
     "labelNames": [
@@ -34,7 +34,7 @@
     }
   },
   {
-    "name": "error_count",
+    "name": "http_error_count",
     "help": "The number of errors happening per response",
     "type": "Histogram",
     "labelNames": [
@@ -54,12 +54,25 @@
     }
   },
   {
-    "name": "error_rate",
-    "help": "Number of errors per second per request",
-    "type": "Meter"
-  },
+    "name": "http_content_length_bytes",
+    "help": "The size of the payload being sent f",
+    "type": "Histogram",
+    "labelNames": [
+      { "key": "path", "path": [ "_matchedRoute" ] }
+    ],
+    "mark": {
+      "method": "observe",
+      "path": [ "res", "length" ]
+    },
+    "buckets": {
+      "type": "linear",
+      "start": 0,
+      "buckets": 10,
+      "factor": 1
+    }
+  }, 
   {
-    "name": "total_number_requests",
+    "name": "http_requests_total",
     "help": "The total number of requests served",
     "labelNames": [
       { "key": "method", "path": [ "req", "method" ] },
@@ -70,9 +83,14 @@
     "mark": { "method": "inc", "amount": 1 }
   },
   {
-    "name": "request_rate",
+    "name": "koa_requests_per_second",
     "help": "Number of requests received per second",
     "type": "Meter",
     "mark": { "method": "mark", "amount": 1 }
+  },
+  {
+    "name": "koa_errors_per_second",
+    "help": "Number of errors per second per request",
+    "type": "Meter"
   }
 ]
