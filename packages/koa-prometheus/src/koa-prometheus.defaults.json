@@ -67,7 +67,7 @@
     "buckets": {
       "type": "exponential",
       "start": 1000,
-      "buckets": 10,
+      "buckets": 15,
       "factor": 2
     }
   }, 
