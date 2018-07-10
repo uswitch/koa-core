@@ -26,4 +26,4 @@ export default (userConfig = [], { loadDefaults = true } = {}) => {
   return { ...meters, automark, print, middleware: middleware(meters) }
 }
 
-const buildPrinter = (config, meters) => () => removeBlanks([register.metrics(), printMeters(config, meters)].join('\n'))
+const buildPrinter = (config, meters) => () => removeBlanks([register.metrics(), ...printMeters(config, meters)].join('\n'))
