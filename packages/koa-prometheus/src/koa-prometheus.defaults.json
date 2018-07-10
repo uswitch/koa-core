@@ -76,7 +76,7 @@
     "help": "The total number of requests served",
     "labelNames": [
       { "key": "method", "path": [ "req", "method" ] },
-      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "code", "path": [ "res", "statusBucket" ] },
       { "key": "path", "path": [ "_matchedRoute" ] }
     ],
     "type": "Counter",
