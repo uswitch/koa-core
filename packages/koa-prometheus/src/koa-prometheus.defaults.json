@@ -14,7 +14,7 @@
     }
   },
   {
-    "name": "http_request_duration_percentile_seconds",
+    "name": "http_request_duration_hist_seconds",
     "help": "The response time of requests",
     "type": "Histogram",
     "labelNames": [
