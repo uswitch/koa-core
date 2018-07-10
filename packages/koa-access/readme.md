@@ -73,6 +73,7 @@ an object and fire them on the the `koa-access:access` event.
     "responseTime": 23    // Response time in `ms`
     "length": 23232       // Content length of the response
     "status": 200         // Response status
+    "statusBucket": "2XX" // Status as a bucket string
     "time": "2017-..."    // Timestamp of the response
   },
   "req": {
