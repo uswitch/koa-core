@@ -21,9 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/uswitch/koa-tracer.git"
   },
-  "dependencies": {
-    "chalk": "^2.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
