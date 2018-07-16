@@ -8,7 +8,7 @@
     "properties": {
       "type": {
         "type": "string",
-        "enum": [ "Counter", "Gauge", "Histogram", "Summary" ]
+        "enum": [ "Counter", "Gauge", "Histogram", "Summary", "Meter" ]
       },
       "name": {
         "type": "string",
@@ -25,7 +25,7 @@
         "properties": {
           "method": {
             "type": "string",
-            "enum": [ "observe", "inc", "dec", "set" ]
+            "enum": [ "observe", "inc", "dec", "set", "mark" ]
           },
           "amount": {
             "type": "number",
