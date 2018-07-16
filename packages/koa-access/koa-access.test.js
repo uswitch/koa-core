@@ -10,7 +10,7 @@ describe(`koa-access.js`, () => {
     it('should have the desired properties', (done) => {
       const l = access()
 
-      ctx.app.on(eventAccess, ({ req, res }) => {
+      ctx.app.on(eventAccess, (ctx, { req, res }) => {
         expect(req).toBeDefined()
         expect(res).toBeDefined()
         done()
@@ -23,7 +23,7 @@ describe(`koa-access.js`, () => {
       const l = access([ 'id' ])
       ctx = { ...ctx, state: { id: '12345-67890' } }
 
-      ctx.app.on(eventAccess, ({ id }) => {
+      ctx.app.on(eventAccess, (ctx, { id }) => {
         expect(id).toEqual('12345-67890')
         done()
       })
@@ -35,7 +35,7 @@ describe(`koa-access.js`, () => {
       const l = access(({ a }) => ({ A: a * a, a }))
       ctx = { ...ctx, a: 5 }
 
-      ctx.app.on(eventAccess, ({ A, a }) => {
+      ctx.app.on(eventAccess, (ctx, { A, a }) => {
         expect(A).toEqual(25)
         expect(a).toEqual(5)
         done()
