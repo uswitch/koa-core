@@ -1,3 +1,5 @@
+import stringify from 'json-stringify-safe'
+
 const splitPath = (p = []) => {
   if (Array.isArray(p)) return [p]
 
@@ -32,5 +34,5 @@ export default (config = {}) => (ctx, extras = {}) => {
   if (process.env.DEBUG_KOA_SIGNAL) console.log(props)
 
   const json = pluck(accessObj, props)
-  return JSON.stringify(json, null, humanReadable ? 2 : 0)
+  return stringify(json, null, humanReadable ? 2 : 0)
 }

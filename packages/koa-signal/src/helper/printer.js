@@ -1,4 +1,4 @@
-const flatten = arr => [].concat(...arr.map(it => Array.isArray(it) ? flatten(it) : it))
+import flatten from './flatten'
 
 export default ({ separator = ' ' } = {}) => (...inputs) => {
   const printable = flatten(inputs)

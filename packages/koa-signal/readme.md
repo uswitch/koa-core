@@ -30,7 +30,7 @@
 ![type](https://img.shields.io/badge/⚡-library-c45366.svg?style=for-the-badge)
 ![language](https://img.shields.io/badge/❤-Node-da776c.svg?style=for-the-badge)
 [![test](https://img.shields.io/badge/🔬-Jest-e9a279.svg?style=for-the-badge)](https://facebook.github.io/jest/)
-[![style](https://img.shields.io/badge/🎨-Standard-e4ca93.svg?style=for-the-badge)](https://standardjs.com)
+p[![style](https://img.shields.io/badge/🎨-Standard-e4ca93.svg?style=for-the-badge)](https://standardjs.com)
 
 ## Overview
 
@@ -75,14 +75,16 @@ app.on(eventError, ({ ctx, error }) => signal.error(ctx, error.original))
 
 app.listen(3000, () => signal.start(Listening on port 3000))
 ```
-<small>**N.B.** See [`koa-core`](https://github.com/uswitch/koa-core)</small>
+<p align="center"><i><b>N.B.</b> See <a
+href="https://github.com/uswitch/koa-core">
+koa-core</a></i></p>
 
 However, you can use it entirely independently of these two libraries
 as a log formatter. Creating an instance of `koa-signal` will provide
 you with a bunch of different logging functions, _e.g._
 
 ```js
-import Signal form '@uswitch/koa-signal'
+import Signal from '@uswitch/koa-signal'
 const signal = Signal({ /* config overrides */ })
 
 signal.info('My really useful info message')
@@ -113,11 +115,67 @@ const signal = Signal({
   }
 })
 ```
-<small>**N.B.** See [`koa-core`](https://github.com/uswitch/koa-core)</small>
+<p align="center"><i><b>N.B.</b> See <a
+href="https://github.com/uswitch/koa-core">
+koa-core</a></i></p>
+
 
 ### API
 
+Each **Signal** function is defined with a `format` property [_(See
+configuration)_](#configuration) which dictates how the log **output**
+is built. For example, let's take the `trace` function with the
+following output;
+
+```
+🤦 Doh!   [9ee...498] | +2546ms | |  +123ms | [SCOPE] >  First scoped traced message
+```
+
+The whole output is a **LEVEL**, but is made up of multiple
+**COMPONENTS**;
+```
+                                  TRACE LEVEL FUNCTION
+╭──────────────────────────────────────────┴────────────────────────────────────────╮
+🤦 Doh!   [9ee...498] | +2546ms | |  +123ms | [SCOPE] >  First scoped traced message
+╰───┬───╯ ╰────┬────╯ ╰────┬────╯ ╰────┬────╯ ╰────┬────╯╰─────────────┬────────────╯
+COMPONENT  COMPONENT   COMPONENT   COMPONENT   COMPONENT           COMPONENT
+```
+
+This is defined in config as the following;
+```json
+{
+  "levels": {
+    "trace": {
+      "badge": "🤦",
+      "label": "Doh!",
+      "format": [ "level", "id", "time-diff-init", "time-diff-scope", "scope", "message" ]
+    }
+  }
+}
+```
+Where `[ "level", ..., "message" ]` is the list of **Components**
+being used. **Components** also have their _own_ configuration defined separately.
+
+#### API Functions
+
+These functions are available _by default_ and require the following
+properties when called.
+
+| Function  | API                                                                                             |
+|-----------|-------------------------------------------------------------------------------------------------|
+| `success` | `({ state: { id: STRING }, msg: STRING })`                                                      |
+| `info`    | `({ state: { id: STRING }, msg: STRING })`                                                      |
+| `warn`    | `({ state: { id: STRING }, msg: STRING })`                                                      |
+| `access`  | `({ state: { id: STRING }, req: OBJECT, res: OBJECT }, extras: OBJECT)`                         |
+| `trace`   | `({ state: { id: STRING }, initDiff: INT, timeDiff: INT, scope: STRING, msg: STRING })`         |
+| `zipkin`  | `({ kind: CLIENT/SERVER, state: { parent: STRING, trace: STRING }, req: OBJECT, res: OBJECT })` |
+| `error`   | `({ state: { id: STRING }, msg: STRING }, ERROR)`                                               |
+| `start`   | `({ msg: SRTING })`                                                                             |
+| `end`     | `({ msg: STRING })`                                                                             |
+
 ### Configuration
+
+You can see the default configuration of [`koa-signal` here](https://github.com/uswitch/koa-signal/blob/master/src/koa-signal.defaults.json)
 
 
 ## Contributors

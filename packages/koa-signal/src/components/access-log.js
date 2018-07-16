@@ -15,5 +15,5 @@ export default (config = {}) => (ctx = {}, extras = {}) => {
     const replacement = join([res[key] || req[key], slurp], '')
 
     return acc.replace(it, replacement || '')
-  }, format)
+  }, format).replace(/ +/g, ' ')
 }

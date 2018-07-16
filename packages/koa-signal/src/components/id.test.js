@@ -38,4 +38,8 @@ describe(`koa-signal | id component`, () => {
   it('should return the correctly formatted \'defaultReturn\' if no id is present', () => {
     expect(id({ defaultReturn: 'no_id', displayFormat: '[%s]' })()).toEqual('[no_id]')
   })
+
+  it('should be able to read the extra config id argument', () => {
+    expect(id({ configArg: 'extra' })({ state: { extra: 'foo' } })).toEqual('foo')
+  })
 })

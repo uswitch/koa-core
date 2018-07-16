@@ -3,8 +3,8 @@ import shorten from '../helper/shorten'
 
 /* Config and then passed Koa ctx & msg */
 export default (config = { }) => ({ state = {} } = {}) => {
-  const { displayShortId = false, defaultReturn } = config
-  const { id } = state
+  const { displayShortId = false, defaultReturn, configArg } = config
+  const id = state[configArg || 'id'] || ''
 
   if (!id) return format(config, defaultReturn)
 

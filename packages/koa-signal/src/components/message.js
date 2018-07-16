@@ -6,6 +6,7 @@ const isObject = obj => obj === Object(obj)
 const _string = (config, ctx) => format(config, ctx)
 const _object = (config, obj) => Object
   .entries(obj)
+  .filter(([key, val]) => key !== 'original' && !!val)
   .map(([key, val]) => `${bold(key)}: ${val}`)
 
 /* Config and then passed Koa ctx & msg */
