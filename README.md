@@ -83,7 +83,7 @@ through `koa-core`.
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Tue Jul 10 2018 12:48:15 GMT+0100 (BST) -->
+<!-- Generated Mon Jul 16 2018 14:05:44 GMT+0100 (BST) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.5.1` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
