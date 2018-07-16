@@ -37,7 +37,7 @@ export const traceError = (ctx, err) => {
   ctx.state.errors = [ ...ctx.state.errors || [], error ]
   ctx.state.errorsCount = ctx.state.errors.length
 
-  ctx.app && ctx.app.emit(eventError, { ctx, error })
+  ctx.app && ctx.app.emit(eventError, { ctx, error, original: err })
 }
 
 export default () => async (ctx, next) => {

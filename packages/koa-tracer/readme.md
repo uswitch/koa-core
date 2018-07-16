@@ -51,9 +51,13 @@ picture of what's happening in your code.
 
 ### Usage
 
+```sh
+npm install @uswitch/koa-tracer
+```
+
 ```js
 import Koa from 'koa'
-import tracer from 'koa-tracer'
+import tracer, { eventTrace, eventError } from '@uswitch/koa-tracer'
 
 const app = new Koa()
 
@@ -61,6 +65,9 @@ app.use(tracer())
 
 app.on('koa-tracer:trace', Logger.log)
 app.on('koa-tracer:error', Logger.err)
+
+app.on(eventTrace, Logger.log)
+app.on(eventError, Logger.err)
 ```
 
 This package uses [**Event
@@ -145,7 +152,7 @@ The following events are fired on `trace` and `error` logging
 completion.
 
 * `koa-tracer:trace => ({ ctx, key, trace })`
-* `koa-tracer:error => ({ ctx, error })`
+* `koa-tracer:error => ({ ctx, error, original })`
 
 _**N.B.** These events are called with **Objects**_
 
