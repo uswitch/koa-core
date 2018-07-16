@@ -23,8 +23,6 @@
 
 ## Overview
 
-A monorepo? **No**! Not _quite_.
-
 This repo acts both as a **helper** library for wiring together the
 [`@uswitch/koa-`]() packages as well as a master **list** of open sources
 `koa` libraries we depend on.
