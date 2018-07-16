@@ -23,8 +23,6 @@
 
 ## Overview
 
-A monorepo? **No**! Not _quite_.
-
 This repo acts both as a **helper** library for wiring together the
 [`@uswitch/koa-`]() packages as well as a master **list** of open sources
 `koa` libraries we depend on.
@@ -83,7 +81,7 @@ through `koa-core`.
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Tue Jul 10 2018 12:48:15 GMT+0100 (BST) -->
+<!-- Generated Mon Jul 16 2018 13:06:23 GMT+0100 (BST) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.5.1` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
