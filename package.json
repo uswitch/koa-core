@@ -5,7 +5,9 @@
     "lerna:publish": "npm run lerna -- publish",
     "lerna:clean": "npm run lerna -- clean",
     "lerna:link": "npm run lerna -- link",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "audit": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"Auditing: $l\"; npm audit; cd $ROOT; done",
+    "ls": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"npm ls: $l\"; npm ls; cd $ROOT; done"
   },
   "repository": {
     "type": "git",
