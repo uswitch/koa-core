@@ -1,4 +1,12 @@
 {
+  "scripts": {
+    "lerna:bootstrap": "npm run lerna -- bootstrap",
+    "lerna:updated": "npm run lerna -- updated",
+    "lerna:publish": "npm run lerna -- publish",
+    "lerna:clean": "npm run lerna -- clean",
+    "lerna:link": "npm run lerna -- link",
+    "lerna": "lerna"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uswitch/koa-core.git"
