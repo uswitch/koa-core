@@ -7,6 +7,7 @@
     "------- TESTING": "---------------------------------------------------",
     "example": "babel-node ./__example__/server.js",
     "example:watch": "npm-watch example",
+    "test": "lerna run test",
     "------- BUILDING": "--------------------------------------------------",
     "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m '[core] Update readme with latest dependencies'",
     "prepublishOnly": "npm update; node ./__scripts__/build-dependencies.js",
@@ -41,6 +42,7 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "lerna": "^2.11.0",
     "npm-watch": "^0.3.0"
   }
 }
