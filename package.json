@@ -13,7 +13,7 @@
     "prepublishOnly": "npm update; node ./__scripts__/build-dependencies.js",
     "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '[core] Update package dependencies'",
     "publish:packages": "lerna publish",
-    "postpublish:packages": "npm update"
+    "postpublish:packages": "npm update; git commit -am '[core] Update dependencies'"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@uswitch/koa-access": "^2.2.2",
     "@uswitch/koa-prometheus": "^0.3.4",
-    "@uswitch/koa-signal": "^1.2.3",
+    "@uswitch/koa-signal": "^1.2.4",
     "@uswitch/koa-timeout": "^1.1.1",
     "@uswitch/koa-tracer": "^1.1.2",
     "koa": "^2.5.2",
