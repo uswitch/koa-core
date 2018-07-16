@@ -11,10 +11,11 @@
   |
   <b><a href="#packages">Packages</a></b>
   |
+  <b><a href="#library">Library</a></b>
+  |
   <b><a href="#example">Example</a></b>
 </p>
 
-[![Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=for-the-badge)](#contributors)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)]()
 ![type](https://img.shields.io/badge/⚡-library-c45366.svg?style=for-the-badge)
 ![language](https://img.shields.io/badge/❤-Node-da776c.svg?style=for-the-badge)
@@ -23,9 +24,12 @@
 
 ## Overview
 
+**Koa Core** is a [`lerna`](https://github.com/lerna/lerna) monorepo
+housing all of **uSwitch**'s `koa` packages.
+
 This repo acts both as a **helper** library for wiring together the
 [`@uswitch/koa-`]() packages as well as a master **list** of open sources
-`koa` libraries we depend on.
+`koa` libraries that we depend on.
 
 This means we have a **single point of truth** for which packages we use
 and the versions we depend on.
@@ -34,37 +38,37 @@ and the versions we depend on.
 npm install @uswitch/koa-core
 ```
 
-### Usage
+### Making changes
 
-`koa-core` also provides you with a **boilerplate** function to
-quickly set up a new **Koa** server in the same way as the [**Koa**
-library](https://github.com/koajs/koa) itself.
+All of our `koa` libraries can be found in
+[`packages`](https:/github.com/uswitch/koa-core/tree/master/packages). Any
+changes should be made to them individually. Commits should ideally be
+namespaced to the package you're changing.
 
-```js
-import Koa from '@uswitch/koa-core'
+_e.g._ `[access] Making changes to koa acceess` or `[core] Making
+changes to core.`
 
-const { app, logger } = new Koa()
-app.listen(3000, () => logger.info('Applications started on port 3000'))
+Once changes have been committed, we use `lerna` to manage the bumping
+and publishing.
+
+```sh
+npx lerna publish --independent
+# or
+npm run publish:packages
 ```
 
-<p align="center"><i><b>N.B.</b> <code>koa-core</code> returns an <code>app</code> and a <code>logger</code></i></p>
+This will publish the individual libraries that have been
+changed. Once this is done, you should update `core`, to do this you
+can run
 
+```sh
+npm update 
+# or 
+npm update:manual
 
-### Importing
-
-All of the [`koa` **packages**](#packages) we have are available to import in your
-project via the following;
-
-```js
-/* ES6 Import */
-import koaLibrary from '@uswitch/koa-core/koa-library'
-
-/* Require */
-const koaLibrary = require('@uswitch/koa-core/koa-library')
+npm version patch|minor|major
+npm publish --access public
 ```
-
-See [**packages**](#packages) for a list of available `koa` libraries
-through `koa-core`.
 
 ## Packages
 
@@ -72,7 +76,7 @@ through `koa-core`.
 
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages-internal:start] -->
-<!-- Generated Mon Jul 16 2018 16:22:01 GMT+0100 (BST) -->
+<!-- Generated Mon Jul 16 2018 16:19:09 GMT+0100 (BST) -->
 | Package | Version | Dependencies | Description |
 |--|--|--|--|
 | [`@uswitch/koa-access`](https://www.npmjs.com/package/@uswitch/koa-access) | [![npm](https://img.shields.io/npm/v/@uswitch/koa-access.svg?maxAge=2592000)](https://www.npmjs.com/package/@uswitch/koa-access) | [![Dependency Status](https://david-dm.org/@uswitch/koa-access.svg?path=packages/@uswitch/koa-access)](https://david-dm.org/@uswitch/koa-access?path=packages/@uswitch/koa-access) | A Koa middleware for logging JSON access logs consistently, similar to morgan |
@@ -101,6 +105,41 @@ through `koa-core`.
 <!-- [doc-list-packages:end] -->
 <!-- DO NOT REMOVE - This is generated documentation -->
 
+## Library
+
+`koa-core` can also be used as a **boilerplate** library to quickly
+set upo a new **Koa** server in the same was as the [**Koa**
+library](https://github.com/koajs/koa) itself.
+
+### Usage
+
+```js
+import Koa from '@uswitch/koa-core'
+
+const { app, logger } = new Koa()
+app.listen(3000, () => logger.info('Applications started on port 3000'))
+```
+
+<p align="center"><i><b>N.B.</b> <code>koa-core</code> returns an <code>app</code> and a <code>logger</code></i></p>
+
+
+### Importing dependencies
+
+All of the [`koa` **packages**](#packages) we have are available to import in your
+project via the following;
+
+```js
+/* ES6 Import */
+import koaLibrary from '@uswitch/koa-core/koa-library'
+
+/* Require */
+const koaLibrary = require('@uswitch/koa-core/koa-library')
+```
+
+See [**packages**](#packages) for a list of available `koa` libraries
+through `koa-core`.
+
+
 ## Example
 
 This project also comes with an [**Example
@@ -109,7 +148,7 @@ and some example
 [**routes**](https://github.com/uswitch/koa-core/blob/master/__example__/server-routes.js)
 which shows how we use the `@uswitch/koa` libraries.
 
-```shs
+```sh
 npm install
 NODE_ENV=development npm run example
 NODE_ENV=production npm run example
