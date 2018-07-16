@@ -10,7 +10,7 @@
     "------- BUILDING": "--------------------------------------------------",
     "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m '[core] Update readme with latest dependencies'",
     "prepublishOnly": "npm update; node ./__scripts__/build-dependencies.js",
-    "update": "node __scripts__/updates-dependencies.js; git commit package.json package-lock.json -m '[core] Update package dependencies'"
+    "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '[core] Update package dependencies'"
   },
   "repository": {
     "type": "git",
