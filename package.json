@@ -1,4 +1,8 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswitch/koa-core.git"
+  },
   "devDependencies": {
     "lerna": "^2.11.0",
     "lerna-wizard": "^1.0.9"
