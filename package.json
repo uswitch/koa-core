@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "example:watch": "npm-watch example",
     "------- BUILDING": "--------------------------------------------------",
     "preversion": "node ./__scripts__/doc-dependencies.js; git commit README.md -m 'Update readme with latest dependencies'",
-    "prepublish": "npm update; node ./__scripts__/build-dependencies.js",
+    "prepublishOnly": "npm update; node ./__scripts__/build-dependencies.js",
     "preupdate": "node __scripts__/updates-dependencies.js"
   },
   "repository": {
@@ -23,8 +23,8 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.0.0",
-    "@uswitch/koa-prometheus": "^0.1.2",
+    "@uswitch/koa-access": "^2.2.0",
+    "@uswitch/koa-prometheus": "^0.2.5",
     "@uswitch/koa-signal": "^1.2.1",
     "@uswitch/koa-timeout": "^1.1.0",
     "@uswitch/koa-tracer": "^1.1.1",
