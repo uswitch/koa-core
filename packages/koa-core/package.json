@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@uswitch/koa-access": "^2.0.0",
-    "@uswitch/koa-prometheus": "^0.1.2",
+    "@uswitch/koa-prometheus": "^0.3.3",
     "@uswitch/koa-signal": "^1.2.1",
     "@uswitch/koa-timeout": "^1.1.0",
     "@uswitch/koa-tracer": "^1.1.1",
