@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-prometheus",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "A configurable Prometheus data collector with Koa middleware",
   "main": "build/koa-prometheus.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "build:config": "cp src/koa-prometheus.defaults.json build/.",
     "build": "run-s build:src build:config",
     "build:watch": "npm-watch build",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "watch": {
     "build": "src/*"
