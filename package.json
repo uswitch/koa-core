@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.6.14",
+  "version": "1.6.15",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
