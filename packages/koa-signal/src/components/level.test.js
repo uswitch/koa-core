@@ -10,6 +10,6 @@ describe(`koa-signal | level component`, () => {
   })
 
   it(`should add a badge if provided`, () => {
-    expect(level({ label: 'success', badge: '!' })(ctx)).toEqual(' ! success')
+    expect(level({ label: 'success', badge: '!' })(ctx)).toEqual('!  success')
   })
 })

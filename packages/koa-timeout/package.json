@@ -1,11 +1,11 @@
 {
   "name": "@uswitch/koa-timeout",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Koa middleware to handle timeouts correctly",
   "main": "build/koa-timeout.js",
   "scripts": {
     "------- BUILD": "-----------------------------------------------------",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "prebuild": "del build",
     "build": "babel --out-dir build koa-timeout.js --minified"
   },

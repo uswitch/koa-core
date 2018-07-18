@@ -1,8 +1,7 @@
-import { bold } from 'chalk'
 import { isError, isObject, isProduction, showErrorTrace } from './helper-predicates'
 
 /* Convert object into a pretty stringified log message */
-const toMessage = (obj) => Object.entries(obj).map(([ key, val ]) => val ? `${bold(key)}:${val}` : '').join(' ')
+const toMessage = (obj) => Object.entries(obj).map(([ key, val ]) => val ? `${key}:${val}` : '').join(' ')
 
 export default (obj) => {
   if (isError(obj)) {

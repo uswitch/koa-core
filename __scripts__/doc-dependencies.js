@@ -2,17 +2,17 @@ const { resolve } = require('path')
 const { writeFileSync, readFileSync } = require('fs')
 
 const npmUrl = name =>
-      `https://www.npmjs.com/package/${name}`
+  `https://www.npmjs.com/package/${name}`
 const npmBadge = name =>
-      `[\`${name}\`](${npmUrl(name)})`
+  `[\`${name}\`](${npmUrl(name)})`
 const versionBadge = name =>
-      `[![npm](https://img.shields.io/npm/v/${name}.svg?maxAge=2592000)](${npmUrl(name)})`
+  `[![npm](https://img.shields.io/npm/v/${name}.svg?maxAge=2592000)](${npmUrl(name)})`
 
 const { dependencies } = require('../package.json')
 const passThrough = Object
-      .entries(dependencies)
-      .filter(([dep]) => dep.startsWith('koa'))
-      .map(([dep, version]) => [npmBadge(dep), '`' + version + '`', versionBadge(dep)])
+  .entries(dependencies)
+  .filter(([dep]) => dep.startsWith('koa'))
+  .map(([dep, version]) => [npmBadge(dep), '`' + version + '`', versionBadge(dep)])
 
 const row = (arr) => '| ' + arr.join(' | ') + ' |'
 const table = `<!-- [doc-list-packages:start] -->

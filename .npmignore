@@ -1,4 +1,4 @@
 __example__
 __scripts__
-README.md
-.babelrc
+lerna.json
+packages

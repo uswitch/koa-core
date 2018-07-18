@@ -1,10 +1,54 @@
 {
+  "name": "@uswitch/koa-core",
+  "version": "1.6.12",
+  "description": "An example project showing the user of all core `@uswitch/koa` libraries",
+  "main": "koa-core.js",
+  "scripts": {
+    "------- TESTING": "---------------------------------------------------",
+    "example": "babel-node ./__example__/server.js",
+    "example:watch": "npm-watch example",
+    "test": "lerna run test",
+    "audit": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"Auditing: $l\"; npm audit; cd $ROOT; done",
+    "ls:packages": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"npm ls: $l\"; npm ls; cd $ROOT; done",
+    "ls": "lerna ls",
+    "------- BUILDING": "--------------------------------------------------",
+    "prepublish:packages": "node ./__scripts__/doc-dependencies.js; node ./__scripts__/doc-internal-packages.js; git commit README.md -m '[koa-core] Update readme with latest dependencies'; node ./__scripts__/build-dependencies.js",
+    "clean": "node ./__scripts__/clean-dependencies.js",
+    "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '[core] Update package dependencies'",
+    "publish:packages": "lerna publish"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uswitch/koa-core.git"
   },
+  "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
+  "license": "MIT",
+  "homepage": "https://github.com/uswitch/koa-core#readme",
+  "watch": {
+    "example": "__example__/*"
+  },
+  "dependencies": {
+    "@uswitch/koa-access": "^2.2.4",
+    "@uswitch/koa-prometheus": "^0.3.6",
+    "@uswitch/koa-signal": "^1.2.5",
+    "@uswitch/koa-timeout": "^1.1.2",
+    "@uswitch/koa-tracer": "^1.1.5",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-compose": "^4.1.0",
+    "koa-cookie": "^1.0.0",
+    "koa-helmet": "^4.0.0",
+    "koa-requestid": "^2.0.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "del": "^3.0.0",
+    "del-cli": "^1.1.0",
     "lerna": "^2.11.0",
-    "lerna-wizard": "^1.0.9"
+    "npm-watch": "^0.3.0"
   }
 }
