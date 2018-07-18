@@ -2,7 +2,7 @@
   "name": "@uswitch/koa-access",
   "version": "2.2.4",
   "license": "MIT",
-  "description": "A Koa middleware for logging JSON access logs consistently, similar to morgan",
+  "description": "👌 A Koa middleware for logging JSON access logs consistently, similar to morgan",
   "main": "build/koa-access.js",
   "scripts": {
     "test": "jest",
@@ -15,6 +15,9 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
