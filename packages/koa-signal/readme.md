@@ -1,4 +1,4 @@
-<h1 align="center">Koa Signal</h1>
+<h1 align="center">🚦 Koa Signal</h1>
 
 <p align="center">
   <i>

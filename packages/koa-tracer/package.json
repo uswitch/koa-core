@@ -1,9 +1,9 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
-  "description": "A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
+  "description": "🕵️‍♀️ A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
   "main": "build/koa-tracer.js",
   "scripts": {
     "test": "jest",
@@ -16,6 +16,9 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
