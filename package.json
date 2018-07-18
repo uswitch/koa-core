@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@uswitch/koa-access": "^2.2.4",
-    "@uswitch/koa-prometheus": "^0.3.5",
+    "@uswitch/koa-prometheus": "^0.3.6",
     "@uswitch/koa-signal": "^1.2.5",
     "@uswitch/koa-timeout": "^1.1.2",
     "@uswitch/koa-tracer": "^1.1.5",
