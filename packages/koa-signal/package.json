@@ -1,7 +1,7 @@
 {
   "name": "@uswitch/koa-signal",
   "version": "1.2.5",
-  "description": "Hackable and configurable output rendering for loggers",
+  "description": "🚦 Hackable and configurable output rendering for loggers",
   "main": "build/koa-signal.js",
   "scripts": {
     "test": "jest --no-color",
@@ -15,6 +15,9 @@
     "build": "run-s build:src build:config",
     "build:watch": "npm-watch build",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "watch": {
     "build": "src/*"
