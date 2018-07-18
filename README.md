@@ -52,8 +52,6 @@ Once changes have been committed, we use `lerna` to manage the bumping
 and publishing.
 
 ```sh
-npx lerna publish --independent
-# or
 npm run publish:packages
 ```
 
