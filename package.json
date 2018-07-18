@@ -7,7 +7,7 @@
     "------- TESTING": "---------------------------------------------------",
     "example": "babel-node ./__example__/server.js",
     "example:watch": "npm-watch example",
-    "test": "lerna run test",
+    "test": "lerna run test --ignore @uswitch/koa-core",
     "audit": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"Auditing: $l\"; npm audit; cd $ROOT; done",
     "ls:packages": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"npm ls: $l\"; npm ls; cd $ROOT; done",
     "ls": "lerna ls",
@@ -15,6 +15,7 @@
     "prepublish:packages": "node ./__scripts__/doc-dependencies.js; node ./__scripts__/doc-internal-packages.js; git commit README.md -m '[core] Update readme with latest dependencies'; node ./__scripts__/build-dependencies.js",
     "clean": "node ./__scripts__/clean-dependencies.js",
     "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '[core] Update package dependencies'",
+    "build": "lerna run build --ignore @uswitch/koa-core",
     "publish:packages": "lerna publish"
   },
   "publishConfig": {
