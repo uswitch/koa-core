@@ -1,4 +1,4 @@
-<h1 align="center">Koa Tracer</h1>
+<h1 align="center">🕵️‍♀️ Koa Tracer</h1>
 
 <p align="center">
   <i>
