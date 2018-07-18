@@ -48,6 +48,15 @@ namespaced to the package you're changing.
 _e.g._ `[access] Making changes to koa acceess` or `[core] Making
 changes to core.`
 
+Or, better yet, with emojis
+
+* 🎾 for `core`
+* 👌 for `access`
+* 🕵️‍♀️ for `tracer`
+* 🚦 for `signal`
+* 🌡️ for `prometheus`
+* ⏰ for `timeout`
+
 Once changes have been committed, we use `lerna` to manage the bumping
 and publishing.
 
