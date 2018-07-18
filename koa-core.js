@@ -19,14 +19,18 @@ module.exports = (config = {}) => {
   const signal = Signal(signalConfig)
   const meters = Meters(prometheusConf, { loadDefaults: false })
 
+  app.use((ctx, next) => {
+    if (ctx.request.path !== '/metrics') return next()
+    ctx.body = meters.print()
+  })
+
   app.use(tracer())
   app.use(meters.middleware)
-  app.use(meters.route)
   app.use(access([ 'id', 'trace', 'errors', ...accessConf ]))
 
   app.on(eventTrace, ({ ctx, key, trace }) => signal.trace({...ctx, ...trace, scope: key}))
   app.on(eventError, ({ ctx, error }) => signal.error(ctx, error.original))
-  app.on(eventError, () => meters.errorRate.mark(1))
+  app.on(eventError, () => meters.koaErrorsPerSecond.mark(1))
 
   app.on(eventAccess, (ctx, extra) => meters.automark({ ...ctx, ...extra }))
   app.on(eventAccess, signal.access)
