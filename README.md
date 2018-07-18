@@ -55,18 +55,8 @@ and publishing.
 npm run publish:packages
 ```
 
-This will publish the individual libraries that have been
-changed. Once this is done, you should update `core`, to do this you
-can run
-
-```sh
-npm update 
-# or 
-npm update:manual
-
-npm version patch|minor|major
-npm publish --access public
-```
+This will publish the individual libraries followed by performing
+updating dependencies and generating the documentation for `core` .
 
 ## Packages
 
