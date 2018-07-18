@@ -19,6 +19,7 @@ exec(cmd, (err, data) => {
 
   const json = JSON.parse(data)
   const packages = json
+    .filter(({ name }) => name !== '@uswitch/koa-core')
     .map(({ name, version }) => [name, name.split('/'), version])
     .map(([p, [ _, name ], version]) => [p, getDescription(name), version])
     .map(([ name, description, version ]) => [ npmBadge(name), versionBadge(name), dependencyBadge(name), description ])
