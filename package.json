@@ -16,7 +16,7 @@
     "clean": "node ./__scripts__/clean-dependencies.js",
     "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '🎾 Update package dependencies'",
     "build": "lerna run build --ignore @uswitch/koa-core",
-    "publish:packages": "lerna publish --message '🚀 Publish!'"
+    "publish:packages": "lerna publish --message '🚀 Begin publish'"
   },
   "publishConfig": {
     "access": "public"
