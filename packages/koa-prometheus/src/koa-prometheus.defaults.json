@@ -55,7 +55,7 @@
   },
   {
     "name": "http_content_length_bytes",
-    "help": "The size of the payload being sent f",
+    "help": "The size of the payload being sent from the server",
     "type": "Histogram",
     "labelNames": [
       { "key": "path", "path": [ "_matchedRoute" ] }
@@ -65,10 +65,10 @@
       "path": [ "res", "length" ]
     },
     "buckets": {
-      "type": "exponential",
-      "start": 1000,
+      "type": "linear",
+      "start": 15000,
       "buckets": 15,
-      "factor": 2
+      "factor": 10000
     }
   }, 
   {
