@@ -1,7 +1,7 @@
 {
   "name": "@uswitch/koa-timeout",
   "version": "1.1.2",
-  "description": "A Koa middleware to handle timeouts correctly",
+  "description": "⏰ A Koa middleware to handle timeouts correctly",
   "main": "build/koa-timeout.js",
   "scripts": {
     "------- BUILD": "-----------------------------------------------------",
@@ -17,6 +17,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/uswitch/koa-timeout/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://github.com/uswitch/koa-timeout#readme",
   "devDependencies": {

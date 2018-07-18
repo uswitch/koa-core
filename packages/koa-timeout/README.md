@@ -1,4 +1,4 @@
-<h1 align="center">Koa Timeout</h1>
+<h1 align="center">⏰ Koa Timeout</h1>
 
 <p align="center">
   <i>
