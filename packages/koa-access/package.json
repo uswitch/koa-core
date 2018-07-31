@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-access",
-  "version": "2.2.5",
+  "version": "2.2.7",
   "license": "MIT",
   "description": "👌 A Koa middleware for logging JSON access logs consistently, similar to morgan",
   "main": "build/koa-access.js",
@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "prebuild": "del build",
-    "build": "babel --out-dir build koa-access.js"
+    "build": "babel --out-dir build koa-access.js",
+    "publish": "npm publish"
   },
   "jest": {
     "transform": {
