@@ -1,5 +1,6 @@
 import toMessage from './src/to-message'
 import { getTimeDiff, getInitDiff } from './src/helper-selectors'
+import { isError } from './src/helper-predicates'
 
 export const DEFAULT_KEY = '__general'
 export const defaultKey = DEFAULT_KEY
@@ -32,12 +33,13 @@ export const trace = (ctx, key, message) => {
 }
 
 export const traceError = (ctx, err) => {
+  const original = isError(err) ? err : err.original || new Error(err.message)
   const error = { time: new Date(), ...toMessage(err) }
 
   ctx.state.errors = [ ...ctx.state.errors || [], error ]
   ctx.state.errorsCount = ctx.state.errors.length
 
-  ctx.app && ctx.app.emit(eventError, { ctx, error, original: err })
+  ctx.app && ctx.app.emit(eventError, { ctx, error, original })
 }
 
 export default () => async (ctx, next) => {
@@ -46,6 +48,7 @@ export default () => async (ctx, next) => {
 
   ctx.trace = trace.bind({}, ctx)
   ctx.error = traceError.bind({}, ctx)
+  ctx.traceError = traceError.bind({}, ctx)
 
   await next()
 }
