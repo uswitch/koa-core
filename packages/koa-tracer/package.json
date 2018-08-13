@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
-    "prebuild": "del build",
+    "prebuild": "rm -rf build",
     "build": "babel --out-dir build src/*.js koa-tracer.js"
   },
   "jest": {

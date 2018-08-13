@@ -1,5 +1,5 @@
 /* global describe, it, beforeEach, expect */
-import tracer, { trace, traceError, eventTrace } from './koa-tracer'
+import tracer, { trace, traceError, eventTrace, eventError } from './koa-tracer'
 import EventEmitter from 'events'
 
 describe(`koa-tracer.js`, () => {
@@ -17,7 +17,7 @@ describe(`koa-tracer.js`, () => {
       trace(ctx, 'new_trace', 'message1')
       trace(ctx, 'new_trace', 'message2')
 
-      expect(ctx.state.trace.new_trace.traces.length).toBe(2)
+      expect(ctx.state.trace.new_trace.traces).toHaveLength(2)
       expect(ctx.state.trace.new_trace.traces[0]).toEqual(expect.objectContaining({ msg: 'message1' }))
       expect(ctx.state.trace.new_trace.traces[1]).toEqual(expect.objectContaining({ msg: 'message2' }))
     })
@@ -99,7 +99,7 @@ describe(`koa-tracer.js`, () => {
 
       ctx.app.on(eventTrace, ({ ctx, key, trace }) => {
         if (trace.msg === 'Goodbye') {
-          expect(ctx.state.trace.foo.traces.length).toEqual(2)
+          expect(ctx.state.trace.foo.traces).toHaveLength(2)
           done()
         }
       })
@@ -116,7 +116,7 @@ describe(`koa-tracer.js`, () => {
       const ctx = { state: {} }
       traceError(ctx, 'New error!')
 
-      expect(ctx.state.errors.length).toEqual(1)
+      expect(ctx.state.errors).toHaveLength(1)
       expect(ctx.state.errors[0].msg).toBe('New error!')
     })
 
@@ -124,7 +124,7 @@ describe(`koa-tracer.js`, () => {
       const ctx = { state: {} }
       traceError(ctx, { msg: 'nooooooo', reason: 'badddd' })
 
-      expect(ctx.state.errors.length).toEqual(1)
+      expect(ctx.state.errors).toHaveLength(1)
       expect(ctx.state.errors[0]).toEqual(expect.objectContaining({ msg: 'nooooooo', reason: 'badddd' }))
     })
 
@@ -136,11 +136,50 @@ describe(`koa-tracer.js`, () => {
       } catch (err) {
         traceError(ctx, err)
 
-        expect(ctx.state.errors.length).toEqual(1)
+        expect(ctx.state.errors).toHaveLength(1)
         expect(ctx.state.errors[0]).toEqual(expect.objectContaining({ msg: 'Uh oh spaghetti-os' }))
 
         done()
       }
+    })
+
+    it('should emit errors with the original', (done) => {
+      const t = tracer()
+      const ctx = { state: {}, app: new EventEmitter() }
+      const err = new Error('Ouch! I stubbed my toe')
+
+      ctx.app.on(eventError, ({ original }) => {
+        expect(original).toEqual(err)
+        done()
+      })
+
+      t(ctx, () => { ctx.traceError(err) })
+    })
+
+    it('should emit errors with just a message', (done) => {
+      const t = tracer()
+      const ctx = { state: {}, app: new EventEmitter() }
+      const err = { message: 'Ouch! I stubbed my toe' }
+
+      ctx.app.on(eventError, ({ original }) => {
+        expect(original).toEqual(new Error('Ouch! I stubbed my toe'))
+        done()
+      })
+
+      t(ctx, () => { ctx.traceError(err) })
+    })
+
+    it('should emit errors when given an object with the original', (done) => {
+      const t = tracer()
+      const ctx = { state: {}, app: new EventEmitter() }
+      const err = new Error('Hmm, I\'ve lost my keys...')
+
+      ctx.app.on(eventError, ({ original }) => {
+        expect(original).toEqual(err)
+        done()
+      })
+
+      t(ctx, () => { ctx.traceError({ message: 'Not this', original: err }) })
     })
   })
 })
