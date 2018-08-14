@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -12,11 +12,15 @@
     "ls:packages": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"npm ls: $l\"; npm ls; cd $ROOT; done",
     "ls": "lerna ls",
     "------- BUILDING": "--------------------------------------------------",
-    "prepublish:packages": "node ./__scripts__/doc-dependencies.js; node ./__scripts__/doc-internal-packages.js; git commit README.md -m '🎾 Update readme with latest dependencies'; node ./__scripts__/build-dependencies.js",
+    "build:deps": "node ./__scripts__/build-dependencies.js",
+    "update:deps": "node __scripts__/update-dependencies.js",
+    "doc:deps": "node ./__scripts__/doc-dependencies.js; node ./__scripts__/doc-internal-packages.js",
+    "postupdate:deps": "git commit package.json package-lock.json -m '🎾 Update package dependencies'",
+    "postdoc:deps": "git commit README.md -m '🎾 Update readme with latest dependencies'",
+    "prepublish:packages": "npm run doc:deps; npm run build:deps; npm run build",
+    "publish:packages": "lerna publish --message '🚀 Begin publish'",
     "clean": "node ./__scripts__/clean-dependencies.js",
-    "update:manual": "node __scripts__/update-dependencies.js; git commit package.json package-lock.json -m '🎾 Update package dependencies'",
-    "build": "lerna run build --ignore @uswitch/koa-core",
-    "publish:packages": "lerna publish --message '🚀 Begin publish'"
+    "build": "lerna run build --ignore @uswitch/koa-core"
   },
   "publishConfig": {
     "access": "public"
@@ -32,11 +36,11 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.3.3",
-    "@uswitch/koa-prometheus": "^0.4.3",
-    "@uswitch/koa-signal": "^1.3.3",
-    "@uswitch/koa-timeout": "^1.2.3",
-    "@uswitch/koa-tracer": "^1.3.1",
+    "@uswitch/koa-access": "^2.3.4",
+    "@uswitch/koa-prometheus": "^0.4.4",
+    "@uswitch/koa-signal": "^1.3.4",
+    "@uswitch/koa-timeout": "^1.3.0",
+    "@uswitch/koa-tracer": "^1.3.2",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",

@@ -4,15 +4,18 @@ export default (time, { status = 408 } = {}) => (ctx, next) => {
     timer = setTimeout(() => {
       ctx.state.timeout = true
       ctx.status = status
-      ctx.body = {}
+      ctx.body = `Request timedout: ${time}ms`
 
       reject(new Error(`Request timedout: ${time}ms`))
     }, time)
   })
 
-  return Promise.race([ timeout, next() ])
-    .then(() => clearTimeout(timer))
+  const clear = clearTimeout.bind({}, timer)
+  return Promise
+    .race([ timeout, next() ])
+    .then(clear)
     .catch((ex) => {
+      clear()
       if (ctx.state.timeout) return ctx.throw(408, 'Request timeout')
       throw ex
     })
