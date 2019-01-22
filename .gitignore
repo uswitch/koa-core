@@ -1,6 +1,7 @@
 build
 
 !koa-core.js
+/koa*
 
 # Logs
 logs
