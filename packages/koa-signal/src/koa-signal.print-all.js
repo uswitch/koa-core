@@ -1,6 +1,6 @@
 import { dim } from 'chalk'
 import Signal from './koa-signal.js'
-const signal = new Signal({ levels: { json: { format: [ 'json' ] } } })
+const signal = new Signal({ levels: {json: { format: [ 'json' ] }, rawJson: { format: ['raw-json']}}})
 
 console.log()
 console.log(dim('-- Process functions'))
@@ -59,3 +59,6 @@ circularJson.req = circularJson
 
 signal.json({ id, res })
 signal.json(circularJson)
+
+signal.rawJson({"hello": "world"})
+signal.rawJson("I'm a string")
