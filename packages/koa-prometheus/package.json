@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-prometheus",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "🌡️ A configurable Prometheus data collector with Koa middleware",
   "main": "build/koa-prometheus.js",
   "scripts": {
@@ -24,8 +24,8 @@
   "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
   "license": "MIT",
   "dependencies": {
-    "metrics": "^0.1.15",
-    "prom-client": "^11.1.1",
+    "metrics": "^0.1.21",
+    "prom-client": "^11.2.1",
     "prometheus-gc-stats": "^0.5.1"
   },
   "devDependencies": {
