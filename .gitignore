@@ -1,6 +1,5 @@
 build
 
-koa*
 !koa-core.js
 
 # Logs
