@@ -41,7 +41,7 @@
     "@uswitch/koa-signal": "^1.3.6",
     "@uswitch/koa-timeout": "^1.3.0",
     "@uswitch/koa-tracer": "^1.3.2",
-    "koa": "^2.5.2",
+    "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
     "koa-cookie": "^1.0.0",

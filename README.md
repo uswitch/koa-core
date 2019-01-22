@@ -45,7 +45,7 @@ All of our `koa` libraries can be found in
 changes should be made to them individually. Commits should ideally be
 namespaced to the package you're changing.
 
-_e.g._ `[access] Making changes to koa acceess` or `[core] Making
+_e.g._ `[access] Making changes to koa access` or `[core] Making
 changes to core.`
 
 Or, better yet, with emojis
