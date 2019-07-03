@@ -56,6 +56,7 @@ Or, better yet, with emojis
 * 🚦 for `signal`
 * 🌡️ for `prometheus`
 * ⏰ for `timeout`
+* 🤐 for `zipkin`
 
 Once changes have been committed, we use `lerna` to manage the bumping
 and publishing.
@@ -173,4 +174,7 @@ curl http://localhost:3000/scope/name    // Trace message to scope NAME
 
 // See all types of koa-signal message
 curl http://localhost:3000/signal/all
+
+// See how zipkin tracing works
+curl http://locahost:3000/zipkin
 ```

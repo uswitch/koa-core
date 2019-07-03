@@ -5,7 +5,7 @@
   "main": "koa-core.js",
   "scripts": {
     "------- TESTING": "---------------------------------------------------",
-    "example": "babel-node ./__example__/server.js",
+    "example": "node --experimental-modules ./__example__/server.mjs",
     "example:watch": "npm-watch example",
     "test": "lerna run test --ignore @uswitch/koa-core",
     "audit": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"Auditing: $l\"; npm audit; cd $ROOT; done",
@@ -41,6 +41,7 @@
     "@uswitch/koa-signal": "^1.3.7",
     "@uswitch/koa-timeout": "^1.3.0",
     "@uswitch/koa-tracer": "^1.3.3",
+    "@uswitch/koa-zipkin": "^1.0.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -51,12 +52,14 @@
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "axios": "^0.19.0",
+    "axios-cache-adapter": "^2.3.3",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
-    "lerna": "^2.11.0",
+    "lerna": "^3.15.0",
     "npm-watch": "^0.3.0"
   }
 }

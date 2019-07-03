@@ -1,0 +1,50 @@
+{
+  "name": "@uswitch/koa-zipkin",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
+  "description": "🕵️‍♀️ A koa.js middleware to add Zipkin tracing to requests",
+  "main": "build/koa-zipkin.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "prebuild": "rm -rf build",
+    "build": "babel --out-dir build koa*.js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswitch/koa-core.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^4.10.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.2.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "zipkin": "^0.18.4",
+    "zipkin-context-cls": "^0.18.4",
+    "zipkin-instrumentation-fetch": "^0.18.4",
+    "zipkin-instrumentation-koa": "git+https://github.com/uswitch/zipkin-instrumentation-koa.git",
+    "zipkin-transport-http": "^0.18.4"
+  }
+}

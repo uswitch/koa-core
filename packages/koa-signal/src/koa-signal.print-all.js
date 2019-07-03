@@ -60,5 +60,5 @@ circularJson.req = circularJson
 signal.json({ id, res })
 signal.json(circularJson)
 
-signal.rawJson({"hello": "world"})
+signal.rawJson({'hello': 'world'})
 signal.rawJson("I'm a string")
