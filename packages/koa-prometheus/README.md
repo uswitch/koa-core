@@ -123,6 +123,22 @@ for a more detailed look at how they are configured.
 You get back the configured meter when you instantiate it, and you
 will get
 
+#### Manually marking a meter
+
+If you have a manual meter it will be available on the `meters`
+object.
+If you want to add labels to the meter, you must add them **in the
+order** they are defined in the config, _i.e._
+
+```js
+// "labelName": [ "a", "b", "c" ]
+
+meter
+  .myMeter
+  .labels("value for a", "value for b", "value for c")
+  .inc(1)
+```
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):

@@ -34,6 +34,12 @@
     }
   },
   {
+    "name": "total_upstream_requests",
+    "help": "A count of the upstream calls with cache hits",
+    "type": "Counter",
+    "labelNames": [ "method", "remote", "cache" ]
+  },
+  {
     "name": "error_count",
     "help": "The number of errors happening per response",
     "type": "Histogram",
@@ -54,7 +60,7 @@
     }
   },
   {
-    "name": "error_rate",
+    "name": "koa_errors_per_second",
     "help": "Number of errors per second per request",
     "type": "Meter"
   },

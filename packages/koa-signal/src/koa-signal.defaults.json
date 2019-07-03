@@ -26,7 +26,7 @@
     },
 
     "warn": {
-      "badge": "⚠️",
+      "badge": "⚠️ ",
       "label": "warning",
       "labelColor": ["yellow"],
       "format": [ "level", "id", "file-name", "message" ]
@@ -59,12 +59,21 @@
       "components": {
         "id": { "displayFormat": "%s", "displayShortId": 12, "color": "dim" },
         "access": { "displayFormat": "%s", "displayMethod": true, "displayStatus": true, "minimumWidth": 10 },
-        "access-log": { "format": ":remoteEndpoint - :url :statusCode - :duration_µs" }
+        "access-log": { "format": ":remoteEndpoint - :url :statusCode - :duration_µs" },
+        "map": {
+          "displayFormat": " %s ",
+          "properties": {
+            "cache": {
+              "HIT": { "color": [ "bold","bgWhite", "black" ], "text": "👊 HIT" },
+              "MISS": { "color": "dim", "text": "💨 MISS" }
+            }
+          }
+        }
       },
       "badge": "🛰",
       "label": "",
       "labelColor": "blue",
-      "format": [ "just:          ", "zipkin-level", "access", "access-log", "just:-",  "id:parent",  "just:|",  "id:scope" ]
+      "format": [ "just:          ", "zipkin-level", "access", "map:cache", "access-log", "just:-",  "id:parent",  "just:|",  "id:scope" ]
     }
   },
 
@@ -90,7 +99,7 @@
     "message": {
       "properties": [ "msg", "message", "text" ]
     },
-
+    
     "level": {
       "minimumWidth": 20,
       "alignment": "left",
@@ -104,8 +113,8 @@
       "alignment": "right",
       "clientIcon": "🛰",
       "serverIcon": "📡",
-      "serverFormat": "┕━ %s ",
-      "clientFormat": "┝━ %s "
+      "serverFormat": " ┕━ %s ",
+      "clientFormat": " ┝━ %s "
     },
 
     "scope": {
