@@ -43,5 +43,6 @@
   },
   "dependencies": {
     "on-finished": "^2.3.0"
-  }
+  },
+  "gitHead": "5287eddd25192d2ebb8fa7e5307348d05a635313"
 }

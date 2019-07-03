@@ -27,5 +27,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "del-cli": "^1.1.0"
-  }
+  },
+  "gitHead": "5287eddd25192d2ebb8fa7e5307348d05a635313"
 }
