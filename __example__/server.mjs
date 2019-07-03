@@ -4,10 +4,7 @@ import requestId from 'koa-requestid'
 import { zipkin } from './zipkin'
 import router from './server-router'
 
-const { app, signal, meters } = KoaCore()
-
-// Attach the prometheus meers for use in router
-app.use((ctx, next) => next(ctx.state.meters = meters))
+const { app, signal } = KoaCore()
 
 app.use(zipkin)
 app.use(requestId())

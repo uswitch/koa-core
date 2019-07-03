@@ -52,10 +52,11 @@ router.get('/signal/all', async ctx => {
 })
 
 router.get('/zipkin', async ctx => {
+  const url = 'http://echo.jsontest.com/hello/world'
   const remote = 'echo-json-test'
   const method = 'GET'
-  
-  const body = await zipkinFetch({ remote }, 'http://echo.jsontest.com/hello/world', { method })
+
+  const body = await zipkinFetch({ remote }, { url, method })
     .then(({ body, request }) => {
       ctx.state.meters
         .totalUpstreamRequests

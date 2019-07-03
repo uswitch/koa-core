@@ -29,7 +29,7 @@ module.exports = (config = {}) => {
   app.use(access([ 'id', 'trace', 'errors', ...accessConf ]))
 
   app.on(eventTrace, ({ ctx, key, trace }) => signal.trace({ ...ctx, ...trace, scope: key }))
-  app.on(eventError, ({ ctx, error }) => signal.error(ctx, error.original))
+  app.on(eventError, ({ ctx, original }) => signal.error(ctx, original))
   app.on(eventError, () => meters.koaErrorsPerSecond.mark(1))
 
   app.on(eventAccess, (ctx, extra) => meters.automark({ ...ctx, ...extra }))

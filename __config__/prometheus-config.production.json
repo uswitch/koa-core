@@ -60,7 +60,7 @@
     }
   },
   {
-    "name": "error_rate",
+    "name": "koa_errors_per_second",
     "help": "Number of errors per second per request",
     "type": "Meter"
   },
