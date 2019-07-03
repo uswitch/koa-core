@@ -28,7 +28,7 @@
 housing all of **uSwitch**'s `koa` packages.
 
 This repo acts both as a **helper** library for wiring together the
-[`@uswitch/koa-`]() packages as well as a master **list** of open sources
+[`@uswitch/koa-`](https://github.com/uswitch/koa-core/tree/master/packages) packages as well as a master **list** of open sources
 `koa` libraries that we depend on.
 
 This means we have a **single point of truth** for which packages we use
@@ -41,7 +41,7 @@ npm install @uswitch/koa-core
 ### Making changes
 
 All of our `koa` libraries can be found in
-[`packages`](https:/github.com/uswitch/koa-core/tree/master/packages). Any
+[`packages`](https://github.com/uswitch/koa-core/tree/master/packages). Any
 changes should be made to them individually. Commits should ideally be
 namespaced to the package you're changing.
 
