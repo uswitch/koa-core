@@ -25,8 +25,8 @@
   "license": "MIT",
   "dependencies": {
     "metrics": "^0.1.21",
-    "prom-client": "^11.2.1",
-    "prometheus-gc-stats": "^0.5.1"
+    "prom-client": "^11.5.3",
+    "prometheus-gc-stats": "^0.6.2"
   },
   "devDependencies": {
     "ajv-cli": "^3.0.0",
