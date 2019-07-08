@@ -76,6 +76,7 @@
           },
           {
             "type": "object",
+            "required": [ "type", "start", "factor", "buckets" ],
             "properties": {
               "type": {
                 "type": "string",

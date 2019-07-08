@@ -139,6 +139,12 @@ meter
   .inc(1)
 ```
 
+#### NodeJS metrics & GC Metrics
+
+This library also utilises `prom-client`'s `collectDefaultMetrics` &
+[`node-prometheus-gc-stats`](https://github.com/SimenB/node-prometheus-gc-stats)
+to collect CPU & Garbage Collection stats
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
