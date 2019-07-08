@@ -46,5 +46,6 @@
     "zipkin-instrumentation-fetch": "^0.18.4",
     "zipkin-instrumentation-koa": "git+https://github.com/uswitch/zipkin-instrumentation-koa.git",
     "zipkin-transport-http": "^0.18.4"
-  }
+  },
+  "gitHead": "dedc6554d84e99b435c254ac88c09c9de3bb10a5"
 }
