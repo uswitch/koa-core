@@ -9,7 +9,7 @@ import buildMeters from './utils/build-meters'
 import buildMarker from './utils/build-marker'
 import printMeters from './utils/metrics-meter'
 
-export const collectMetrics = ({ prefix = 'koa_' }) => {
+export const collectMetrics = ({ prefix = 'koa_' } = {}) => {
   collectGcMetrics(register, { prefix }).call({})
   collectDefaultMetrics({ prefix, timestamps: false })
 }
