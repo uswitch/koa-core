@@ -83,6 +83,25 @@
     "mark": { "method": "inc", "amount": 1 }
   },
   {
+    "name": "upstream_requests_total",
+    "help": "The total number of upstream requests made",
+    "labelNames": [
+      { "key": "method", "path": [ "res", "config", "method" ] },
+      { "key": "code", "path": [ "res", "status" ] },
+      { "key": "path", "path": [ "path" ] },
+      { "key": "remote", "path": [ "remote" ] },
+      { "key": "cache", "path": [ "cache", "hit" ] }
+    ],
+    "type": "Counter",
+    "mark": { "id": "upstreamCache", "method": "inc", "amount": 1 }
+  },
+  {
+    "name": "upstream_cache_size",
+    "help": "The number of entries within a cache",
+    "type": "Gauge",
+    "mark": { "id": "upstreamCache", "method": "set", "path": [ "cache", "length" ] }
+  },
+  {
     "name": "koa_requests_per_second",
     "help": "Number of requests received per second",
     "type": "Meter",
