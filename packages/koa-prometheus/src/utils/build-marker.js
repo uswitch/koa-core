@@ -1,3 +1,4 @@
+import { groupBy } from './arr'
 import { path } from './obj'
 import { camelCase } from './s'
 
@@ -21,6 +22,24 @@ const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
     : meter[mark.method](amount)
 }
 
-export default (config = []) => (ctx = {}) => config
+const automarkFunction = (meters) => (ctx) => meters
   .map(markFunction)
   .forEach(f => f(ctx))
+
+export default (config = []) => {
+  const automarkMeters = config.filter(({ mark }) => !!mark)
+  const groupedMeters = groupBy(automarkMeters, ({ mark }) => mark.id)
+
+  if (process.env.DEBUG_KOA) console.log(`GROUPED METERS:`, groupedMeters)
+
+  const automark = Object
+    .entries(groupedMeters)
+    .reduce(
+      (acc, [ id, meters ]) => Object.assign(acc, { [id]: automarkFunction(meters) }),
+      automarkFunction(groupedMeters.default)
+    )
+
+  if (process.env.DEBUG_KOA) console.log(`AUTOMARK:`, automark)
+
+  return automark
+}
