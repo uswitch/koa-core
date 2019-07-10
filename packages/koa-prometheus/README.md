@@ -123,6 +123,29 @@ for a more detailed look at how they are configured.
 You get back the configured meter when you instantiate it, and you
 will get
 
+#### Automarking a meter
+
+You can set up `automark`-ing of meters by giving their `mark` block
+an id, _i.e._
+
+```json
+...
+"mark": {
+  "id": "access",
+  "method": "observe",
+  "path": ["path","to","value"]
+}
+...
+```
+
+Which is then made available on `ctx.state.meters` to call as
+
+```js
+ctx.state.meters.automark.access({ path: { to: { value: 10 } } })
+```
+
+
+
 #### Manually marking a meter
 
 If you have a manual meter it will be available on the `meters`
