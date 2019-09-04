@@ -41,11 +41,12 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "zipkin": "^0.18.4",
-    "zipkin-context-cls": "^0.18.4",
-    "zipkin-instrumentation-fetch": "^0.18.4",
-    "zipkin-instrumentation-koa": "git+https://github.com/uswitch/zipkin-instrumentation-koa.git",
-    "zipkin-transport-http": "^0.18.4"
+    "node-fetch": "^2.6.0",
+    "zipkin": "^0.19.0",
+    "zipkin-context-cls": "^0.19.0",
+    "zipkin-instrumentation-fetch": "^0.19.0",
+    "zipkin-instrumentation-koa": "^0.19.0",
+    "zipkin-transport-http": "^0.19.0"
   },
   "gitHead": "6a44349ec02b661a9e4abb4f7e2a876ce310c774"
 }

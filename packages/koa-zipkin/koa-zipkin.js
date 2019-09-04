@@ -1,5 +1,5 @@
 import { BatchRecorder, Tracer as T } from 'zipkin'
-import { KoaInstrumentation } from 'zipkin-instrumentation-koa'
+import { koaMiddleware } from 'zipkin-instrumentation-koa'
 
 import Context from 'zipkin-context-cls'
 import wrap from 'zipkin-instrumentation-fetch'
@@ -11,7 +11,7 @@ export const Tracer = (localServiceName, logger) => new T({
   recorder: new BatchRecorder({ logger })
 })
 
-export const middleware = ({ tracer, serviceName = 'koa-server' }) => KoaInstrumentation({
+export const middleware = ({ tracer, serviceName = 'koa-server' }) => koaMiddleware({
   tracer, serviceName
 })
 
