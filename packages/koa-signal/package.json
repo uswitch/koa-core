@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-signal",
-  "version": "1.4.3",
+  "version": "1.4.5",
   "description": "🚦 Hackable and configurable output rendering for loggers",
   "main": "build/koa-signal.js",
   "scripts": {
