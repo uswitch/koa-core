@@ -21,7 +21,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswitch/koa-core.git"
+    "url": "git+https://github.com/uswitch/koa-core.git",
+    "directory": "packages/koa-zipkin"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
