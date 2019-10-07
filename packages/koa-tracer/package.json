@@ -22,7 +22,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswitch/koa-tracer.git"
+    "url": "git+https://github.com/uswitch/koa-core.git",
+    "directory": "packages/koa-tracer"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
