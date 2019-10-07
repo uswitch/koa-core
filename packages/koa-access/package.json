@@ -22,7 +22,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswitch/koa-access.git"
+    "url": "git+https://github.com/uswitch/koa-core.git",
+    "directory": "packages/koa-access"
   },
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "devDependencies": {
