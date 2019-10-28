@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uswitch/koa-timeout.git"
+    "url": "git+https://github.com/uswitch/koa-core.git",
+    "directory": "packages/koa-timeout"
   },
   "author": "Dom Charlesworth <dgc336@gmail.com> (http://domcharlesworth.co.uk/)",
   "license": "MIT",
