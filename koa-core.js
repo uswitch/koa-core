@@ -6,18 +6,18 @@ const { default: access, eventAccess } = require('@uswitch/koa-access')
 const { default: tracer, eventTrace, eventError } = require('@uswitch/koa-tracer')
 
 const { merge } = require('./merge')
-const productionConf = require('./__config__/signal-config.production.json')
-const prometheusConf = require('./__config__/prometheus-config.production.json')
+const prodSignalConf = require('./__config__/signal-config.production.json')
+const prodPrometheusConf = require('./__config__/prometheus-config.production.json')
 
 module.exports = (config = {}) => {
   const app = new Koa()
 
   const { NODE_ENV } = process.env
-  const { dev = 'development', accessConf = [], signalConf = {} } = config
+  const { dev = 'development', accessConf = [], signalConf = {}, prometheusConf } = config
 
-  const signalConfig = NODE_ENV === dev ? signalConf : merge(signalConf, productionConf)
+  const signalConfig = NODE_ENV === dev ? signalConf : merge(signalConf, prodSignalConf)
   const signal = Signal(signalConfig)
-  const meters = Meters(prometheusConf, { loadDefaults: false })
+  const meters = Meters(prometheusConf || prodPromConf , { loadDefaults: false })
 
   app.use((ctx, next) => {
     if (ctx.request.path !== '/metrics') return next()
