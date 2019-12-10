@@ -164,5 +164,11 @@
       "defaultProperties": [ "req", "res" ]
     }
 
-  }
+  },
+
+  "outputs": [
+    {
+      "type": "console"
+    }
+  ]
 }

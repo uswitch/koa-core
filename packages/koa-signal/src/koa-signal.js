@@ -18,7 +18,11 @@ export default (opts = {}) => {
     ? merge(defaults.levels, opts.levels)
     : opts.levels
 
-  const config = { levels, components }
+  const outputs = loadDefaults
+    ? [...defaults.outputs, ...(opts.outputs || [])]
+    : opts.outputs;
+
+  const config = { levels, components, outputs }
   if (process.env.DEBUG_KOA_SIGNAL) console.info(config)
 
   return Object
