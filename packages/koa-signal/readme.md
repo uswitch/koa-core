@@ -30,7 +30,7 @@
 ![type](https://img.shields.io/badge/⚡-library-c45366.svg?style=for-the-badge)
 ![language](https://img.shields.io/badge/❤-Node-da776c.svg?style=for-the-badge)
 [![test](https://img.shields.io/badge/🔬-Jest-e9a279.svg?style=for-the-badge)](https://facebook.github.io/jest/)
-p[![style](https://img.shields.io/badge/🎨-Standard-e4ca93.svg?style=for-the-badge)](https://standardjs.com)
+[![style](https://img.shields.io/badge/🎨-Standard-e4ca93.svg?style=for-the-badge)](https://standardjs.com)
 
 ## Overview
 
@@ -108,7 +108,7 @@ const signal = Signal({
     trace: { format: [] },
     warn: { format: [] },
     error: { format: [] },
-    access: { format: [ json ] }
+    access: { format: [ 'json' ] }
   },
   components: {
     json: { properties: [ 'id', 'errors', 'errorsCount', 'traces' ] }
@@ -119,6 +119,28 @@ const signal = Signal({
 href="https://github.com/uswitch/koa-core">
 koa-core</a></i></p>
 
+In **Production** it's a common practice to save the logs to a file as well. `koa-signal` supports both **console** and **file** outputs which can be used independently or together _e.g._
+
+`outputs` 
+```js
+import Signal from '@uswitch/koa-signal'
+const signal = Signal({
+  levels: {
+    info: { format: [] },
+    trace: { format: [] },
+    warn: { format: [] },
+    error: { format: [] },
+    access: { format: [ 'json' ] }
+  },
+  components: {
+    json: { properties: [ 'id', 'errors', 'errorsCount', 'traces' ] }
+  },
+  outputs: [
+    { type: 'console' },
+    { type: 'file', file: './path/to/file.json' }
+  ]
+})
+```
 
 ### API
 
