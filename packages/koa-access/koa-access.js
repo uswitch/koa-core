@@ -3,7 +3,7 @@ import onFinished from 'on-finished'
 /* Event string */
 export const eventAccess = 'koa-access:access'
 
-export default (extraKeys = []) => async (ctx, next) => {
+export default (extraKeys = []) => function access(ctx, next) {
   const time = new Date()
 
   onFinished(ctx.res, () => {
@@ -25,5 +25,5 @@ export default (extraKeys = []) => async (ctx, next) => {
     ctx.app && ctx.app.emit(eventAccess, ctx, { req, res, ...extras })
   })
 
-  await next()
+  return next()
 }
