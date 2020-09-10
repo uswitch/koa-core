@@ -14,7 +14,10 @@ export const collectMetrics = ({ prefix = 'koa_' }) => {
   collectDefaultMetrics({ prefix, timestamps: false })
 }
 
-const middleware = (meters) => (ctx, next) => (ctx.state = { ...(ctx.state || {}), meters }) && next()
+const middleware = (meters) => function prometheus(ctx, next) {
+  ctx.state = { ...(ctx.state || {}), meters }
+  return next()
+}
 
 export default (
   userConfig = [],
