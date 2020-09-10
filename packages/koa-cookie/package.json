@@ -1,0 +1,19 @@
+{
+  "name": "@uswitch/koa-cookie",
+  "version": "1.0.1",
+  "description": "🍪 Koa cookie parser middleware",
+  "main": "index.js",
+  "scripts": {
+    "build": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswitch/koa-core.git",
+    "directory": "packages/koa-cookie"
+  },
+  "license": "ISC"
+}
