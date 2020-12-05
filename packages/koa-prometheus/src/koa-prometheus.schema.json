@@ -15,6 +15,11 @@
         "pattern": "^[a-z_]+$",
         "description": "The name of the metric"
       },
+      "alias": {
+        "type": "string",
+        "pattern": "^[a-z_]+$",
+        "description": "The name of the metric on the meters obejct, defaults to camelcase of the name"
+      },
       "help": {
         "type": "string", 
         "description": "A help string of the metric"
