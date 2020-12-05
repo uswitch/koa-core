@@ -2,8 +2,8 @@ import { camelCase } from './s'
 
 export const isMetricsMeter = ({ type }) => [ 'Meter' ].includes(type)
 export const printMeter = (meters) => (config) => {
-  const { name, help } = config
-  const meter = meters[camelCase(name)]
+  const { name, alias, help } = config
+  const meter = meters[camelCase(alias || name)]
 
   return `# HELP ${help}
 # TYPE ${name} gauge
