@@ -49,5 +49,5 @@
     "zipkin-instrumentation-koa": "^0.19.0",
     "zipkin-transport-http": "^0.19.0"
   },
-  "gitHead": "4c47887330c06b4013f0e96e5167330a95abec3f"
+  "gitHead": "fb9037bdeb0637790deb931e1bb3d84cd65835cd"
 }
