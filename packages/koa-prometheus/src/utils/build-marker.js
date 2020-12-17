@@ -1,15 +1,13 @@
 import { path } from './obj'
 import { camelCase } from './s'
 
-const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
+const markFunction = ({ name, alias, mark, labelNames = [] }) => ctx => {
   if (!mark) return
 
-  const id = camelCase(name)
+  const id = camelCase(alias || name)
 
   const meter = ctx.state.meters[id]
   const amount = mark.path ? path(mark.path, ctx) : mark.amount
-
-
 
   const labels = labelNames.map(({ key, path: p }) => {
     const result = path(p, ctx)

@@ -23,10 +23,10 @@ const prometheusMeter = (config) => {
 
 export default meters => meters
   .reduce((acc, config) => {
-    const { name } = config
+    const { name, alias } = config
     const meter = isMetricsMeter(config)
       ? metricsMeter(config)
       : prometheusMeter(config)
 
-    return { ...acc, [camelCase(name)]: meter }
+    return { ...acc, [camelCase(alias || name)]: meter }
   }, {})
