@@ -1,2 +1,2 @@
-export const path = (path, obj, def) => path
-  .reduce((acc, it) => acc && acc[it] ? acc[it] : def, obj)
+export const path = (arr, obj, def = undefined) =>
+  arr.reduce((acc, it) => (acc !== def && {}.hasOwnProperty.call(acc, it) ? acc[it] : def), obj)
