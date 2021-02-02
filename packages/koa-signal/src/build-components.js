@@ -1,5 +1,4 @@
-import requireDirectory from 'require-directory'
-const componentMap = requireDirectory(module, './components')
+import componentMap from './components'
 
 export const buildComponent = ({ components, levels }, level, format) => format
   .map(component => {
