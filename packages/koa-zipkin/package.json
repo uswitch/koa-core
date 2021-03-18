@@ -47,7 +47,7 @@
     "zipkin-context-cls": "^0.19.0",
     "zipkin-instrumentation-fetch": "^0.19.0",
     "zipkin-instrumentation-koa": "^0.19.0",
-    "zipkin-transport-http": "^0.19.0"
+    "zipkin-transport-http": "^0.22.0"
   },
-  "gitHead": "fb9037bdeb0637790deb931e1bb3d84cd65835cd"
+  "gitHead": "c1d600e986393bb72356e610f6cec1b99f550107"
 }
