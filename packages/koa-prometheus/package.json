@@ -10,7 +10,7 @@
     "------- BUILD": "-----------------------------------------------------",
     "prebuild": "del build",
     "build:src": "babel src --out-dir build --ignore test.js",
-    "build:config": "cp src/koa-prometheus.defaults.json build/.",
+    "build:config": "cp src/koa-prometheus.*.json build/.",
     "build": "run-s build:src build:config",
     "build:watch": "npm-watch build",
     "prepublishOnly": "npm run build"
