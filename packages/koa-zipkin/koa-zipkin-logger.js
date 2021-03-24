@@ -16,6 +16,6 @@ const devLogger = {
   }
 }
 
-export default ({ local = false, endpoint }) => local
+export default ({ local = false, endpoint, ...args }) => local
   ? devLogger
-  : new HttpLogger({ endpoint, jsonEncoder: jsonEncoder.JSON_V2 })
+  : new HttpLogger({ endpoint, jsonEncoder: jsonEncoder.JSON_V2, ...args })
