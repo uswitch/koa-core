@@ -17,7 +17,7 @@ module.exports = (config = {}) => {
 
   const signalConfig = NODE_ENV === dev ? signalConf : merge(signalConf, prodSignalConf)
   const signal = Signal(signalConfig)
-  const meters = Meters(prometheusConf || prodPrometheusConf, { loadDefaults: false })
+  const meters = Meters(prometheusConf || prodPrometheusConf, { loadStandards: true, loadDefaults: false })
 
   app.use((ctx, next) => {
     if (ctx.request.path !== '/metrics') return next()

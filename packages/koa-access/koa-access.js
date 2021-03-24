@@ -15,7 +15,7 @@ export default (extraKeys = []) => function access(ctx, next) {
     const statusBucket = bucket + rest.map(i => 'X').join('')
 
     /* Cast all integers to integers */
-    const res = { responseTime: +responseTime, length: +length, status: +status, statusBucket, time: new Date() }
+    const res = { responseTime: +responseTime, responseTimeSeconds: +responseTime / 1000, length: +length, status: +status, statusBucket, time: new Date() }
     const req = { method, path, time, host }
 
     const extras = extraKeys instanceof Function

@@ -1,4 +1,5 @@
 import defaultConfig from './koa-prometheus.defaults.json'
+import standardsConfig from './koa-prometheus.standards.json'
 import collectGcMetrics from 'prometheus-gc-stats'
 import { register, collectDefaultMetrics } from 'prom-client'
 
@@ -21,13 +22,14 @@ const middleware = (meters) => function prometheus(ctx, next) {
 
 export default (
   userConfig = [],
-  { loadDefaults = true, overrideDefaults = true } = {}
+  { loadDefaults = true, overrideDefaults = true, loadStandards = false } = {}
 ) => {
   register.clear()
 
-  const combinedConfig = loadDefaults
-    ? defaultConfig.concat(userConfig)
-    : userConfig
+  const combinedConfig = []
+    .concat(loadDefaults ? defaultConfig : [])
+    .concat(loadStandards ? standardsConfig : [])
+    .concat(userConfig)
 
   const config = overrideDefaults
     ? uniqueElementsByRight(combinedConfig, (a, b) => a.name === b.name)
