@@ -1,0 +1,36 @@
+[
+  {
+    "name": "http_request_duration_seconds",
+    "help": "HTTP request duration buckets",
+    "type": "Histogram",
+    "labelNames": [
+      { "key": "method", "path": ["req", "method"] },
+      { "key": "status", "path": ["res", "status"] },
+      { "key": "path", "path": ["req", "path"] },
+      { "key": "host", "path": ["req", "host"] }
+    ],
+    "mark": {
+      "method": "observe",
+      "path": ["res", "responseTimeSeconds"]
+    },
+    "buckets": [0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 5.0, 10.0, 60.0]
+  },
+  {
+    "name": "http_requests_total",
+    "help": "Count of all HTTP requests",
+    "labelNames": [
+      { "key": "method", "path": ["req", "method"] },
+      { "key": "status", "path": ["res", "status"] },
+      { "key": "path", "path": ["req", "path"] },
+      { "key": "host", "path": ["req", "host"] }
+    ],
+    "type": "Counter",
+    "mark": { "method": "inc", "amount": 1 }
+  },
+  {
+    "name": "errors_total",
+    "help": "The number of errors happening per response",
+    "labelNames": ["type"],
+    "type": "Counter"
+  }
+]

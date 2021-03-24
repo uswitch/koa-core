@@ -145,6 +145,26 @@ This library also utilises `prom-client`'s `collectDefaultMetrics` &
 [`node-prometheus-gc-stats`](https://github.com/SimenB/node-prometheus-gc-stats)
 to collect CPU & Garbage Collection stats
 
+#### Service standard metrics
+
+To comply with Uswitch [service standard]() monitoring, enable service standards:
+
+```js
+const meters = Meter({ /* Config */ }, { loadStandards: true })
+```
+
+These will overwrite the `http_request_duration_seconds`, `http_requests_total` and `errors_total` metrics. The first two are automarked by `@uswitch/koa-access`. Mark the `errors_total` metric manually:
+```js
+// Directly
+app.on('error', (err, ctx) => {
+  meters.errorsTotal.labels(err.name).inc(1)
+})
+// Or with @uswitch/koa-tracer
+app.on(eventError, (err, ctx) => {
+  meters.errorsTotal.labels(err.name).inc(1)
+})
+```
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
