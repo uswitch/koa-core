@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-signal",
-  "version": "1.5.5",
+  "version": "1.6.1",
   "description": "🚦 Hackable and configurable output rendering for loggers",
   "main": "build/koa-signal.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "prebuild": "del build",
     "build:src": "babel src --out-dir build --ignore test.js",
     "build:config": "cp src/koa-signal.defaults.json build/.",
-    "build": "run-s build:src build:config",
+    "build": "npm run build:src; npm run build:config",
     "build:watch": "npm-watch build",
     "prepublishOnly": "npm run build"
   },
@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "json-stringify-safe": "^5.0.1",
-    "require-directory": "^2.1.1"
+    "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
