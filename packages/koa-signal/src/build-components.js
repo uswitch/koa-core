@@ -15,6 +15,6 @@ export const buildComponent = ({ components, levels }, level, format) => format
     const config = { ...levelConfig, ...componentConfig }
     if (process.env.DEBUG_KOA_SIGNAL) console.log(level, component, config)
 
-    return componentF && componentF.default({ label: level, ...config })
+    return componentF && componentF({ label: level, ...config })
   })
   .filter(i => i)
