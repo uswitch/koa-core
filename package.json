@@ -41,7 +41,7 @@
     "@uswitch/koa-access": "^2.6.1",
     "@uswitch/koa-cookie": "^1.2.1",
     "@uswitch/koa-prometheus": "^0.5.1",
-    "@uswitch/koa-signal": "^1.6.1",
+    "@uswitch/koa-signal": "^1.8.0",
     "@uswitch/koa-timeout": "^1.4.1",
     "@uswitch/koa-tracer": "^1.4.1",
     "@uswitch/koa-zipkin": "^1.6.1",
