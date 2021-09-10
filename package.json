@@ -18,9 +18,10 @@
     "postupdate:deps": "git commit package.json package-lock.json -m '🎾 Update package dependencies'",
     "postdoc:deps": "git commit README.md -m '🎾 Update readme with latest dependencies'",
     "prepublish:packages": "npm run doc:deps; npm run build:deps; npm run build",
-    "publish:npm": "lerna publish --message '🚀 Begin publish'",
-    "publish:github": "lerna publish --message '🚀 Begin publish' --registry='https://npm.pkg.github.com/'",
-    "publish:packages": "npm run publish:npm && npm run publish:github",
+    "publish:version": "lerna version",
+    "publish:npm": "lerna publish from-package --message '🚀 Begin publish'",
+    "publish:github": "lerna publish from-package --message '🚀 Begin publish' --registry='https://npm.pkg.github.com/'",
+    "publish:packages": "npm run publish:version && npm run publish:npm && npm run publish:github",
     "clean": "node ./__scripts__/clean-dependencies.js",
     "build": "lerna run build --ignore @uswitch/koa-core"
   },
