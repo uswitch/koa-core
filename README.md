@@ -70,6 +70,8 @@ npm run publish:packages
 This will publish the individual libraries followed by performing
 updating dependencies and generating the documentation for `core` .
 
+This publishes to both the NPM and Github Packages Registries
+
 ## Packages
 
 #### `@uswitch` packages

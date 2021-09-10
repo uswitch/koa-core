@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.16.1",
+  "version": "1.16.3",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -18,7 +18,10 @@
     "postupdate:deps": "git commit package.json package-lock.json -m '🎾 Update package dependencies'",
     "postdoc:deps": "git commit README.md -m '🎾 Update readme with latest dependencies'",
     "prepublish:packages": "npm run doc:deps; npm run build:deps; npm run build",
-    "publish:packages": "lerna publish --message '🚀 Begin publish'",
+    "publish:version": "lerna version",
+    "publish:npm": "lerna publish from-package --message '🚀 Begin publish'",
+    "publish:github": "lerna publish from-package --message '🚀 Begin publish' --registry='https://npm.pkg.github.com/'",
+    "publish:packages": "npm run publish:version && npm run publish:npm && npm run publish:github",
     "clean": "node ./__scripts__/clean-dependencies.js",
     "build": "lerna run build --ignore @uswitch/koa-core"
   },
@@ -36,13 +39,13 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.6.1",
-    "@uswitch/koa-cookie": "^1.2.1",
-    "@uswitch/koa-prometheus": "^0.5.1",
-    "@uswitch/koa-signal": "^1.6.1",
-    "@uswitch/koa-timeout": "^1.4.1",
-    "@uswitch/koa-tracer": "^1.4.1",
-    "@uswitch/koa-zipkin": "^1.6.1",
+    "@uswitch/koa-access": "^2.6.3",
+    "@uswitch/koa-cookie": "^1.2.3",
+    "@uswitch/koa-prometheus": "^0.5.3",
+    "@uswitch/koa-signal": "^1.8.2",
+    "@uswitch/koa-timeout": "^1.4.3",
+    "@uswitch/koa-tracer": "^1.4.3",
+    "@uswitch/koa-zipkin": "^1.6.3",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -59,8 +62,8 @@
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
-    "lerna": "^3.15.0",
+    "lerna": "^3.22.1",
     "npm-watch": "^0.3.0"
   },
-  "gitHead": "8befce31ebfc3e291961a41bb7cce9ac971d7a60"
+  "gitHead": "bbc99017555af90e77f7853c8efa60309c12800e"
 }
