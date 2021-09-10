@@ -41,7 +41,7 @@
     "@uswitch/koa-access": "^2.6.1",
     "@uswitch/koa-cookie": "^1.2.1",
     "@uswitch/koa-prometheus": "^0.5.1",
-    "@uswitch/koa-signal": "^1.8.0",
+    "@uswitch/koa-signal": "^1.6.1",
     "@uswitch/koa-timeout": "^1.4.1",
     "@uswitch/koa-tracer": "^1.4.1",
     "@uswitch/koa-zipkin": "^1.6.1",
@@ -61,7 +61,7 @@
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
-    "lerna": "^3.15.0",
+    "lerna": "^3.22.1",
     "npm-watch": "^0.3.0"
   },
   "gitHead": "8befce31ebfc3e291961a41bb7cce9ac971d7a60"
