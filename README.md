@@ -72,6 +72,17 @@ updating dependencies and generating the documentation for `core` .
 
 This publishes to both the NPM and Github Packages Registries
 
+### Node Version
+
+<!-- FIXME: Node version 10 is very old and should be fixed -->
+`koa-core` was built using [Node v10](./nvmrc) so you should run the
+following when developing it.
+
+```sh
+nvm use
+```
+
+
 ## Packages
 
 #### `@uswitch` packages
