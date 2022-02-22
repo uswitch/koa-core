@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-access",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "license": "MIT",
   "description": "👌 A Koa middleware for logging JSON access logs consistently, similar to morgan",
   "main": "build/koa-access.js",
@@ -45,5 +45,5 @@
   "dependencies": {
     "on-finished": "^2.3.0"
   },
-  "gitHead": "e110b353a10a46da38adcee2b40d790a4163abdd"
+  "gitHead": "69200b8cadf32ac1d2cd0c3409798296d774170e"
 }

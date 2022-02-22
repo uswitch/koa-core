@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-signal",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "description": "🚦 Hackable and configurable output rendering for loggers",
   "main": "build/koa-signal.js",
   "scripts": {
@@ -57,5 +57,5 @@
     "npm-run-all": "^4.1.3",
     "npm-watch": "^0.3.0"
   },
-  "gitHead": "bbc99017555af90e77f7853c8efa60309c12800e"
+  "gitHead": "69200b8cadf32ac1d2cd0c3409798296d774170e"
 }
