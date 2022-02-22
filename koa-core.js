@@ -39,7 +39,6 @@ module.exports = (config = {}) => {
   app.on(eventAccess, (ctx, { trace }) =>
     Object
       .entries(trace)
-      .sort(([, t1], [, t2]) => t1.initDiff - t2.initDiff)
       .forEach(([scope, trace], order) => {
         if (zipkinTracer) // Only trace spans when a zipkin tracer is injected
           zipkin.createTraceSpan(
@@ -47,10 +46,10 @@ module.exports = (config = {}) => {
             { scope, trace, tracer: zipkinTracer }
           )
 
-        if (meters.traceDurationSeconds)
-          meters.traceDurationSeconds
-            .labels(scope, trace.traces.length, order)
-            .observe(trace.timeDiff / 1000) // Cast to seconds
+        if (meters.traceDurationMillseconds)
+          meters.traceDurationMilliseconds
+            .labels(scope)
+            .observe(trace.timeDiff) // Cast to seconds
       })
   )
 
