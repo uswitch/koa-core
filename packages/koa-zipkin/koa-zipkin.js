@@ -48,7 +48,8 @@ export const createSpan = async (
   await tracer.scoped(() => {
     tracer.setId(tracer.createChildId(ctx.request._trace_id))
     tracer.recordServiceName(serviceName)
-    data.map((msg, i) => tracer.recordBinary(`msg.${i}`, msg))
+
+    data.map(([msg, ts]) => tracer.recordAnnotation(new Annotation.Message(msg), ts * tMod))
     tracer.recordAnnotation(new Annotation.LocalOperationStart(scope), start * tMod)
     tracer.recordAnnotation(new Annotation.LocalOperationStop(scope), stop * tMod)
   })
