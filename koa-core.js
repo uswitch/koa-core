@@ -42,11 +42,10 @@ module.exports = (config = {}) => {
       .sort(([, t1], [, t2]) => t1.initDiff - t2.initDiff)
       .forEach(([scope, trace], order) => {
         if (zipkinTracer) // Only trace spans when a zipkin tracer is injected
-          zipkin.createTraceSpan(ctx, {
-            scope,
-            trace,
-            tracer: zipkinTracer
-          })
+          zipkin.createTraceSpan(
+            ctx,
+            { scope, trace, tracer: zipkinTracer }
+          )
 
         if (meters.traceDurationSeconds)
           meters.traceDurationSeconds
