@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-timeout",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "⏰ A Koa middleware to handle timeouts correctly",
   "main": "build/koa-timeout.js",
   "scripts": {
@@ -29,5 +29,5 @@
     "babel-preset-env": "^1.7.0",
     "del-cli": "^1.1.0"
   },
-  "gitHead": "69200b8cadf32ac1d2cd0c3409798296d774170e"
+  "gitHead": "91d06a66af6e0ca33888846ef320d07c22f4d4ad"
 }
