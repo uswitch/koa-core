@@ -65,6 +65,18 @@
     "type": "Meter"
   },
   {
+    "name": "trace_duration_seconds",
+    "help": "The time in seconds for traces to complete",
+    "type": "Histogram",
+    "labelNames": ["scope", "steps", "order"],
+    "buckets": {
+      "type": "linear",
+      "start": 0.1,
+      "buckets": 10,
+      "factor": 0.1
+    }
+  },
+  {
     "name": "total_number_requests",
     "help": "The total number of requests served",
     "labelNames": [

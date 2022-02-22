@@ -1,5 +1,6 @@
 const Koa = require('koa')
 
+const zipkin = require('@uswitch/koa-zipkin')
 const { default: Meters } = require('@uswitch/koa-prometheus')
 const { default: Signal } = require('@uswitch/koa-signal')
 const { default: access, eventAccess } = require('@uswitch/koa-access')
@@ -13,7 +14,7 @@ module.exports = (config = {}) => {
   const app = new Koa()
 
   const { NODE_ENV } = process.env
-  const { dev = 'development', accessConf = [], signalConf = {}, prometheusConf } = config
+  const { zipkinTracer, dev = 'development', accessConf = [], signalConf = {}, prometheusConf } = config
 
   const signalConfig = NODE_ENV === dev ? signalConf : merge(signalConf, prodSignalConf)
   const signal = Signal(signalConfig)
@@ -26,13 +27,36 @@ module.exports = (config = {}) => {
 
   app.use(tracer())
   app.use(meters.middleware)
-  app.use(access([ 'id', 'trace', 'errors', ...accessConf ]))
+  app.use(access(['id', 'trace', 'errors', ...accessConf]))
 
   app.on(eventTrace, ({ ctx, key, trace }) => signal.trace({ ...ctx, ...trace, scope: key }))
   app.on(eventError, ({ ctx, original }) => signal.error(ctx, original))
-  app.on(eventError, () => meters.koaErrorsPerSecond.mark(1))
 
+  app.on(eventError, () => meters.koaErrorsPerSecond.mark(1))
   app.on(eventAccess, (ctx, extra) => meters.automark({ ...ctx, ...extra }))
+
+  // Marks each trace as a prometheus metric & zipkin trace
+  app.on(eventAccess, (ctx, { trace, traceStart, ...rest }) =>
+    Object
+      .entries(trace)
+      .sort(([, t1], [, t2]) => t1.initDiff - t2.initDiff)
+      .forEach(([scope, trace], order) => {
+        if (zipkinTracer) // Only trace spans when a zipkin tracer is injected
+          zipkin.createSpan(ctx, {
+            scope,
+            tracer: zipkinTracer,
+            start: trace.traces[0].time,
+            stop: trace.traces.slice(-1)[0].time,
+            data: trace.traces.map(({ msg, time }) => [msg, time])
+          })
+
+        if (meters.traceDurationSeconds)
+          meters.traceDurationSeconds
+            .labels(scope, trace.traces.length, order)
+            .observe(trace.timeDiff / 1000) // Cast to seconds
+      })
+  )
+
   app.on(eventAccess, signal.access)
 
   return { app, meters, signal }
