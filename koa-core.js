@@ -36,18 +36,16 @@ module.exports = (config = {}) => {
   app.on(eventAccess, (ctx, extra) => meters.automark({ ...ctx, ...extra }))
 
   // Marks each trace as a prometheus metric & zipkin trace
-  app.on(eventAccess, (ctx, { trace, traceStart, ...rest }) =>
+  app.on(eventAccess, (ctx, { trace }) =>
     Object
       .entries(trace)
       .sort(([, t1], [, t2]) => t1.initDiff - t2.initDiff)
       .forEach(([scope, trace], order) => {
         if (zipkinTracer) // Only trace spans when a zipkin tracer is injected
-          zipkin.createSpan(ctx, {
+          zipkin.createTraceSpan(ctx, {
             scope,
-            tracer: zipkinTracer,
-            start: trace.traces[0].time,
-            stop: trace.traces.slice(-1)[0].time,
-            data: trace.traces.map(({ msg, time }) => [msg, time])
+            trace,
+            tracer: zipkinTracer
           })
 
         if (meters.traceDurationSeconds)
