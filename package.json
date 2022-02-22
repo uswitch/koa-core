@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.19.5",
+  "version": "1.19.6",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -39,13 +39,13 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.6.9",
-    "@uswitch/koa-cookie": "^1.2.9",
-    "@uswitch/koa-prometheus": "^0.5.9",
-    "@uswitch/koa-signal": "^1.8.7",
-    "@uswitch/koa-timeout": "^1.4.8",
-    "@uswitch/koa-tracer": "^1.5.4",
-    "@uswitch/koa-zipkin": "^1.7.4",
+    "@uswitch/koa-access": "^2.6.10",
+    "@uswitch/koa-cookie": "^1.2.10",
+    "@uswitch/koa-prometheus": "^0.5.10",
+    "@uswitch/koa-signal": "^1.8.8",
+    "@uswitch/koa-timeout": "^1.4.9",
+    "@uswitch/koa-tracer": "^1.5.5",
+    "@uswitch/koa-zipkin": "^1.7.5",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -65,5 +65,5 @@
     "lerna": "^3.22.1",
     "npm-watch": "^0.3.0"
   },
-  "gitHead": "7af2357ed9441058b301eee2a7245f9cf4ec9cce"
+  "gitHead": "5007438aef2487df1fe8db5cdcc71f4712263fc8"
 }
