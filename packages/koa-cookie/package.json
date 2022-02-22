@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-cookie",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "🍪 Koa cookie parser middleware",
   "main": "index.js",
   "scripts": {
@@ -16,5 +16,5 @@
     "directory": "packages/koa-cookie"
   },
   "license": "ISC",
-  "gitHead": "06e6337aca1665e1c5ac4641ecacf73c6eb7595e"
+  "gitHead": "2a1faedeceaf2e9ee188248239e0cd35ebc90c63"
 }
