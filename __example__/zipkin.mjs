@@ -4,7 +4,7 @@ import axios from 'axios'
 import cache from 'axios-cache-adapter'
 
 const { middleware, fetch, Logger, Tracer } = koaZipkin
-const { USE_CACHE = true, NODE_ENV, APP_NAME = 'example-uf-service' } = process.env
+const { USE_CACHE = true, ZIPKIN_HOST, APP_NAME = 'example-uf-service' } = process.env
 
 const { adapter } = cache.setupCache({ maxAge: USE_CACHE ? 10 * 1000 : 0 })
 const fetchClient = axios.create({ adapter })
@@ -18,7 +18,7 @@ fetchClient.interceptors.response.use(
   Promise.reject
 )
 
-const tracer = Tracer(APP_NAME, Logger({ local: NODE_ENV === 'development' }))
+export const tracer = Tracer(APP_NAME, Logger({ endpoint: ZIPKIN_HOST }))
 
 export const zipkin = middleware({ tracer })
 export const zipkinFetch = fetch({ local: APP_NAME, fetch: fetchClient, tracer })
