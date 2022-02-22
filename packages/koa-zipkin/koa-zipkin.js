@@ -18,22 +18,25 @@ export const Tracer = (localServiceName, logger) => new T({
  * Creates a zipkin span based on the request context
  * This requires the server to be instrumented with zipkin
  * @param {Object} ctx - The koa request context
- * @param {Object} data.tracer - The tracer object
- * @param {string} data.scope - The trace scope/span name
- * @param {number} data.start - The trace start time in seconds or microseconds
- * @param {number} data.stop - The trace start time in seconds or microseconds
- * @param {number} [data.tMod] - Time normalisin coefficient, defaults to 1000 to convert millis into micros
- * @param {string} [data.serviceName] - the service name to log, deaults to `koa-server` or read from tracer
+ * @param {Object} o.tracer - The tracer object
+ * @param {string} o.scope - The trace scope/span name
+ * @param {number} o.start - The trace start time in seconds or microseconds
+ * @param {number} o.stop - The trace start time in seconds or microseconds
+ * @param {number} [o.tMod] - Time normalisin coefficient, defaults to 1000 to convert millis into micros
+ * @param {string} [o.serviceName] - the service name to log, deaults to `koa-server` or read from tracer
+ * @param {string[][]} [o.data] - A list of key value pairs to mark as binary data
  * @returns {Promise}
  */
-export const createSpan = (
-  ctx, {
+export const createSpan = async (
+  ctx,
+  {
     tracer,
-    serviceName = 'koa-server',
     scope,
     start,
     stop,
-    tMod = 1000
+    tMod = 1000,
+    serviceName = 'koa-server',
+    data = []
   }
 ) => {
   if (!ctx.request._trace_id) {
@@ -42,12 +45,15 @@ export const createSpan = (
   }
 
   debug(`Creating span for ${scope} - ${start}:${stop}`)
-  return tracer.scoped(() => {
+  await tracer.scoped(() => {
     tracer.setId(tracer.createChildId(ctx.request._trace_id))
     tracer.recordServiceName(serviceName)
+    data.map((msg, i) => tracer.recordBinary(`msg.${i}`, msg))
     tracer.recordAnnotation(new Annotation.LocalOperationStart(scope), start * tMod)
     tracer.recordAnnotation(new Annotation.LocalOperationStop(scope), stop * tMod)
   })
+
+  debug(`koa-zipkin | Traces annotation for ${scope}`)
 }
 
 export const middleware = ({ tracer, serviceName = 'koa-server' }) => koaMiddleware({
