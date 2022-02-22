@@ -41,6 +41,22 @@ router.get('/trace/:timeout', async ctx => {
   ctx.body = `I waited ${ctx.params.timeout}ms`
 })
 
+router.get('/trace', async ctx => {
+  ctx.trace('wait', 'start')
+  await wait(Math.round(Math.random() * 100))
+  ctx.trace('wait', 'finish')
+  ctx.trace('process', 'start')
+  ctx.trace('sub process 1', 'start')
+  await wait(Math.round(Math.random() * 300))
+  ctx.trace('sub process 1', 'end')
+  ctx.trace('sub process 2', 'start')
+  await wait(Math.round(Math.random() * 200))
+  ctx.trace('sub process 2', 'end')
+  ctx.trace('process', 'end')
+
+  ctx.status = 200
+})
+
 router.get('/signal/all', async ctx => {
   /* Signal examples */
   signal.success('This is a success message!')
