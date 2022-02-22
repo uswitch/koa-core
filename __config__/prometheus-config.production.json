@@ -65,16 +65,11 @@
     "type": "Meter"
   },
   {
-    "name": "trace_duration_milliseconds",
+    "name": "trace_duration_seconds",
     "help": "The time in seconds for traces to complete",
     "type": "Histogram",
-    "labelNames": ["scope"],
-    "buckets": {
-      "type": "linear",
-      "start": 100,
-      "buckets": 10,
-      "factor": 100
-    }
+    "labelNames": ["span"],
+    "buckets": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
   },
   {
     "name": "total_number_requests",

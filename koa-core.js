@@ -49,7 +49,7 @@ module.exports = (config = {}) => {
         if (meters.traceDurationMillseconds)
           meters.traceDurationMilliseconds
             .labels(scope)
-            .observe(trace.timeDiff) // Cast to seconds
+            .observe(trace.timeDiff / 1000) // Cast to seconds
       })
   )
 
