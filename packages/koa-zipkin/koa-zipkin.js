@@ -24,7 +24,7 @@ export const Tracer = (localServiceName, logger) => new T({
  * @param {number} o.stop - The trace start time in seconds or microseconds
  * @param {number} [o.tMod] - Time normalisin coefficient, defaults to 1000 to convert millis into micros
  * @param {string} [o.serviceName] - the service name to log, deaults to `koa-server` or read from tracer
- * @param {string[][]} [o.data] - A list of key value pairs to mark as binary data
+ * @param {string[][]} [o.annotations] - A list of key value pairs of message & timestamp to mark as annotations for a span
  * @returns {Promise}
  */
 export const createSpan = async (
@@ -36,7 +36,7 @@ export const createSpan = async (
     stop,
     tMod = 1000,
     serviceName = 'koa-server',
-    data = []
+    annotations = []
   }
 ) => {
   if (!ctx.request._trace_id) {
@@ -49,12 +49,30 @@ export const createSpan = async (
     tracer.setId(tracer.createChildId(ctx.request._trace_id))
     tracer.recordServiceName(serviceName)
 
-    data.map(([msg, ts]) => tracer.recordAnnotation(new Annotation.Message(msg), ts * tMod))
+    annotations.map(([msg, ts]) => tracer.recordAnnotation(new Annotation.Message(msg), ts * tMod))
     tracer.recordAnnotation(new Annotation.LocalOperationStart(scope), start * tMod)
     tracer.recordAnnotation(new Annotation.LocalOperationStop(scope), stop * tMod)
   })
 
   debug(`koa-zipkin | Traces annotation for ${scope}`)
+}
+
+/**
+ * Create a trace span
+ * This generates a span based on a `koa-tracer` trace object
+ * It is opinionated by the model of the trace
+ * @param {Object} ctx - the Koa request context
+ * @param {string} o.scope - The trace scope
+ * @param {*} tracer - The zipkin instrumentation Tracer
+ * @param {*} trace - The `koa-tracer` trace object
+ * @returns {Promise}
+ */
+export const createTraceSpan = (ctx, { scope, trace, tracer }) => {
+  const start = trace.traces[0].time
+  const stop = trace.traces.slice(-1)[0].time
+  const annotations = trace.traces.map(({ msg, time } = {}) => [msg, time])
+
+  return createSpan(ctx, { scope, tracer, annotations, start, stop })
 }
 
 export const middleware = ({ tracer, serviceName = 'koa-server' }) => koaMiddleware({
