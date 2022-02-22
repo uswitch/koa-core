@@ -67,12 +67,12 @@ export const createSpan = async (
  * @param {*} trace - The `koa-tracer` trace object
  * @returns {Promise}
  */
-export const createTraceSpan = (ctx, { scope, trace, tracer }) => {
+export const createTraceSpan = (ctx, { scope, trace, tracer, ...rest }) => {
   const start = trace.traces[0].time
   const stop = trace.traces.slice(-1)[0].time
   const annotations = trace.traces.map(({ msg, time } = {}) => [msg, time])
 
-  return createSpan(ctx, { scope, tracer, annotations, start, stop })
+  return createSpan(ctx, { scope, tracer, annotations, start, stop, ...rest })
 }
 
 export const middleware = ({ tracer, serviceName = 'koa-server' }) => koaMiddleware({
