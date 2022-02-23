@@ -70,7 +70,10 @@ export const createSpan = async (
 export const createTraceSpan = (ctx, { scope, trace, tracer, ...rest }) => {
   const start = trace.traces[0].time
   const stop = trace.traces.slice(-1)[0].time
-  const annotations = trace.traces.map(({ msg, time } = {}) => [msg, time])
+
+  // Add `i` microseconds to each trace time to force sequential order
+  // for traces that happen in the same millisecond
+  const annotations = trace.traces.map(({ msg, time } = {}, i) => [msg, +time + (i / 1000)])
 
   return createSpan(ctx, { scope, tracer, annotations, start, stop, ...rest })
 }
