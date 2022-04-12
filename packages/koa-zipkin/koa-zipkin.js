@@ -9,9 +9,9 @@ const { NODE_DEBUG } = process.env
 const debug = msg => NODE_DEBUG && console.log(`koa-zipkin | ${msg}`)
 
 /**
- * 
- * @param {string} localServiceName 
- * @param {object} logger 
+ * Creates a Zipkin Tracer, using ContextCLS and BatchRecorder
+ * @param {string} localServiceName - The local name of this service
+ * @param {object} logger - An instantiated Logger object
  * @param {boolean} allowAsync - Required for compatability with the ContextCLS
  * library if your code uses promises or async/await. Note there are known
  * performance issues with Node < 16.3.0.
