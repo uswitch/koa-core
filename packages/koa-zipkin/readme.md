@@ -118,7 +118,7 @@ Please see https://github.com/openzipkin/zipkin-js/tree/master/packages/zipkin-c
 To enable this, create the Tracer object as follows:
 
 ```js
-Tracer(APP_NAME, logger, true)
+const tracer = Tracer(APP_NAME, logger, true)
 ```
 
 **Please also note there are known performance implications of enabling this feature on Node versions below 16.3.0**
