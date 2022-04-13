@@ -115,7 +115,7 @@ export const zipkinFetch = fetch({ local: APP_NAME, client, tracer })
 
 Please see https://github.com/openzipkin/zipkin-js/tree/master/packages/zipkin-context-cls#a-note-on-cls-context-and-promises, and note that by default - asynchronous code is not supported by ContextCLS. If you see fetches appearing in Zipkin with a different Trace ID, this could be the reason..
 
-To enable this, create the Tracer object as follows:
+To enable asynchronous ContextCLS, create the Tracer object as follows:
 
 ```js
 const tracer = Tracer(APP_NAME, logger, true)
