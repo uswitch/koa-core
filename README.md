@@ -106,7 +106,7 @@ nvm use
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Wed Apr 13 2022 15:00:33 GMT+0100 (British Summer Time) -->
+<!-- Generated Wed May 04 2022 16:31:19 GMT+0100 (British Summer Time) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.6.2` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
