@@ -1,0 +1,31 @@
+version: '2.0'
+services:
+  koa-core:
+    image: node:10-alpine
+    ports:
+      - "3000:3000"
+    networks:
+      - mesh
+    working_dir: /etc
+    command: |
+      node --experimental-modules /etc/server/server.mjs
+    environment:
+      - DEBUG_KOA=true
+      - ZIPKIN_HOST=http://zipkin:9411/api/v2/spans
+      - NODE_DEBUG=true
+      - NODE_ENV=development
+    volumes:
+      - ./__example__:/etc/server
+      - .:/etc
+
+  zipkin:
+    image: openzipkin/zipkin
+    networks:
+      mesh:
+        aliases:
+          - zipkin
+    ports:
+      - "9411:9411"
+
+networks:
+  mesh: {}

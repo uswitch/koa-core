@@ -72,13 +72,24 @@ updating dependencies and generating the documentation for `core` .
 
 This publishes to both the NPM and Github Packages Registries
 
+### Node Version
+
+<!-- FIXME: Node version 10 is very old and should be fixed -->
+`koa-core` was built using [Node v10](./nvmrc) so you should run the
+following when developing it.
+
+```sh
+nvm use
+```
+
+
 ## Packages
 
 #### `@uswitch` packages
 
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages-internal:start] -->
-<!-- Generated Fri Aug 06 2021 14:12:36 GMT+0100 (British Summer Time) -->
+<!-- Generated Wed Apr 13 2022 15:00:34 GMT+0100 (British Summer Time) -->
 | Package | Version | Dependencies | Description |
 |--|--|--|--|
 | [`@uswitch/koa-access`](https://www.npmjs.com/package/@uswitch/koa-access) | [![npm](https://img.shields.io/npm/v/@uswitch/koa-access.svg?maxAge=2592000)](https://www.npmjs.com/package/@uswitch/koa-access) | [![Dependency Status](https://david-dm.org/@uswitch/koa-access.svg?path=packages/@uswitch/koa-access)](https://david-dm.org/@uswitch/koa-access?path=packages/@uswitch/koa-access) | 👌 A Koa middleware for logging JSON access logs consistently, similar to morgan |
@@ -95,7 +106,7 @@ This publishes to both the NPM and Github Packages Registries
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Fri Aug 06 2021 14:12:35 GMT+0100 (British Summer Time) -->
+<!-- Generated Wed May 04 2022 16:31:19 GMT+0100 (British Summer Time) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.6.2` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
