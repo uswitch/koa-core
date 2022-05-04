@@ -46,7 +46,7 @@ module.exports = (config = {}) => {
             { scope, trace, tracer: zipkinTracer }
           )
 
-        if (meters.traceDurationMillseconds)
+        if (meters.traceDurationMilliseconds)
           meters.traceDurationMilliseconds
             .labels(scope)
             .observe(trace.timeDiff / 1000) // Cast to seconds
