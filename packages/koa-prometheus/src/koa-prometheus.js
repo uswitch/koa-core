@@ -7,7 +7,7 @@ import { removeBlanks } from './utils/s'
 import { uniqueElementsByRight } from './utils/arr'
 
 import buildMeters from './utils/build-meters'
-import buildMarker from './utils/build-marker'
+import { buildMarker, buildScopedMarker } from './utils/build-marker'
 import printMeters from './utils/metrics-meter'
 
 export const collectMetrics = ({ prefix = 'koa_' }) => {
@@ -37,9 +37,10 @@ export default (
 
   const meters = buildMeters(config)
   const automark = buildMarker(config)
+  const scopedAutomark = buildScopedMarker(config)
   const print = buildPrinter(config, meters)
 
-  return { ...meters, automark, print, middleware: middleware(meters) }
+  return { ...meters, automark, scopedAutomark, print, middleware: middleware(meters) }
 }
 
 const buildPrinter = (config, meters) => () => removeBlanks([register.metrics(), ...printMeters(config, meters)].join('\n'))

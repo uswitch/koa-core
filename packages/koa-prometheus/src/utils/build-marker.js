@@ -1,8 +1,9 @@
 import { path } from './obj'
 import { camelCase } from './s'
 
-const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
+const markFunction = ({ name, mark, labelNames = [] }) => (ctx, scopeId) => {
   if (!mark) return
+  if (mark.id && scopeId !== mark.id) return
 
   const id = camelCase(name)
 
@@ -30,6 +31,11 @@ const markFunction = ({ name, mark, labelNames = [] }) => ctx => {
     : meter[mark.method](amount)
 }
 
-export default (config = []) => (ctx = {}) => config
+export const buildMarker = (config = []) => (ctx = {}) => config
   .map(markFunction)
   .forEach(f => f(ctx))
+
+export const buildScopedMarker = (config = []) =>
+  (scopeId, ctx = {}) => config
+    .map(markFunction)
+    .forEach(f => f(ctx, scopeId))
