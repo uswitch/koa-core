@@ -31,7 +31,7 @@
   "dependencies": {
     "metrics": "^0.1.21",
     "prom-client": "^11.5.3",
-    "prometheus-gc-stats": "^0.6.2"
+    "prometheus-gc-stats": "^0.6.3"
   },
   "devDependencies": {
     "ajv-cli": "^3.0.0",
