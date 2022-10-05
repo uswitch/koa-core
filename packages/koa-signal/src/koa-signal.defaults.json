@@ -22,26 +22,26 @@
     "info": {
       "badge": "💬",
       "labelColor": ["blue"],
-      "format": [ "level", "id", "file-name", "message" ]
+      "format": ["level", "id", "fileName", "message"]
     },
 
     "warn": {
       "badge": "⚠️ ",
       "label": "warning",
       "labelColor": ["yellow"],
-      "format": [ "level", "id", "file-name", "message" ]
+      "format": ["level", "id", "fileName", "message"]
     },
 
     "trace": {
       "badge": "⚡️",
       "labelColor": ["blueBright"],
-      "format": [ "level", "id", "file-name", "time-diff-init",  "time-diff-scope", "just:-", "scope", "message" ]
+      "format": ["level", "id", "fileName", "timeDiffInit",  "timeDiffScope", "just:-", "scope", "message"]
     },
 
     "error": {
       "badge": "🔥",
       "labelColor": ["red"],
-      "format": [ "level", "id", "file-name", "message", "just:-", "error" ]
+      "format": ["level", "id", "fileName", "message", "just:-", "error"]
     },
 
     "access": {
@@ -84,7 +84,7 @@
       "displayFormat": "[%s]"
     },
 
-    "file-name": {
+    "fileName": {
       "underline": true,
       "displayFileName": false,
       "displayFormat": "@%s"
@@ -126,14 +126,14 @@
       "italic": false
     },
 
-    "time-diff-init": {
+    "timeDiffInit": {
       "defaultReturn": "0ms",
       "color": [ "magenta" ],
       "minimumWidth": 10,
       "alignment": "right"
     },
 
-    "time-diff-scope": {
+    "timeDiffScope": {
       "color": [ "blueBright" ],
       "defaultReturn": "0ms",
       "minimumWidth": 8,
