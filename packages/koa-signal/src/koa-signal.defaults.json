@@ -3,68 +3,85 @@
     "success": {
       "badge": "✅️",
       "label": "success",
-      "labelColor": [ "green" ],
-      "format": [ "level", "id", "message" ]
+      "labelColor": ["green"],
+      "format": ["level", "id", "message"]
     },
 
     "start": {
       "badge": "🚀",
       "labelColor": ["yellow"],
-      "format": [ "level", "message" ]
+      "format": ["level", "message"]
     },
 
     "end": {
       "badge": "🛑",
       "labelColor": ["red"],
-      "format": [ "level", "message" ]
+      "format": ["level", "message"]
     },
 
     "info": {
       "badge": "💬",
       "labelColor": ["blue"],
-      "format": [ "level", "id", "file-name", "message" ]
+      "format": ["level", "id", "file-name", "message"]
     },
 
     "warn": {
       "badge": "⚠️ ",
       "label": "warning",
       "labelColor": ["yellow"],
-      "format": [ "level", "id", "file-name", "message" ]
+      "format": ["level", "id", "file-name", "message"]
     },
 
     "trace": {
       "badge": "⚡️",
-      "labelColor": ["blueBright"],
-      "format": [ "level", "id", "file-name", "time-diff-init",  "time-diff-scope", "just:-", "scope", "message" ]
+      "labelColor": ["green"],
+      "format": [
+        "level",
+        "id",
+        "timeDiffInit",
+        "timeDiffScope",
+        "scope",
+        "message"
+      ]
     },
 
     "error": {
       "badge": "🔥",
       "labelColor": ["red"],
-      "format": [ "level", "id", "file-name", "message", "just:-", "error" ]
+      "format": ["level", "id", "file-name", "message", "just:-", "error"]
     },
 
     "access": {
-      "format": [ "just:🚦 ", "access", "id", "access-log" ]
+      "format": ["just:🚦 ", "access", "id", "access-log"]
     },
 
     "summary": {
       "badge": "🞺",
       "label": "summary",
       "labelColor": "bold",
-      "format": [ "level", "summary" ]
+      "format": ["level", "summary"]
     },
 
     "zipkin": {
       "components": {
         "id": { "displayFormat": "%s", "displayShortId": 12, "color": "dim" },
-        "access": { "displayFormat": "%s", "displayMethod": true, "displayStatus": true, "minimumWidth": 10 },
-        "access-log": { "format": ":remoteEndpoint - :url :statusCode - :duration_µs" },
+        "access": {
+          "displayFormat": "%s",
+          "displayMethod": true,
+          "displayStatus": true,
+          "minimumWidth": 10
+        },
+        "access-log": {
+          "format": ":remoteEndpoint - :url :statusCode - :duration_µs"
+        },
         "map": {
           "displayFormat": " %s ",
           "properties": {
             "cache": {
-              "HIT": { "color": [ "bold","bgWhite", "black" ], "text": "👊 HIT" },
+              "HIT": {
+                "color": ["bold", "bgWhite", "black"],
+                "text": "👊 HIT"
+              },
               "MISS": { "color": "dim", "text": "💨 MISS" }
             }
           }
@@ -73,7 +90,17 @@
       "badge": "🛰",
       "label": "",
       "labelColor": "blue",
-      "format": [ "just:          ", "zipkin-level", "access", "map:cache", "access-log", "just:-",  "id:parent",  "just:|",  "id:scope" ]
+      "format": [
+        "just:          ",
+        "zipkin-level",
+        "access",
+        "map:cache",
+        "access-log",
+        "just:-",
+        "id:parent",
+        "just:|",
+        "id:scope"
+      ]
     }
   },
 
@@ -97,9 +124,9 @@
     },
 
     "message": {
-      "properties": [ "msg", "message", "text" ]
+      "properties": ["msg", "message", "text"]
     },
-    
+
     "level": {
       "minimumWidth": 20,
       "alignment": "left",
@@ -118,7 +145,7 @@
     },
 
     "scope": {
-      "color": [ "dim" ],
+      "color": ["dim"],
       "alignment": "left",
       "displayFormat": "[%s]",
       "uppercase": false,
@@ -126,15 +153,15 @@
       "italic": false
     },
 
-    "time-diff-init": {
+    "timeDiffInit": {
       "defaultReturn": "0ms",
-      "color": [ "magenta" ],
+      "color": ["magenta"],
       "minimumWidth": 10,
       "alignment": "right"
     },
 
-    "time-diff-scope": {
-      "color": [ "blueBright" ],
+    "timeDiffScope": {
+      "color": ["blueBright"],
       "defaultReturn": "0ms",
       "minimumWidth": 8,
       "alignment": "right"
@@ -145,9 +172,9 @@
       "displayFormat": "%s └",
       "displayMethod": false,
       "displayStatus": true,
-      "color": [ ],
+      "color": [],
       "statusMap": {
-        "200-300": { "color": ["green"], "badge":  "✔" },
+        "200-300": { "color": ["green"], "badge": "✔" },
         "300-400": { "color": ["blue"], "badge": "←" },
         "400-500": { "badge": "⚠" },
         "500-1000": { "color": ["red"], "badge": "✖" }
@@ -160,10 +187,9 @@
 
     "json": {
       "humanReadable": false,
-      "properties": [ "id", "errors" ],
-      "defaultProperties": [ "req", "res" ]
+      "properties": ["id", "errors"],
+      "defaultProperties": ["req", "res"]
     }
-
   },
 
   "outputs": [
