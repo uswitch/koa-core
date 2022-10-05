@@ -34,15 +34,8 @@
 
     "trace": {
       "badge": "⚡️",
-      "labelColor": ["green"],
-      "format": [
-        "level",
-        "id",
-        "timeDiffInit",
-        "timeDiffScope",
-        "scope",
-        "message"
-      ]
+      "labelColor": ["blueBright"],
+      "format": ["level", "id", "file-name", "timeDiffInit",  "timeDiffScope", "just:-", "scope", "message"]
     },
 
     "error": {
@@ -65,23 +58,13 @@
     "zipkin": {
       "components": {
         "id": { "displayFormat": "%s", "displayShortId": 12, "color": "dim" },
-        "access": {
-          "displayFormat": "%s",
-          "displayMethod": true,
-          "displayStatus": true,
-          "minimumWidth": 10
-        },
-        "access-log": {
-          "format": ":remoteEndpoint - :url :statusCode - :duration_µs"
-        },
+        "access": { "displayFormat": "%s", "displayMethod": true, "displayStatus": true, "minimumWidth": 10 },
+        "access-log": { "format": ":remoteEndpoint - :url :statusCode - :duration_µs" },
         "map": {
           "displayFormat": " %s ",
           "properties": {
             "cache": {
-              "HIT": {
-                "color": ["bold", "bgWhite", "black"],
-                "text": "👊 HIT"
-              },
+              "HIT": { "color": ["bold","bgWhite", "black"], "text": "👊 HIT" },
               "MISS": { "color": "dim", "text": "💨 MISS" }
             }
           }
@@ -90,17 +73,7 @@
       "badge": "🛰",
       "label": "",
       "labelColor": "blue",
-      "format": [
-        "just:          ",
-        "zipkin-level",
-        "access",
-        "map:cache",
-        "access-log",
-        "just:-",
-        "id:parent",
-        "just:|",
-        "id:scope"
-      ]
+      "format": ["just:          ", "zipkin-level", "access", "map:cache", "access-log", "just:-",  "id:parent",  "just:|",  "id:scope"]
     }
   },
 
@@ -126,7 +99,7 @@
     "message": {
       "properties": ["msg", "message", "text"]
     },
-
+    
     "level": {
       "minimumWidth": 20,
       "alignment": "left",
@@ -174,7 +147,7 @@
       "displayStatus": true,
       "color": [],
       "statusMap": {
-        "200-300": { "color": ["green"], "badge": "✔" },
+        "200-300": { "color": ["green"], "badge":  "✔" },
         "300-400": { "color": ["blue"], "badge": "←" },
         "400-500": { "badge": "⚠" },
         "500-1000": { "color": ["red"], "badge": "✖" }
@@ -190,6 +163,7 @@
       "properties": ["id", "errors"],
       "defaultProperties": ["req", "res"]
     }
+
   },
 
   "outputs": [
