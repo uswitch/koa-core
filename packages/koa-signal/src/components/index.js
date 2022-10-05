@@ -10,8 +10,8 @@ import message from './message'
 import rawJson from './raw-json'
 import scope from './scope'
 import summary from './summary'
-import timeDiffInit from './timeDiffInit'
-import timeDiffScope from './timeDiffScope'
+import timeDiffInit from './time-diff-init'
+import timeDiffScope from './time-diff-scope'
 import zipkinLevel from './zipkin-level'
 
 export default {
