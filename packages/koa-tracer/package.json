@@ -40,7 +40,7 @@
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "jest": "^24.8.0"
+    "jest": "^29.1.2"
   },
   "gitHead": "df0958b21d3cbfafa5434f9056601754718ce794"
 }
