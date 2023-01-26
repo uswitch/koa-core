@@ -1,4 +1,4 @@
-import { bold, red } from 'chalk'
+import { bold, red } from 'picocolors'
 
 import format from '../helper/format'
 import flatten from '../helper/flatten'

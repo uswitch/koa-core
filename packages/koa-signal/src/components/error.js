@@ -1,4 +1,4 @@
-import chalk from 'chalk'
+import pc from 'picocolors'
 
 /* Config and then passed Koa ctx & msg */
 export default (config = {}) => (ctx, error = {}) => {
@@ -18,6 +18,6 @@ export default (config = {}) => (ctx, error = {}) => {
     : tail
 
   return displayStackTrace
-    ? [ head, ...stack.map(it => chalk[color](it)).map(i => i.replace(/^/, '\n')) ]
+    ? [ head, ...stack.map(it => pc[color](it)).map(i => i.replace(/^/, '\n')) ]
     : head
 }

@@ -1,4 +1,4 @@
-import { bold } from 'chalk'
+import { bold } from 'picocolors'
 import format from '../helper/format'
 
 const isObject = obj => obj === Object(obj)

@@ -1,4 +1,4 @@
-import { dim } from 'chalk'
+import { dim } from 'picocolors'
 import Signal from './koa-signal.js'
 const signal = new Signal({ levels: {json: { format: [ 'json' ] }, rawJson: { format: ['raw-json']}}})
 
