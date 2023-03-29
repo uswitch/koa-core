@@ -1,5 +1,5 @@
 import { BatchRecorder, Annotation, Tracer as T } from 'zipkin'
-import { koaMiddleware } from 'zipkin-instrumentation-koa'
+import koaMiddleware from './koa-zipkin-instrumentation-koa'
 
 import Context from 'zipkin-context-cls'
 import wrap from 'zipkin-instrumentation-fetch'
