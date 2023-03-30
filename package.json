@@ -62,7 +62,7 @@
     "babel-preset-env": "^1.7.0",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
-    "lerna": "^3.22.1",
+    "lerna": "^5.5.4",
     "npm-watch": "^0.3.0"
   },
   "gitHead": "df0958b21d3cbfafa5434f9056601754718ce794"
