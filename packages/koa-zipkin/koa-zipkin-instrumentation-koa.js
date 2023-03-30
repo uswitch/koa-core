@@ -3,7 +3,7 @@
 // to fix the bug where all exceptions in middleware are swallowed by the .catch
 
 import {option, Instrumentation} from 'zipkin'
-console.log({option, Instrumentation})
+
 const {Some, None} = option
 
 /**
