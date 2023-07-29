@@ -42,7 +42,7 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^2.6.12",
     "zipkin": "^0.22.0",
     "zipkin-context-cls": "^0.22.0",
     "zipkin-instrumentation-fetch": "^0.22.0",
