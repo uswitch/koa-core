@@ -1,4 +1,4 @@
-import chalk from 'chalk'
+import pc from 'picocolors'
 
 export default (config, text) => {
   if (!text) return
@@ -13,9 +13,9 @@ export default (config, text) => {
   const padF = alignment === 'left' ? 'padEnd' : 'padStart'
   const displayText = minimumWidth ? text[padF](minimumWidth) : text
 
-  const chalkF = Array.isArray(color)
-    ? color.reduce((acc, it) => acc[it], chalk)
-    : chalk[color] || (i => i)
+  const colorF = Array.isArray(color)
+    ? color.reduce((acc, it) => (msg) => acc(pc[it](msg)), pc.reset)
+    : pc[color] || (i => i)
 
-  return chalkF(displayFormat.replace('%s', displayText))
+  return colorF(displayFormat.replace('%s', displayText))
 }

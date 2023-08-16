@@ -34,7 +34,7 @@
 
     "trace": {
       "badge": "⚡️",
-      "labelColor": ["blueBright"],
+      "labelColor": ["blue"],
       "format": ["level", "id", "fileName", "timeDiffInit",  "timeDiffScope", "just:-", "scope", "message"]
     },
 
@@ -134,7 +134,7 @@
     },
 
     "timeDiffScope": {
-      "color": [ "blueBright" ],
+      "color": [ "blue" ],
       "defaultReturn": "0ms",
       "minimumWidth": 8,
       "alignment": "right"
