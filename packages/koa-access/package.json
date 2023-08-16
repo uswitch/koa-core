@@ -43,7 +43,7 @@
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "on-finished": "^2.3.0"
+    "on-finished": "^2.4.1"
   },
   "gitHead": "df0958b21d3cbfafa5434f9056601754718ce794"
 }
