@@ -1,6 +1,5 @@
 import defaultConfig from './koa-prometheus.defaults.json'
 import standardsConfig from './koa-prometheus.standards.json'
-import collectGcMetrics from 'prometheus-gc-stats'
 import { register, collectDefaultMetrics } from 'prom-client'
 
 import { removeBlanks } from './utils/s'
@@ -11,7 +10,6 @@ import buildMarker from './utils/build-marker'
 import printMeters from './utils/metrics-meter'
 
 export const collectMetrics = ({ prefix = 'koa_' }) => {
-  collectGcMetrics(register, { prefix }).call({})
   collectDefaultMetrics({ prefix, timestamps: false })
 }
 
