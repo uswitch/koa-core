@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-signal",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "description": "🚦 Hackable and configurable output rendering for loggers",
   "main": "build/koa-signal.js",
   "scripts": {
@@ -36,7 +36,7 @@
     }
   },
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
@@ -55,7 +55,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "jest": "^24.8.0",
     "npm-run-all": "^4.1.3",
-    "npm-watch": "^0.3.0"
+    "npm-watch": "^0.11.0"
   },
-  "gitHead": "df0958b21d3cbfafa5434f9056601754718ce794"
+  "gitHead": "d03eec6803b1b0b7c012966aaf2ee28614da4cb4"
 }
