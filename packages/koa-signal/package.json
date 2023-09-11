@@ -40,12 +40,12 @@
     "json-stringify-safe": "^5.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^23.0.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "del-cli": "^1.1.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "babel-jest": "^24.8.0",
+    "del-cli": "^5.1.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
