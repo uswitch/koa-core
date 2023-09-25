@@ -1,4 +1,4 @@
-import { DEFAULT_KEY } from '../koa-tracer'
+import { DEFAULT_KEY } from './koa-tracer'
 
 const path = (path, o) => path.reduce((acc, it) => acc ? acc[it] : undefined, o)
 

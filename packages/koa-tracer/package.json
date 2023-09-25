@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "prepublishOnly": "npm run build",
     "prebuild": "rm -rf build",
-    "build": "babel --out-dir build src/*.js koa-tracer.js"
+    "build": "babel --out-dir build src/*.js"
   },
   "jest": {
     "transform": {
