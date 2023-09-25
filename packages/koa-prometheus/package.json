@@ -38,7 +38,7 @@
     "@babel/plugin-transform-object-rest-spread": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "ajv-cli": "^0.6.0",
-    "del-cli": "^5.1.0",
+    "del-cli": "^1.1.0",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
