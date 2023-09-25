@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/uswitch/koa-timeout#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@babel/cli": "^7.0.0",
     "@babel/plugin-transform-object-rest-spread": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
