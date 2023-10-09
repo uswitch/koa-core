@@ -21,7 +21,7 @@
     "publish:version": "lerna version",
     "publish:npm": "lerna publish from-package --message '🚀 Begin publish'",
     "publish:github": "lerna publish from-package --message '🚀 Begin publish' --registry='https://npm.pkg.github.com/'",
-    "publish:packages": "npm run publish:version && npm run publish:npm && npm run publish:github",
+    "publish:packages": "npm run publish:version &&  npm run publish:github",
     "clean": "node ./__scripts__/clean-dependencies.js",
     "build": "lerna run build --ignore @uswitch/koa-core"
   },
