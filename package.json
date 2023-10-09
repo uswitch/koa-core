@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.23.0",
+  "version": "1.23.3",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "publish:version": "lerna version",
     "publish:npm": "lerna publish from-package --message '🚀 Begin publish'",
     "publish:github": "lerna publish from-package --message '🚀 Begin publish' --registry='https://npm.pkg.github.com/'",
-    "publish:packages": "npm run publish:version && npm run publish:npm && npm run publish:github",
+    "publish:packages": "npm run publish:version &&  npm run publish:github",
     "clean": "node ./__scripts__/clean-dependencies.js",
     "build": "lerna run build --ignore @uswitch/koa-core"
   },
@@ -39,13 +39,13 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.9.5",
-    "@uswitch/koa-cookie": "^1.4.5",
-    "@uswitch/koa-prometheus": "^0.8.0",
-    "@uswitch/koa-signal": "^1.10.5",
-    "@uswitch/koa-timeout": "^1.6.5",
-    "@uswitch/koa-tracer": "^1.7.5",
-    "@uswitch/koa-zipkin": "^1.11.7",
+    "@uswitch/koa-access": "^2.9.8",
+    "@uswitch/koa-cookie": "^1.4.8",
+    "@uswitch/koa-prometheus": "^0.8.3",
+    "@uswitch/koa-signal": "^1.10.8",
+    "@uswitch/koa-timeout": "^1.6.8",
+    "@uswitch/koa-tracer": "^1.7.8",
+    "@uswitch/koa-zipkin": "^1.11.10",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -65,5 +65,8 @@
     "lerna": "^3.22.1",
     "npm-watch": "^0.3.0"
   },
-  "gitHead": "db31f9f93cc59d81257b69b4fb5d71fc69a8c3bf"
+  "gitHead": "34edd404d0a93dc0a28e66af5305bf4efe5f2384",
+  "volta": {
+    "node": "18.17.1"
+  }
 }
