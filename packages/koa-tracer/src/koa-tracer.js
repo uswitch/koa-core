@@ -1,6 +1,6 @@
-import toMessage from './src/to-message'
-import { getTimeDiff, getInitDiff } from './src/helper-selectors'
-import { isError } from './src/helper-predicates'
+import toMessage from './to-message'
+import { getTimeDiff, getInitDiff } from './helper-selectors'
+import { isError } from './helper-predicates'
 
 export const DEFAULT_KEY = '__general'
 export const defaultKey = DEFAULT_KEY
