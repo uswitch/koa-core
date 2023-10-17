@@ -41,6 +41,7 @@
   "dependencies": {
     "@uswitch/koa-access": "^2.9.8",
     "@uswitch/koa-cookie": "^1.4.8",
+    "@uswitch/koa-core": "^1.23.3",
     "@uswitch/koa-prometheus": "^0.8.3",
     "@uswitch/koa-signal": "^1.10.8",
     "@uswitch/koa-timeout": "^1.6.8",
