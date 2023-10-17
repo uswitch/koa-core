@@ -40,4 +40,7 @@ export default (
   return { ...meters, automark, print, middleware: middleware(meters) }
 }
 
-const buildPrinter = (config, meters) => () => removeBlanks([register.metrics(), ...printMeters(config, meters)].join('\n'))
+const buildPrinter = (config, meters) => async () => {
+  const metrics = await register.metrics()
+  return removeBlanks([metrics, ...printMeters(config, meters)].join("\n"))
+}
