@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "1.23.3",
+  "version": "1.24.0",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -39,14 +39,14 @@
     "example": "__example__/*"
   },
   "dependencies": {
-    "@uswitch/koa-access": "^2.9.8",
-    "@uswitch/koa-cookie": "^1.4.8",
-    "@uswitch/koa-core": "^1.23.3",
-    "@uswitch/koa-prometheus": "^0.8.3",
-    "@uswitch/koa-signal": "^1.10.8",
-    "@uswitch/koa-timeout": "^1.6.8",
-    "@uswitch/koa-tracer": "^1.7.8",
-    "@uswitch/koa-zipkin": "^1.11.10",
+    "@uswitch/koa-access": "^2.9.9",
+    "@uswitch/koa-cookie": "^1.4.9",
+    "@uswitch/koa-core": "^1.24.0",
+    "@uswitch/koa-prometheus": "^1.0.0",
+    "@uswitch/koa-signal": "^1.10.9",
+    "@uswitch/koa-timeout": "^1.6.9",
+    "@uswitch/koa-tracer": "^1.7.9",
+    "@uswitch/koa-zipkin": "^1.11.11",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -56,12 +56,12 @@
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
     "axios": "^0.21.1",
     "axios-cache-adapter": "^2.3.3",
-    "@babel/cli": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.22.15",
-    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
-    "@babel/preset-env": "^7.22.15",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
     "lerna": "^3.22.1",
