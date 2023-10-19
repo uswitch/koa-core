@@ -68,7 +68,7 @@ const meters = Meter({ /* Config */ }, { loadDefaults: true })
 
 app.use(meters.middleware)   // The middleware that makes the meters available
 
-app.get('/metrics', (ctx) => (ctx.body = meters.print()))
+app.get('/metrics', async (ctx) => (ctx.body = await meters.print()))
 
 app.on(eventAccess, (ctx) => meters.automark(ctx))
 app.on(eventError, () => meters.errorRate.mark(1))
