@@ -74,14 +74,7 @@ This publishes to both the NPM and Github Packages Registries
 
 ### Node Version
 
-<!-- FIXME: Node version 10 is very old and should be fixed -->
-`koa-core` was built using [Node v10](./nvmrc) so you should run the
-following when developing it.
-
-```sh
-nvm use
-```
-
+You can see which version of node `koa-core` supports by looking in [.nvmrc](./.nvmrc).
 
 ## Packages
 
