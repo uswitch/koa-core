@@ -1,0 +1,30 @@
+{
+    "name": "@uswitch/koa-chansey",
+    "version": "1.8.0",
+    "description": "> A lightweight Koa middleware to integrate into Recharge Chansey. Exposes experiences onto the > request context.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uswitch/koa-core.git",
+        "directory": "packages/koa-chansey"
+    },
+    "keywords": [
+        "chansey",
+        "experiences",
+        "feature-flags",
+        "ab-testing"
+    ],
+    "author": "recharge",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/uswitch/koa-core/issues"
+    },
+    "homepage": "https://github.com/uswitch/koa-core#readme",
+    "dependencies": {
+        "axios": "^1.5.1",
+        "jsonwebtoken": "^9.0.2"
+    }
+}

@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@uswitch/koa-access": "^2.9.11",
+    "@uswitch/koa-chansey": "^1.8.0",
     "@uswitch/koa-cookie": "^1.4.11",
     "@uswitch/koa-core": "^2.0.3",
     "@uswitch/koa-prometheus": "^1.0.2",

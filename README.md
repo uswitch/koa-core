@@ -52,6 +52,7 @@ Or, better yet, with emojis
 
 * 🎾 for `core`
 * 👌 for `access`
+* 🎲 for `chansey`
 * 🕵️‍♀️ for `tracer`
 * 🚦 for `signal`
 * 🌡️ for `prometheus`
