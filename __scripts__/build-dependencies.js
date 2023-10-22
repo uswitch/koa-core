@@ -17,5 +17,5 @@ console.log(`Building ${passThrough.length} dependencies`)
 Promise
   .all(passThrough.map(writeFileAsync))
   .then(() => {
-    console.log('Dependncies built!')
+    console.log('Dependencies built!')
   })
