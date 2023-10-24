@@ -20,9 +20,9 @@ module.exports = (config = {}) => {
   const signal = Signal(signalConfig)
   const meters = Meters(prometheusConf || prodPrometheusConf, { loadStandards: true, loadDefaults: false })
 
-  app.use((ctx, next) => {
+  app.use(async (ctx, next) => {
     if (ctx.request.path !== '/metrics') return next()
-    ctx.body = meters.print()
+    ctx.body = await meters.print()
   })
 
   app.use(tracer())
