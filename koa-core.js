@@ -22,7 +22,7 @@ module.exports = (config = {}) => {
 
   app.use((ctx, next) => {
     if (ctx.request.path !== '/metrics') return next()
-    ctx.body = meters.print()
+    ctx.body = await meters.print()
   })
 
   app.use(tracer())
