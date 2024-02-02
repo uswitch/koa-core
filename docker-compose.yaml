@@ -1,7 +1,7 @@
 version: '2.0'
 services:
   koa-core:
-    image: node:10-alpine
+    image: node:18.16-alpine
     ports:
       - "3000:3000"
     networks:
