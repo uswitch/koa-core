@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.7.11",
+  "version": "1.7.12",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
@@ -42,5 +42,5 @@
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^29.6.4"
   },
-  "gitHead": "094e57d5061356d238b7082e8b4c904ed51c4abf"
+  "gitHead": "a88a0aa8366e6aadb5a7f1e1d6b6f4afe2915b58"
 }
