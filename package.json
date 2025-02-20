@@ -47,7 +47,7 @@
     "@uswitch/koa-timeout": "^1.6.11",
     "@uswitch/koa-tracer": "^1.7.11",
     "@uswitch/koa-zipkin": "^1.11.13",
-    "koa": "^2.6.2",
+    "koa": "^2.15.4",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
     "koa-helmet": "^4.0.0",
