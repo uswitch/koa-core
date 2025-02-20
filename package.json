@@ -69,7 +69,7 @@
     "lerna": "^3.22.1",
     "npm-watch": "^0.3.0"
   },
-  "gitHead": "094e57d5061356d238b7082e8b4c904ed51c4abf",
+  "gitHead": "a88a0aa8366e6aadb5a7f1e1d6b6f4afe2915b58",
   "volta": {
     "node": "18.17.1"
   }
