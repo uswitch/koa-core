@@ -30,5 +30,5 @@
     "@babel/preset-env": "^7.22.15",
     "del-cli": "^5.1.0"
   },
-  "gitHead": "a88a0aa8366e6aadb5a7f1e1d6b6f4afe2915b58"
+  "gitHead": "57d15ad60a9f758e80e8c3da5d9dd3dcdda1907b"
 }
