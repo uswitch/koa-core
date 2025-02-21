@@ -72,6 +72,13 @@ updating dependencies and generating the documentation for `core` .
 
 This publishes to both the NPM and Github Packages Registries
 
+
+<sub><b>N.B.</b> Conflicts when publishing</sub>
+> `ERR! lifecycle "publish" errored in "@uswitch/koa-access", exiting 1`
+> You may see _conflicts_ when publishing all packages caused by `@uswitch/koa-access`.
+> This will error before `@uswitch/koa-core` is published itself
+> You can run `npm publish` from within the root of each package to publish them individually.
+
 ### Node Version
 
 You can see which version of node `koa-core` supports by looking in [.nvmrc](./.nvmrc).
