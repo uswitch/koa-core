@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-cookie",
-  "version": "1.4.13",
+  "version": "1.5.0",
   "description": "🍪 Koa cookie parser middleware",
   "main": "index.js",
   "scripts": {
