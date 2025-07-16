@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-access",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "license": "MIT",
   "description": "👌 A Koa middleware for logging JSON access logs consistently, similar to morgan",
   "main": "build/koa-access.js",
@@ -27,12 +27,13 @@
   },
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
-    "@babel/plugin-transform-runtime": "^7.22.15",
-    "@babel/preset-env": "^7.22.15",
+    "@babel/cli": "^7.23.2",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-transform-object-rest-spread": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "@babel/runtime": "^7.22.15",
+    "@babel/traverse": "^7.23.2",
     "babel-jest": "^24.8.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.49.0",
@@ -47,5 +48,5 @@
   "dependencies": {
     "on-finished": "^2.4.1"
   },
-  "gitHead": "4dabb19b1bd8324bf2f6e3bdfc0c0ad5fe94aff8"
+  "gitHead": "9c71aba948deb9f1f43a03b85f86cee818417afe"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-zipkin",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add Zipkin tracing to requests",
@@ -25,11 +25,13 @@
     "directory": "packages/koa-zipkin"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/plugin-syntax-function-bind": "^7.22.5",
-    "@babel/plugin-transform-object-rest-spread": "^7.22.15",
-    "@babel/plugin-transform-runtime": "^7.22.15",
-    "@babel/preset-env": "^7.22.15",
+    "@babel/cli": "^7.23.2",
+    "@babel/core": "^7.23.2",
+    "@babel/plugin-syntax-function-bind": "^7.23.2",
+    "@babel/plugin-transform-object-rest-spread": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/traverse": "^7.23.2",
     "babel-jest": "^24.8.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.49.0",
@@ -49,5 +51,5 @@
     "zipkin-instrumentation-koa": "^0.22.0",
     "zipkin-transport-http": "^0.22.0"
   },
-  "gitHead": "4dabb19b1bd8324bf2f6e3bdfc0c0ad5fe94aff8"
+  "gitHead": "9c71aba948deb9f1f43a03b85f86cee818417afe"
 }
