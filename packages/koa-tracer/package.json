@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
@@ -26,13 +26,13 @@
     "directory": "packages/koa-tracer"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/traverse": "^7.23.2",
-    "@babel/plugin-transform-runtime": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
     "@babel/cli": "^7.23.2",
+    "@babel/core": "^7.23.2",
     "@babel/plugin-syntax-function-bind": "^7.23.2",
     "@babel/plugin-transform-object-rest-spread": "^7.23.2",
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/traverse": "^7.23.2",
     "babel-jest": "^24.8.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.49.0",
