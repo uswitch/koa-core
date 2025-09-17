@@ -68,8 +68,8 @@ router.get('/signal/all', async ctx => {
 })
 
 router.get('/zipkin', async ctx => {
-  const url = 'http://echo.jsontest.com/hello/world'
-  const remote = 'echo-json-test'
+  const url = 'https://postman-echo.com/get'
+  const remote = 'postman-echo-test'
   const method = 'GET'
 
   const body = await zipkinFetch({ remote }, { url, method })
