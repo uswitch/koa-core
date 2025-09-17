@@ -190,6 +190,18 @@ curl http://localhost:3000/scope/name    // Trace message to scope NAME
 
 // See all types of koa-signal message
 curl http://localhost:3000/signal/all
+```
+
+To test zipkin
+
+```sh 
+docker run --rm -p 9411:9411 --name zipkin openzipkin/zipkin
+```
+You should then be able to see the UI here: http://localhost:9411/zipkin/
+Then run the server with the `ZIPKIN_HOST` env variable set and you should be able to curl `/zipkin` to see the tracing.
+
+```sh
+ZIPKIN_HOST=http://127.0.0.1:9411/api/v2/spans NODE_ENV=development npm run example
 
 // See how zipkin tracing works
 curl http://locahost:3000/zipkin
