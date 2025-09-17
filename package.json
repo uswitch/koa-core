@@ -5,7 +5,7 @@
   "main": "koa-core.js",
   "scripts": {
     "------- TESTING": "---------------------------------------------------",
-    "example": "node --experimental-modules ./__example__/server.mjs",
+    "example": "node --experimental-specifier-resolution=node ./__example__/server.mjs",
     "example:watch": "npm-watch example",
     "test": "lerna run test --ignore @uswitch/koa-core",
     "audit": "ROOT=`pwd`; for l in packages/koa*; do cd $ROOT/$l; echo \"Auditing: $l\"; npm audit; cd $ROOT; done",
@@ -67,7 +67,7 @@
     "axios-cache-adapter": "^2.3.3",
     "del": "^3.0.0",
     "del-cli": "^1.1.0",
-    "lerna": "^3.22.1",
+    "lerna": "^6.5.0",
     "npm-watch": "^0.3.0"
   },
   "gitHead": "9c71aba948deb9f1f43a03b85f86cee818417afe",
