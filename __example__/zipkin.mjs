@@ -15,10 +15,10 @@ fetchClient.interceptors.response.use(
     res.headers['X-Cache-Enabled'] = true
     return res
   },
-  Promise.reject
+  (err) => Promise.reject(err)
 )
 
-export const tracer = Tracer(APP_NAME, Logger({ endpoint: ZIPKIN_HOST }))
+export const tracer = Tracer(APP_NAME, Logger({ endpoint: ZIPKIN_HOST }), true)
 
 export const zipkin = middleware({ tracer })
 export const zipkinFetch = fetch({ local: APP_NAME, fetch: fetchClient, tracer })

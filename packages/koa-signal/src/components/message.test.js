@@ -1,5 +1,6 @@
 /* global describe, it, expect */
 import message from './message'
+import util from 'node:util'
 
 describe(`koa-signal | message component`, () => {
   it(`should return the right format`, () => {
@@ -24,6 +25,13 @@ describe(`koa-signal | message component`, () => {
   })
 
   it('should log out an object when passed as a seacond object', () => {
-    expect(message()({}, { a: 1, b: 2, c: 'baaaar!' })).toEqual(['a: 1', 'b: 2', 'c: baaaar!'])
+    const msg = message()({}, { a: 1, b: 2, c: 'baaaar!' });
+    const strippedMessage = msg.map(str => util.stripVTControlCharacters(str));
+
+    expect(strippedMessage).toEqual([
+      'a: 1',
+      'b: 2',
+      'c: baaaar!',
+    ])
   })
 })

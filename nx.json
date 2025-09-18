@@ -1,0 +1,42 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "test",
+          "build:deps",
+          "update:deps",
+          "build",
+          "doc:deps"
+        ]
+      }
+    }
+  },
+  "targetDefaults": {
+    "build:deps": {
+      "dependsOn": ["^update:deps"],
+      "outputs": ["{projectRoot}/koa*.js"]
+    },
+    "update:deps": {
+      "dependsOn": [],
+      "outputs": []
+    },
+    "doc:deps": {
+      "dependsOn": ["^update:deps", "^build:deps"],
+      "outputs": ["README.md"]
+    },
+    "doc-internal-packages": {
+      "dependsOn": ["^update:deps", "^build:deps"],
+      "outputs": ["README.md"]
+    },
+    "build": {
+      "dependsOn": ["^build:deps"],
+      "outputs": ["{projectRoot}/packages/**/build"]
+    },
+    "clean": {
+      "dependsOn": [],
+      "outputs": []
+    }
+  }
+}
