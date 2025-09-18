@@ -7,37 +7,29 @@
           "test",
           "build:deps",
           "update:deps",
-          "build"
+          "build",
+          "doc:deps"
         ]
       }
     }
   },
   "targetDefaults": {
     "build:deps": {
-      "dependsOn": [
-        "^build:deps"
-      ],
-      "outputs": [
-        "{projectRoot}/"
-      ]
+      "dependsOn": ["^build:deps"],
+      "outputs": ["{projectRoot}/koa*.js"]
     },
     "update:deps": {
-      "dependsOn": [
-        "^update:deps"
-      ]
+      "dependsOn": ["^update:deps"]
     },
     "clean": {
-      "dependsOn": [
-        "^clean"
-      ]
+      "dependsOn": ["^clean"]
     },
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "{projectRoot}/packages"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/packages/**/build"]
+    },
+    "doc:deps": {
+      "outputs": ["README.md"]
     }
   }
 }
