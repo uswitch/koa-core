@@ -1,13 +1,9 @@
 {
-  "packages": [
-    "packages/*",
-    "./"
-  ],
+  "packages": ["packages/*", "./"],
   "version": "independent",
-  "publish": {
-    "ignore": [
-      "*.md",
-      "\\.test\\."
-    ]
+  "command": {
+    "publish": {
+      "ignoreChanges": ["*.md", "\\.test\\."]
+    }
   }
 }
