@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 import message from './message'
-import util from 'node:util'
+import util from 'util'
 
 describe(`koa-signal | message component`, () => {
   it(`should return the right format`, () => {
