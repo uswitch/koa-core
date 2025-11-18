@@ -26,6 +26,12 @@ export default [
     rules: {
       // ESLint recommended rules are already included via js.configs.recommended
 
+      // Allow underscore-prefixed unused variables (common convention)
+      'no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_'
+      }],
+
       // Import plugin rules (standard-like)
       'import/no-unresolved': 'error',
       'import/named': 'error',
