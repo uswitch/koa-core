@@ -1,4 +1,3 @@
-/* global describe, beforeEach, it, expect */
 import id from './id'
 
 describe(`koa-signal | id component`, () => {

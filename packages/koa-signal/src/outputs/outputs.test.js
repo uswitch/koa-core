@@ -1,4 +1,3 @@
-/* global describe, it, expect, jest */
 import Signal from '../koa-signal'
 
 describe(`koa-signal | outputs`, () => {

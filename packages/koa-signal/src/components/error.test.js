@@ -1,4 +1,3 @@
-/* global describe, beforeEach, it, expect */
 import error from './error'
 
 describe(`koa-signal | error component`, () => {

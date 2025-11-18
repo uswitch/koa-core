@@ -1,14 +1,6 @@
-/* global describe, it, expect, jest */
 import Signal from './koa-signal'
 
 const signal = Signal()
-const capture = (f) => () => {
-  const mock = jest.fn()
-  const _ = console.log
-  console.log = mock
-  f(mock)
-  console.log = _
-}
 
 describe(`koa-signal`, () => {
   it(`should return the default functions format`, () => {

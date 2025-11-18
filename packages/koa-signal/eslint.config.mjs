@@ -52,6 +52,10 @@ export default [
     },
     rules: {
       // ESLint recommended rules are already included via js.configs.recommended
+      'no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_'
+      }],
 
       // Import plugin rules (standard-like)
       'import/no-unresolved': 'error',

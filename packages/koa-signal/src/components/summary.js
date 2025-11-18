@@ -4,7 +4,7 @@ import format from '../helper/format'
 import flatten from '../helper/flatten'
 import join from '../helper/safe-join'
 
-export default (config = {}) => (ctx = {}, extras = {}) => {
+export default (_config = {}) => (ctx = {}, extras = {}) => {
   const { trace = {}, res = {}, errors } = extras
   const { responseTime } = res
 
