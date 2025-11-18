@@ -1,5 +1,0 @@
-{
-  "extends": [ "standard", "plugin:jest/recommended" ],
-  "plugins": [ "jest" ],
-  "env": { "browser": true, "commonjs": true, "node": true, "es6": true, "jest/globals": true }
-}
