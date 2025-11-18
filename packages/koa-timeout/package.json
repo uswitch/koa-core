@@ -7,7 +7,8 @@
     "------- BUILD": "-----------------------------------------------------",
     "prepublishOnly": "npm run build",
     "prebuild": "del build",
-    "build": "babel --out-dir build koa-timeout.js --minified"
+    "build": "babel --out-dir build koa-timeout.js --minified",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "repository": {
     "type": "git",
