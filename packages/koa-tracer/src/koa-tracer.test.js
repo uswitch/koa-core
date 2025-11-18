@@ -1,4 +1,3 @@
-/* global describe, it, beforeEach, expect */
 import tracer, { trace, traceError, eventTrace, eventError } from './koa-tracer'
 import EventEmitter from 'events'
 
@@ -97,7 +96,7 @@ describe(`koa-tracer.js`, () => {
       const t = tracer()
       const ctx = { state: {}, app: new EventEmitter() }
 
-      ctx.app.on(eventTrace, ({ ctx, key, trace }) => {
+      ctx.app.on(eventTrace, ({ ctx, trace }) => {
         if (trace.msg === 'Goodbye') {
           expect(ctx.state.trace.foo.traces).toHaveLength(2)
           done()
