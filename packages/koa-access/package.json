@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/runtime": "^7.22.15",
     "@babel/traverse": "^7.23.2",
-    "babel-jest": "^24.8.0",
+    "babel-jest": "^27.0.0",
     "del-cli": "^5.1.0",
     "eslint": "^8.49.0",
     "eslint-config-standard": "^10.2.1",
