@@ -5,7 +5,7 @@ import Logger from '@uswitch/koa-signal'
 const logger = new Logger()
 
 const devLogger = {
-  logSpan: (span, ...arg) => {
+  logSpan: (span) => {
     const { duration, tags, remoteEndpoint = {}, name = '', parentId, id, kind } = span
     const { 'http.status_code': status, 'http.cache': cache = '' } = tags
     const url = kind === 'SERVER' ? tags['http.url'] : tags['http.path']
