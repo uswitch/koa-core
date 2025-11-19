@@ -9,6 +9,6 @@ export const getTimeDiff = (ctx, key) => key !== DEFAULT_KEY
   ? new Date() - getFirstTrace(ctx, key).time
   : undefined
 
-export const getInitDiff = (ctx, key) => ctx.state.traceStart
+export const getInitDiff = (ctx) => ctx.state.traceStart
   ? (new Date() - ctx.state.traceStart)
   : undefined

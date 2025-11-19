@@ -1,4 +1,3 @@
-/* global describe, beforeEach, it, expect */
 import access, { eventAccess } from './koa-access'
 import EventEmitter from 'events'
 

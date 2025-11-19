@@ -1,5 +1,5 @@
 {
-  "id": "koa-prometheus",
+  "$id": "koa-prometheus",
   "description": "A description of what a `koa-prometheus` config should look like",
   "type": "array",
   "items": {

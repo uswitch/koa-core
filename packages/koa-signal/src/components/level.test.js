@@ -1,4 +1,3 @@
-/* global describe, beforeEach, it, expect */
 import level from './level'
 
 describe(`koa-signal | level component`, () => {

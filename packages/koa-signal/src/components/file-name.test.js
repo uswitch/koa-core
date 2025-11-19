@@ -1,4 +1,3 @@
-/* global describe, beforeEach, it, expect */
 import fileName from './file-name'
 
 describe(`koa-signal | file-name component`, () => {

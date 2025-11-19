@@ -1,14 +1,14 @@
 import koaZipkin from '@uswitch/koa-zipkin'
 
 import axios from 'axios'
-import cache from 'axios-cache-adapter'
+import { setupCache } from 'axios-cache-interceptor'
 
 const { middleware, fetch, Logger, Tracer } = koaZipkin
 const { USE_CACHE = true, ZIPKIN_HOST, APP_NAME = 'example-uf-service' } = process.env
 
-const { adapter } = cache.setupCache({ maxAge: USE_CACHE ? 10 * 1000 : 0 })
-const fetchClient = axios.create({ adapter })
-
+const fetchClient = setupCache(axios.create(), {
+  ttl: USE_CACHE ? 10 * 1000 : 0
+})
 /* Mark the intent of using a cache */
 fetchClient.interceptors.response.use(
   (res) => {

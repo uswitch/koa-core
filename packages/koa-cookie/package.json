@@ -1,11 +1,11 @@
 {
   "name": "@uswitch/koa-cookie",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "🍪 Koa cookie parser middleware",
   "main": "index.js",
   "scripts": {
     "build": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "publishConfig": {
     "access": "public"

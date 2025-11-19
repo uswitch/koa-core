@@ -12,7 +12,7 @@ export default (extraKeys = []) => function access(ctx, next) {
     const { method, path, ip: host } = ctx.request
 
     const [ bucket, ...rest ] = `${status}` || ''
-    const statusBucket = bucket + rest.map(i => 'X').join('')
+    const statusBucket = bucket + rest.map(_i => 'X').join('')
 
     /* Cast all integers to integers */
     const res = { responseTime: +responseTime, responseTimeSeconds: +responseTime / 1000, length: +length, status: +status, statusBucket, time: new Date() }
