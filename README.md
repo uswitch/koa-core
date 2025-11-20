@@ -89,7 +89,7 @@ You can see which version of node `koa-core` supports by looking in [.nvmrc](./.
 
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages-internal:start] -->
-<!-- Generated Thu Nov 20 2025 14:36:33 GMT+0000 (Greenwich Mean Time) -->
+<!-- Generated Thu Nov 20 2025 14:37:08 GMT+0000 (Greenwich Mean Time) -->
 | Package | Version | Dependencies | Description |
 |--|--|--|--|
 | [`@uswitch/koa-access`](https://www.npmjs.com/package/@uswitch/koa-access) | [![npm](https://img.shields.io/npm/v/@uswitch/koa-access.svg?maxAge=2592000)](https://www.npmjs.com/package/@uswitch/koa-access) | [![Dependency Status](https://david-dm.org/@uswitch/koa-access.svg?path=packages/@uswitch/koa-access)](https://david-dm.org/@uswitch/koa-access?path=packages/@uswitch/koa-access) | 👌 A Koa middleware for logging JSON access logs consistently, similar to morgan |
@@ -106,7 +106,7 @@ You can see which version of node `koa-core` supports by looking in [.nvmrc](./.
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Thu Nov 20 2025 14:36:17 GMT+0000 (Greenwich Mean Time) -->
+<!-- Generated Thu Nov 20 2025 14:37:07 GMT+0000 (Greenwich Mean Time) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.15.4` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
