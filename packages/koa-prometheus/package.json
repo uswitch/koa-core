@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-prometheus",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "🌡️ A configurable Prometheus data collector with Koa middleware",
   "main": "build/koa-prometheus.js",
   "scripts": {
@@ -51,5 +51,5 @@
   "overrides": {
     "fast-json-patch": "^3.1.1"
   },
-  "gitHead": "9c71aba948deb9f1f43a03b85f86cee818417afe"
+  "gitHead": "a56e66478b59fb05a6bd867993ba540b4b1c1699"
 }

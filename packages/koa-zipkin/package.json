@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-zipkin",
-  "version": "1.12.5",
+  "version": "1.12.7",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add Zipkin tracing to requests",
@@ -51,5 +51,5 @@
     "zipkin-instrumentation-koa": "^0.22.0",
     "zipkin-transport-http": "^0.22.0"
   },
-  "gitHead": "9c71aba948deb9f1f43a03b85f86cee818417afe"
+  "gitHead": "a56e66478b59fb05a6bd867993ba540b4b1c1699"
 }
