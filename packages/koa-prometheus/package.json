@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-prometheus",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "🌡️ A configurable Prometheus data collector with Koa middleware",
   "main": "build/koa-prometheus.js",
   "scripts": {
