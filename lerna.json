@@ -1,9 +1,16 @@
 {
-  "packages": ["packages/*", "./"],
+  "packages": [
+    "packages/*",
+    "./"
+  ],
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md", "\\.test\\."]
+      "ignoreChanges": [
+        "*.md",
+        "\\.test\\."
+      ]
     }
-  }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }

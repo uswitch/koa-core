@@ -1,42 +1,53 @@
 {
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "test",
-          "build:deps",
-          "update:deps",
-          "build",
-          "doc:deps"
-        ]
-      }
-    }
-  },
   "targetDefaults": {
     "build:deps": {
-      "dependsOn": ["^update:deps"],
-      "outputs": ["{projectRoot}/koa*.js"]
+      "dependsOn": [
+        "^update:deps"
+      ],
+      "outputs": [
+        "{projectRoot}/koa*.js"
+      ],
+      "cache": true
     },
     "update:deps": {
       "dependsOn": [],
-      "outputs": []
+      "outputs": [],
+      "cache": true
     },
     "doc:deps": {
-      "dependsOn": ["^update:deps", "^build:deps"],
-      "outputs": ["README.md"]
+      "dependsOn": [
+        "^update:deps",
+        "^build:deps"
+      ],
+      "outputs": [
+        "{workspaceRoot}/README.md"
+      ],
+      "cache": true
     },
     "doc-internal-packages": {
-      "dependsOn": ["^update:deps", "^build:deps"],
-      "outputs": ["README.md"]
+      "dependsOn": [
+        "^update:deps",
+        "^build:deps"
+      ],
+      "outputs": [
+        "{workspaceRoot}/README.md"
+      ]
     },
     "build": {
-      "dependsOn": ["^build:deps"],
-      "outputs": ["{projectRoot}/packages/**/build"]
+      "dependsOn": [
+        "^build:deps"
+      ],
+      "outputs": [
+        "{projectRoot}/packages/**/build"
+      ],
+      "cache": true
     },
     "clean": {
       "dependsOn": [],
       "outputs": []
+    },
+    "test": {
+      "cache": true
     }
   }
 }
