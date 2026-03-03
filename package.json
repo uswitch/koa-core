@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-core",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "🎾 An example project showing the user of all core `@uswitch/koa` libraries",
   "main": "koa-core.js",
   "scripts": {
@@ -77,7 +77,8 @@
     "fast-json-patch": "^3.1.1",
     "glob": "^10.5.0",
     "urijs": "^1.19.7",
-    "qs": "^6.14.1"
+    "qs": "^6.14.1",
+    "minimatch": "^10.2.4"
   },
   "volta": {
     "node": "24.0.0"
