@@ -64,7 +64,7 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/traverse": "^7.23.2",
     "ajv-cli": "^5.0.0",
-    "axios": "^1.7.0",
+    "axios": "^1.13.5",
     "axios-cache-interceptor": "^1.6.0",
     "del": "^3.0.0",
     "del-cli": "6.0.0",
