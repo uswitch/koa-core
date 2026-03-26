@@ -106,7 +106,7 @@ You can see which version of node `koa-core` supports by looking in [.nvmrc](./.
 #### `koa` packages
 <!-- DO NOT REMOVE - This is generated documentation  -->
 <!-- [doc-list-packages:start] -->
-<!-- Generated Mon Mar 02 2026 14:52:31 GMT+0000 (Greenwich Mean Time) -->
+<!-- Generated Thu Mar 26 2026 12:07:04 GMT+0000 (Greenwich Mean Time) -->
 | Package | Version | Latest |
 |--|--|--|
 | [`koa`](https://www.npmjs.com/package/koa) | `^2.15.4` | [![npm](https://img.shields.io/npm/v/koa.svg?maxAge=2592000)](https://www.npmjs.com/package/koa) |
