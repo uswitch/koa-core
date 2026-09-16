@@ -1,6 +1,6 @@
 {
   "name": "@uswitch/koa-tracer",
-  "version": "1.8.12",
+  "version": "1.8.13",
   "license": "MIT",
   "author": "Dom Charlesworth <dominic.charlesworth@uswitch.com>",
   "description": "🕵️‍♀️ A koa.js middleware to add namespaced tracing throughout a requests lifecycle",
@@ -24,6 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/uswitch/koa-core.git",
     "directory": "packages/koa-tracer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.15"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.2",
