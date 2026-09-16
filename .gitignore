@@ -62,6 +62,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# local npm registry auth token, never commit
+.npmrc
+
 # next.js build output
 .next
 
